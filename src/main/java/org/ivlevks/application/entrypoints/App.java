@@ -1,4 +1,4 @@
-package org.ivlevks;
+package org.ivlevks.application.entrypoints;
 
 /**
  * Hello world!
