@@ -1,6 +1,7 @@
 package org.ivlevks.application.entrypoints.in;
 
 import org.ivlevks.application.core.entity.Indication;
+import org.ivlevks.application.core.entity.User;
 import org.ivlevks.application.core.usecase.Logic;
 import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
 import org.ivlevks.application.dataproviders.resources.InMemoryData;
@@ -124,10 +125,29 @@ public class ConsoleHandler {
                     System.out.println();
                 }
             }
-//
-//            if (input.equalsIgnoreCase("История")) {
-//                infrastructure.showHistory();
-//            }
+
+            //для Админа
+            if (input.equalsIgnoreCase("Показать историю показаний пользователя:")) {
+                System.out.println("Введите email пользователя:");
+                String email = scanner.nextLine();
+                Optional<User> user = logic.findUserByEmail(email);
+                if (user.isEmpty()) {
+                    System.out.println("Такого пользователя не существует");
+                } else {
+                    if (logic.getAllIndicationsUser(user.get()).isEmpty()) {
+                        System.out.println("История показаний отсутствует");
+                    } else {
+                        for (Indication indication : logic.getAllIndicationsUser(user.get())) {
+                            System.out.println("Показания на " + indication.getDateTime() + " ");
+                            for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
+                                System.out.println(entry.getKey() + "   " + entry.getValue());
+                            }
+                            System.out.println();
+                        }
+                    }
+                }
+            }
+
 //
 //            if (input.equalsIgnoreCase("Помощь")) {
 //                System.out.println("Список доступных команд:");

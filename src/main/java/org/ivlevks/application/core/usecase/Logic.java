@@ -41,7 +41,11 @@ public class Logic {
         boolean resultAuth = user.map(value -> value.getPassword().equals(password)).orElse(false);
         if (resultAuth) {
             currentUser = user.get();
-            ConsoleHandler.typeInConsole("Авторизация прошла успешно");
+            if (currentUser.isUserAdmin()) {
+                ConsoleHandler.typeInConsole("Авторизация администратора прошла успешно");
+            } else {
+                ConsoleHandler.typeInConsole("Авторизация пользователя прошла успешно");
+            }
         } else {
             ConsoleHandler.typeInConsole("Ошибка авторизации, пользователь не найден, либо " +
                     "пароль не верный");
@@ -54,6 +58,10 @@ public class Logic {
 
     public List<Indication> getAllIndicationsUser () {
         return getUpdateIndications.getAllIndications(currentUser);
+    }
+
+    public List<Indication> getAllIndicationsUser (User user) {
+        return getUpdateIndications.getAllIndications(user);
     }
 
     public void updateIndication(HashMap<String, Double> indications) {
@@ -94,6 +102,10 @@ public class Logic {
         return true;
     }
 
+    public Optional<User> findUserByEmail(String email) {
+        return getUpdateUsers.getUser(email);
+    }
+
     private boolean isUserAuthorize() {
         return currentUser != null;
     }
@@ -104,5 +116,9 @@ public class Logic {
 
     public void setSetNameIndications(Set<String> setNameIndications) {
         this.setNameIndications = setNameIndications;
+    }
+
+    public boolean isCurrentUserAdmin() {
+        return currentUser.isUserAdmin();
     }
 }
