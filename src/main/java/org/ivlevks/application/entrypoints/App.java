@@ -1,6 +1,6 @@
 package org.ivlevks.application.entrypoints;
 
-import org.ivlevks.application.entrypoints.in.ConsoleHandlerIn;
+import org.ivlevks.application.entrypoints.in.ConsoleHandler;
 
 /**
  * Hello world!
@@ -9,8 +9,8 @@ import org.ivlevks.application.entrypoints.in.ConsoleHandlerIn;
 public class App {
 
     public static void main(String[] args) {
-        ConsoleHandlerIn consoleHandlerIn = new ConsoleHandlerIn();
-        consoleHandlerIn.initialize();
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.initialize();
     }
 
 }

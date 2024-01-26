@@ -6,6 +6,8 @@ import org.ivlevks.application.core.usecase.GetUpdateUsers;
 import org.ivlevks.application.core.usecase.Registry;
 import org.ivlevks.application.core.usecase.GetUpdateIndications;
 import org.ivlevks.application.dataproviders.resources.InMemoryData;
+
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +29,7 @@ public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdate
     public void registry(String name, String email, String password, Boolean isAdmin) {
         User user = new User(name, email, password, isAdmin);
         data.getUsers().add(user);
+        data.getStorageIndicationAllUsers().put(user, new LinkedList<>());
     }
 
     /**
@@ -63,6 +66,8 @@ public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdate
      */
     @Override
     public Optional<Indication> getLastActualIndication(User user) {
+        List<Indication> indicationList = data.getStorageIndicationAllUsers().get(user);
+        if (indicationList.isEmpty()) return Optional.empty();
         return Optional.ofNullable(data.getStorageIndicationAllUsers().get(user).getLast());
     }
 
