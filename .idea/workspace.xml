@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandlerIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/out/ConsoleHandlerOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -28,6 +28,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2bSL6DgwjQwdARUF4T4DZ1h8B6k" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -38,22 +42,29 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "hw1",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn wrapper:wrapper" />
+    </option>
+  </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.entrypoints.App" />
@@ -85,11 +96,23 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/MonitoringService-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="MonitoringService" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="MonitoringService" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
         <item itemvalue="JAR Application.MonitoringService-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Application.org.ivlevks.App" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +124,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706203357010</updated>
-      <workItem from="1706203358062" duration="2491000" />
+      <workItem from="1706203358062" duration="6150000" />
+      <workItem from="1706249001326" duration="239000" />
+      <workItem from="1706249247693" duration="3358000" />
     </task>
     <servers />
   </component>
