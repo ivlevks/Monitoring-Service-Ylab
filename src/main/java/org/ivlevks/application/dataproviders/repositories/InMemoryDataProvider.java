@@ -2,14 +2,14 @@ package org.ivlevks.application.dataproviders.repositories;
 
 import org.ivlevks.application.core.entity.Indication;
 import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.core.usecase.GetUsersAndIndications;
+import org.ivlevks.application.core.usecase.GetUpdateUsers;
 import org.ivlevks.application.core.usecase.Registry;
+import org.ivlevks.application.core.usecase.GetUpdateIndications;
 import org.ivlevks.application.dataproviders.resources.InMemoryData;
-
 import java.util.List;
 import java.util.Optional;
 
-public class InMemoryDataProvider implements Registry, GetUsersAndIndications {
+public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdateIndications {
 
     private final InMemoryData data;
 
@@ -46,6 +46,15 @@ public class InMemoryDataProvider implements Registry, GetUsersAndIndications {
     @Override
     public List<User> getAllUsers() {
         return data.getUsers();
+    }
+
+    /**
+     * @param user
+     * @param indication
+     */
+    @Override
+    public void updateIndication(User user, Indication indication) {
+        data.getStorageIndicationAllUsers().get(user).add(indication);
     }
 
     /**

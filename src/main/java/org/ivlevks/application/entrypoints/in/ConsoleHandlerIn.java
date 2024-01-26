@@ -57,25 +57,20 @@ public class ConsoleHandlerIn {
                 logic.auth(email, password);
             }
 
-//            if (input.equalsIgnoreCase("Баланс")) {
-//                infrastructure.showBalance();
-//            }
-//
-//            if (input.equalsIgnoreCase("Снятие")) {
-//                System.out.print("Введите идентификатор транзакции : ");
-//                String transactionID = scanner.nextLine();
-//                System.out.print("Введите сумму снятия: ");
-//                String value = scanner.nextLine();
-//                infrastructure.debitOperation(value, transactionID);
-//            }
-//
-//            if (input.equalsIgnoreCase("Пополнение")) {
-//                System.out.print("Введите идентификатор транзакции : ");
-//                String transactionID = scanner.nextLine();
-//                System.out.print("Введите сумму пополнения: ");
-//                String value = scanner.nextLine();
-//                infrastructure.creditOperation(value, transactionID);
-//            }
+            if (input.equalsIgnoreCase("Ввод показаний за текущий месяц:")) {
+                System.out.print("Введите показания отопления: ");
+                Double heat = Double.valueOf(scanner.nextLine());
+                System.out.print("Введите показания горячей воды: ");
+                Double hotWater = Double.valueOf(scanner.nextLine());
+                System.out.print("Введите показания холодной воды: ");
+                Double coldWater = Double.valueOf(scanner.nextLine());
+                logic.updateIndication(heat, hotWater, coldWater);
+            }
+
+
+
+
+
 //
 //            if (input.equalsIgnoreCase("Смена пользователя")) {
 //                infrastructure.logout();

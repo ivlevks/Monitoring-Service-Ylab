@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandlerIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/out/ConsoleHandlerOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUsersAndIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandlerIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandlerIn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -126,7 +127,7 @@
       <updated>1706203357010</updated>
       <workItem from="1706203358062" duration="6150000" />
       <workItem from="1706249001326" duration="239000" />
-      <workItem from="1706249247693" duration="3358000" />
+      <workItem from="1706249247693" duration="7523000" />
     </task>
     <servers />
   </component>

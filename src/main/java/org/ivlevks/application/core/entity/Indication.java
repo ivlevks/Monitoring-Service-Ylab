@@ -16,4 +16,35 @@ public class Indication {
         this.coldWater = coldWater;
     }
 
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public Double getHeat() {
+        return heat;
+    }
+
+    public void setHeat(Double heat) {
+        this.heat = heat;
+    }
+
+    public Double getHotWater() {
+        return hotWater;
+    }
+
+    public void setHotWater(Double hotWater) {
+        this.hotWater = hotWater;
+    }
+
+    public Double getColdWater() {
+        return coldWater;
+    }
+
+    public void setColdWater(Double coldWater) {
+        this.coldWater = coldWater;
+    }
 }

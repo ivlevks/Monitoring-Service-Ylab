@@ -6,14 +6,12 @@ import org.ivlevks.application.core.entity.User;
 import java.util.List;
 import java.util.Optional;
 
-public interface GetUsersAndIndications {
+public interface GetUpdateIndications {
 
-    Optional<User> getUser(String email);
-
-    List<User> getAllUsers();
+    void updateIndication(User user, Indication indication);
 
     Optional<Indication> getLastActualIndication(User user);
 
     List<Indication> getAllIndications(User user);
-
+    
 }
