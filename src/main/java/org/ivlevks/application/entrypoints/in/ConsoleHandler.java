@@ -29,6 +29,8 @@ public class ConsoleHandlerIn {
         System.out.println("Введите 'Помощь' для получения списка доступных команд.");
         System.out.println("Введите 'Выход' для выхода из сервиса.");
 
+        logic.registry("Костик", "ивл", "123", false);
+
         startConsoleHandlerIn();
     }
 
@@ -42,10 +44,10 @@ public class ConsoleHandlerIn {
             if (input.equalsIgnoreCase("Регистрация")) {
                 System.out.print("Введите имя пользователя: ");
                 String name = scanner.nextLine();
-                System.out.print("Введите пароль: ");
-                String password = scanner.nextLine();
                 System.out.print("Введите email: ");
                 String email = scanner.nextLine();
+                System.out.print("Введите пароль: ");
+                String password = scanner.nextLine();
                 logic.registry(name, email, password, false);
             }
 
@@ -57,7 +59,7 @@ public class ConsoleHandlerIn {
                 logic.auth(email, password);
             }
 
-            if (input.equalsIgnoreCase("Ввод показаний за текущий месяц:")) {
+            if (input.equalsIgnoreCase("Ввод показаний")) {
                 System.out.print("Введите показания отопления: ");
                 Double heat = Double.valueOf(scanner.nextLine());
                 System.out.print("Введите показания горячей воды: ");
