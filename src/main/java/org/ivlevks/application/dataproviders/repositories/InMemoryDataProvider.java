@@ -6,7 +6,6 @@ import org.ivlevks.application.core.usecase.GetUpdateUsers;
 import org.ivlevks.application.core.usecase.Registry;
 import org.ivlevks.application.core.usecase.GetUpdateIndications;
 import org.ivlevks.application.dataproviders.resources.InMemoryData;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;

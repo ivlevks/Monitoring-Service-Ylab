@@ -12,5 +12,4 @@ public class App {
         ConsoleHandler consoleHandler = new ConsoleHandler();
         consoleHandler.initialize();
     }
-
 }

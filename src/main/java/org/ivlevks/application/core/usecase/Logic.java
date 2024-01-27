@@ -13,16 +13,16 @@ public class Logic {
     private final GetUpdateUsers getUpdateUsers;
     private final GetUpdateIndications getUpdateIndications;
     private User currentUser;
-    private Set<String> setNameIndications;
+    private Set<String> nameIndications;
 
     public Logic(InMemoryDataProvider dataProvider) {
         this.registry = dataProvider;
         this.getUpdateUsers = dataProvider;
         this.getUpdateIndications = dataProvider;
-        this.setNameIndications = new HashSet<>();
-        setNameIndications.add("Heat");
-        setNameIndications.add("Cold Water");
-        setNameIndications.add("Hot Water");
+        this.nameIndications = new HashSet<>();
+        nameIndications.add("Heat");
+        nameIndications.add("Cold Water");
+        nameIndications.add("Hot Water");
     }
 
     public void registry(String name, String email, String password, Boolean isAdmin) {
@@ -110,15 +110,28 @@ public class Logic {
         return currentUser != null;
     }
 
-    public Set<String> getSetNameIndications() {
-        return setNameIndications;
+    public Set<String> getNameIndications() {
+        return nameIndications;
     }
 
-    public void setSetNameIndications(Set<String> setNameIndications) {
-        this.setNameIndications = setNameIndications;
+    public void setNameIndications(Set<String> nameIndications) {
+        this.nameIndications = nameIndications;
     }
 
     public boolean isCurrentUserAdmin() {
         return currentUser.isUserAdmin();
+    }
+
+    public void addNewNameIndication(String newNameIndication) {
+        getNameIndications().add(newNameIndication);
+    }
+
+    public void setAccessUser(User user, boolean isUserAdmin) {
+        user.setUserAdmin(isUserAdmin);
+    }
+
+    public void exit() {
+        System.out.println("Пользователь " + currentUser.getName() + " вышел из системы.");
+        currentUser = null;
     }
 }

@@ -5,7 +5,6 @@ import org.ivlevks.application.core.entity.User;
 import org.ivlevks.application.core.usecase.Logic;
 import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
 import org.ivlevks.application.dataproviders.resources.InMemoryData;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -41,6 +40,14 @@ public class ConsoleHandler {
         indications.put("Hot Water", 100d);
         logic.auth("ивл", "123");
         logic.updateIndication(indications);
+        logic.exit();
+
+        logic.registry("Админ", "адм", "12345", true);
+        logic.auth("адм", "12345");
+        logic.addNewNameIndication("Новое показание");
+//        logic.exit();
+//
+//        logic.auth("ивл", "123");
 
         startConsoleHandlerIn();
     }
@@ -72,7 +79,7 @@ public class ConsoleHandler {
 
             if (input.equalsIgnoreCase("Ввод показаний")) {
                 HashMap<String, Double> indications = new HashMap<>();
-                for (String nameIndication : logic.getSetNameIndications()) {
+                for (String nameIndication : logic.getNameIndications()) {
                     System.out.print("Введите показания " + nameIndication + " ");
                     Double value = Double.valueOf(scanner.nextLine());
                     indications.put(nameIndication, value);
@@ -127,20 +134,56 @@ public class ConsoleHandler {
             }
 
             //для Админа
-            if (input.equalsIgnoreCase("Показать историю показаний пользователя:")) {
-                System.out.println("Введите email пользователя:");
-                String email = scanner.nextLine();
-                Optional<User> user = logic.findUserByEmail(email);
-                if (user.isEmpty()) {
-                    System.out.println("Такого пользователя не существует");
+            if (input.equalsIgnoreCase("Показать историю показаний пользователя")) {
+                if (!logic.isCurrentUserAdmin()) {
+                    System.out.println("Ошибка, Вы не являетесь администратором!");
                 } else {
-                    if (logic.getAllIndicationsUser(user.get()).isEmpty()) {
-                        System.out.println("История показаний отсутствует");
+                    System.out.println("Введите email пользователя:");
+                    String email = scanner.nextLine();
+                    Optional<User> user = logic.findUserByEmail(email);
+                    if (user.isEmpty()) {
+                        System.out.println("Такого пользователя не существует");
                     } else {
+                        if (logic.getAllIndicationsUser(user.get()).isEmpty()) {
+                            System.out.println("История показаний отсутствует");
+                        } else {
+                            for (Indication indication : logic.getAllIndicationsUser(user.get())) {
+                                System.out.println("Показания на " + indication.getDateTime() + " ");
+                                for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
+                                    System.out.println(entry.getKey() + "   " + entry.getValue());
+                                }
+                                System.out.println();
+                            }
+                        }
+                    }
+                }
+            }
+
+            //для Админа
+            if (input.equalsIgnoreCase("Показать историю показаний пользователя за месяц")) {
+                if (!logic.isCurrentUserAdmin()) {
+                    System.out.println("Ошибка, Вы не являетесь администратором!");
+                } else {
+                    System.out.println("Введите email пользователя:");
+                    String email = scanner.nextLine();
+                    Optional<User> user = logic.findUserByEmail(email);
+                    if (user.isEmpty()) {
+                        System.out.println("Такого пользователя не существует");
+                    } else {
+                        System.out.println("Введите год за который хотите просмотреть показания в формате YYYY");
+                        int year = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите номер месяца за который хотите просмотреть показания:");
+                        int month = Integer.parseInt(scanner.nextLine());
+
+                        System.out.println("Показания на " + month + " месяц " + year + " года:");
                         for (Indication indication : logic.getAllIndicationsUser(user.get())) {
-                            System.out.println("Показания на " + indication.getDateTime() + " ");
-                            for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
-                                System.out.println(entry.getKey() + "   " + entry.getValue());
+                            if (indication.getDateTime().getYear() == year &&
+                                    indication.getDateTime().getMonthValue() == month) {
+                                for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
+                                    System.out.println(entry.getKey() + "   " + entry.getValue());
+                                }
+                            } else {
+                                System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
                             }
                             System.out.println();
                         }
@@ -148,20 +191,60 @@ public class ConsoleHandler {
                 }
             }
 
-//
-//            if (input.equalsIgnoreCase("Помощь")) {
-//                System.out.println("Список доступных команд:");
-//                System.out.println("Регистрация");
-//                System.out.println("Авторизация");
-//                System.out.println("Баланс");
-//                System.out.println("История");
-//                System.out.println("Снятие");
-//                System.out.println("Пополнение");
-//                System.out.println("Смена пользователя");
-//                System.out.println("Выход");
-//            }
-        }
+            //для Админа
+            if (input.equalsIgnoreCase("Расширить перечень показаний")) {
+                if (!logic.isCurrentUserAdmin()) {
+                    System.out.println("Ошибка, Вы не являетесь администратором!");
+                } else {
+                    System.out.println("Введите наименование нового показания:");
+                    String newNameIndication = scanner.nextLine();
 
+                    logic.addNewNameIndication(newNameIndication);
+                    System.out.println("Новый вид показания " + newNameIndication + " добавлен!" );
+                }
+            }
+
+            //для Админа
+            if (input.equalsIgnoreCase("Изменить права пользователя")) {
+                if (!logic.isCurrentUserAdmin()) {
+                    System.out.println("Ошибка, Вы не являетесь администратором!");
+                } else {
+                    System.out.println("Введите email пользователя, у которого необходимо изменить права доступа:");
+                    String email = scanner.nextLine();
+                    Optional<User> user = logic.findUserByEmail(email);
+                    if (user.isEmpty()) {
+                        System.out.println("Такого пользователя не существует");
+                    } else {
+                        System.out.println("Необходимо добавить права администратора (введите Да), или убрать их" +
+                                "(введите Нет)");
+                        String access = scanner.nextLine();
+                        boolean result = false;
+                        if (access.equalsIgnoreCase("Да")) result = true;
+                        logic.setAccessUser(user.get(), result);
+                        System.out.println("Права пользователя " + user.get().getName() + " изменены.");
+                    }
+                }
+            }
+
+            if (input.equalsIgnoreCase("Выйти из системы")) {
+                logic.exit();
+            }
+
+            if (input.equalsIgnoreCase("Помощь")) {
+                System.out.println("Список доступных команд:");
+                System.out.println("Регистрация");
+                System.out.println("Авторизация");
+                System.out.println("Ввод показаний");
+                System.out.println("Получить актуальные показания");
+                System.out.println("Показать историю показаний");
+                System.out.println("Показать показания за месяц");
+                System.out.println("Показать историю показаний пользователя - только для Администратора");
+                System.out.println("Показать историю показаний пользователя за месяц - только для Администратора");
+                System.out.println("Расширить перечень показаний - только для Администратора");
+                System.out.println("Изменить права пользователя - только для Администратора");
+                System.out.println("Выход");
+            }
+        }
     }
 
     public static void typeInConsole(String text) {
