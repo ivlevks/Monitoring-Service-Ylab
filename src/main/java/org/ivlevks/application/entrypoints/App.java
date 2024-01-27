@@ -1,5 +1,6 @@
 package org.ivlevks.application.entrypoints;
 
+import org.ivlevks.application.configuration.Audit;
 import org.ivlevks.application.entrypoints.in.ConsoleHandler;
 
 /**
@@ -9,6 +10,7 @@ import org.ivlevks.application.entrypoints.in.ConsoleHandler;
 public class App {
 
     public static void main(String[] args) {
+        Audit.addInfoInAudit("Start application");
         ConsoleHandler consoleHandler = new ConsoleHandler();
         consoleHandler.initialize();
     }

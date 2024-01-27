@@ -1,5 +1,6 @@
 package org.ivlevks.application.entrypoints.in;
 
+import org.ivlevks.application.configuration.Audit;
 import org.ivlevks.application.core.entity.Indication;
 import org.ivlevks.application.core.entity.User;
 import org.ivlevks.application.core.usecase.Logic;
@@ -32,6 +33,7 @@ public class ConsoleHandler {
                 "используйте команду 'Регистрация'.");
         System.out.println("Введите 'Помощь' для получения списка доступных команд.");
         System.out.println("Введите 'Выход' для выхода из сервиса.");
+        Audit.addInfoInAudit("Show welcome message");
 
         logic.registry("Костик", "ивл", "123", false);
         HashMap<String, Double> indications = new HashMap<>();

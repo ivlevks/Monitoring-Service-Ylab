@@ -1,5 +1,6 @@
 package org.ivlevks.application.core.usecase;
 
+import org.ivlevks.application.configuration.Audit;
 import org.ivlevks.application.core.entity.Indication;
 import org.ivlevks.application.core.entity.User;
 import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
@@ -33,6 +34,8 @@ public class Logic {
         } else {
             registry.registry(name, email, password, isAdmin);
             ConsoleHandler.typeInConsole("Регистрация прошла успешно");
+            Audit.addInfoInAudit("User " + name + ", email " + email +
+                    ", password " + password + " registry in system");
         }
     }
 
@@ -43,12 +46,18 @@ public class Logic {
             currentUser = user.get();
             if (currentUser.isUserAdmin()) {
                 ConsoleHandler.typeInConsole("Авторизация администратора прошла успешно");
+                Audit.addInfoInAudit("Admin with email " + email +
+                        ", password " + password + " authorize in system");
             } else {
                 ConsoleHandler.typeInConsole("Авторизация пользователя прошла успешно");
+                Audit.addInfoInAudit("User with email " + email +
+                        ", password " + password + " authorize in system");
             }
         } else {
             ConsoleHandler.typeInConsole("Ошибка авторизации, пользователь не найден, либо " +
                     "пароль не верный");
+            Audit.addInfoInAudit("Failure authorization with email " + email +
+                    ", password " + password);
         }
     }
 
@@ -67,6 +76,7 @@ public class Logic {
     public void updateIndication(HashMap<String, Double> indications) {
         if (!isUserAuthorize()) {
             System.out.println("Ошибка, Вы не авторизованы!");
+            Audit.addInfoInAudit("Failure insert indication");
             return;
         }
 
@@ -74,8 +84,10 @@ public class Logic {
         if (isIndicationValid(indications, lastActualIndications)) {
             getUpdateIndications.updateIndication(currentUser, new Indication(indications));
             System.out.println("Показания введены");
+            Audit.addInfoInAudit("Success insert indication " + currentUser.getEmail());
         } else {
             System.out.println("Ошибка, введенные данные не коррректны");
+            Audit.addInfoInAudit("Incorrect insert indication");
         }
     }
 
@@ -83,11 +95,11 @@ public class Logic {
         if (lastActualIndication.isEmpty()) return true;
 
         Indication lastIndication = lastActualIndication.get();
-        // временно отключена проверка по дате
-//        if (hasCurrentMonthIndication(lastIndication)) {
-//            System.out.println("Ошибка, в данном месяце показания уже вводились");
-//            return false;
-//        }
+        if (hasCurrentMonthIndication(lastIndication)) {
+            System.out.println("Ошибка, в данном месяце показания уже вводились");
+            Audit.addInfoInAudit("Failure insert indication - this month already has indications");
+            return false;
+        }
 
         for (Map.Entry<String, Double> entry : lastIndication.getIndications().entrySet()) {
             if (entry.getValue() > indications.get(entry.getKey())) return false;
@@ -132,6 +144,7 @@ public class Logic {
 
     public void exit() {
         System.out.println("Пользователь " + currentUser.getName() + " вышел из системы.");
+        Audit.addInfoInAudit("User with email " + currentUser.getEmail() + " exit from system");
         currentUser = null;
     }
 }
