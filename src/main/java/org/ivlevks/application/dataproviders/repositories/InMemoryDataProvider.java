@@ -3,37 +3,42 @@ package org.ivlevks.application.dataproviders.repositories;
 import org.ivlevks.application.core.entity.Indication;
 import org.ivlevks.application.core.entity.User;
 import org.ivlevks.application.core.usecase.GetUpdateUsers;
-import org.ivlevks.application.core.usecase.Registry;
 import org.ivlevks.application.core.usecase.GetUpdateIndications;
 import org.ivlevks.application.dataproviders.resources.InMemoryData;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdateIndications {
+/**
+ * Класс с реализацией интерфейсов действий с пользователями и показаниями,
+ * определенными на уровне ядра приложения
+ */
+public class InMemoryDataProvider implements GetUpdateUsers, GetUpdateIndications {
 
     private final InMemoryData data;
 
+    /**
+     * Конструктор
+     * @param data хранилище данных
+     */
     public InMemoryDataProvider(InMemoryData data) {
         this.data = data;
     }
 
     /**
-     * @param name
-     * @param email
-     * @param password
-     * @param isAdmin
+     * Добавление пользователя
+     * @param user - добавляемый пользователь
      */
     @Override
-    public void registry(String name, String email, String password, Boolean isAdmin) {
-        User user = new User(name, email, password, isAdmin);
+    public void addUser(User user) {
         data.getUsers().add(user);
         data.getStorageIndicationAllUsers().put(user, new LinkedList<>());
     }
 
     /**
-     * @param email
-     * @return
+     * Получение пользователя
+     * @param email - email
+     * @return возвращает пользователя, обернутого в Optional<>
      */
     @Override
     public Optional<User> getUser(String email) {
@@ -43,7 +48,8 @@ public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdate
     }
 
     /**
-     * @return 
+     * Получение списка пользователей
+     * @return список пользователей
      */
     @Override
     public List<User> getAllUsers() {
@@ -51,17 +57,19 @@ public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdate
     }
 
     /**
-     * @param user
-     * @param indication
+     * Добавление показаний
+     * @param user - пользователь, которому добавляются показания
+     * @param indication - класс показаний
      */
     @Override
-    public void updateIndication(User user, Indication indication) {
+    public void addIndication(User user, Indication indication) {
         data.getStorageIndicationAllUsers().get(user).add(indication);
     }
 
     /**
-     * @param user
-     * @return
+     * Получение последних актуальных показаний
+     * @param user - пользователь, чьи показания выводятся
+     * @return - актуальные показания, обернутые в Optional<>
      */
     @Override
     public Optional<Indication> getLastActualIndication(User user) {
@@ -71,8 +79,9 @@ public class InMemoryDataProvider implements Registry, GetUpdateUsers, GetUpdate
     }
 
     /**
-     * @param user 
-     * @return
+     * Получение всех показаний пользователя
+     * @param user  пользователь, чьи показания выводятся
+     * @return - список всех показаний
      */
     @Override
     public List<Indication> getAllIndications(User user) {

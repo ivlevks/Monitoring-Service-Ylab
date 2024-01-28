@@ -1,5 +1,10 @@
 package org.ivlevks.application.core.entity;
 
+/**
+ * Класс пользователя
+ * поля имя, email, пароль, админ или нет
+ * геттеры и сеттеры
+ */
 public class User {
 
     private String name;

@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseIndications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Registry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/resources/InMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/resources/InMemoryData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/in/ConsoleHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +79,11 @@
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.entrypoints.App" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.presentation.App" />
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.entrypoints.*" />
+          <option name="PATTERN" value="org.ivlevks.application.presentation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,7 +126,8 @@
       <workItem from="1706203358062" duration="6150000" />
       <workItem from="1706249001326" duration="239000" />
       <workItem from="1706249247693" duration="20099000" />
-      <workItem from="1706353605762" duration="4858000" />
+      <workItem from="1706353605762" duration="5199000" />
+      <workItem from="1706446538190" duration="8691000" />
     </task>
     <servers />
   </component>

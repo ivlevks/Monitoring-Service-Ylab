@@ -1,25 +1,29 @@
-package org.ivlevks.application.entrypoints.in;
+package org.ivlevks.application.presentation.in;
 
 import org.ivlevks.application.configuration.Audit;
 import org.ivlevks.application.core.entity.Indication;
 import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.core.usecase.Logic;
-import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
-import org.ivlevks.application.dataproviders.resources.InMemoryData;
+import org.ivlevks.application.core.usecase.UseCaseIndications;
+import org.ivlevks.application.core.usecase.UseCaseUsers;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
 /**
- * Класс верхнего уровня
- * получает ввод с консоли, передает управление в Use Case.
+ * Уровень представления
+ * получает ввод с консоли, передает управление в логику прилоежния - в Use Case.
  */
 public class ConsoleHandler {
-    // сделать синглтон и засунуть в конструктор
-    private final Logic logic = new Logic(new InMemoryDataProvider(new InMemoryData()));
     private final Scanner scanner = new Scanner(System.in);
+    private final UseCaseUsers useCaseUsers;
+    private final UseCaseIndications useCaseIndications;
     private String input = "";
+
+    public ConsoleHandler(UseCaseUsers useCaseUsers, UseCaseIndications useCaseIndications) {
+        this.useCaseUsers = useCaseUsers;
+        this.useCaseIndications = useCaseIndications;
+    }
 
     /**
      * Приветственное сообщение, старт принятия команд из консоли
@@ -35,27 +39,17 @@ public class ConsoleHandler {
         System.out.println("Введите 'Выход' для выхода из сервиса.");
         Audit.addInfoInAudit("Show welcome message");
 
-        logic.registry("Костик", "ивл", "123", false);
-        HashMap<String, Double> indications = new HashMap<>();
-        indications.put("Heat", 100d);
-        indications.put("Cold Water", 100d);
-        indications.put("Hot Water", 100d);
-        logic.auth("ивл", "123");
-        logic.updateIndication(indications);
-        logic.exit();
-
-        logic.registry("Админ", "адм", "12345", true);
-        logic.auth("адм", "12345");
-        logic.addNewNameIndication("Новое показание");
-//        logic.exit();
-//
-//        logic.auth("ивл", "123");
+////        Создание админа
+//        useCaseUsers.registry("Админ", "адм", "12345", true);
+//        useCaseUsers.auth("адм", "12345");
+//        useCaseIndications.addNewNameIndication("ElectroEnergy");
+//        useCaseUsers.exit();
 
         startConsoleHandlerIn();
     }
 
     /**
-     * Принятие команд из консоли, передача данных на следующий уровень Core
+     * Принятие команд из консоли, передача данных на следующий уровень - Use Case
      */
     private void startConsoleHandlerIn() {
         while (!input.equalsIgnoreCase("Выход")) {
@@ -68,7 +62,7 @@ public class ConsoleHandler {
                 String email = scanner.nextLine();
                 System.out.print("Введите пароль: ");
                 String password = scanner.nextLine();
-                logic.registry(name, email, password, false);
+                useCaseUsers.registry(name, email, password, false);
             }
 
             if (input.equalsIgnoreCase("Авторизация")) {
@@ -76,21 +70,21 @@ public class ConsoleHandler {
                 String email = scanner.nextLine();
                 System.out.print("Введите пароль: ");
                 String password = scanner.nextLine();
-                logic.auth(email, password);
+                useCaseUsers.auth(email, password);
             }
 
             if (input.equalsIgnoreCase("Ввод показаний")) {
                 HashMap<String, Double> indications = new HashMap<>();
-                for (String nameIndication : logic.getNameIndications()) {
+                for (String nameIndication : useCaseIndications.getNamesIndications()) {
                     System.out.print("Введите показания " + nameIndication + " ");
                     Double value = Double.valueOf(scanner.nextLine());
                     indications.put(nameIndication, value);
                 }
-                logic.updateIndication(indications);
+                useCaseIndications.addIndication(indications);
             }
 
             if (input.equalsIgnoreCase("Получить актуальные показания")) {
-                Optional<Indication> lastActualIndication = logic.getLastActualIndicationUser();
+                Optional<Indication> lastActualIndication = useCaseIndications.getLastActualIndicationUser();
                 if (lastActualIndication.isPresent()) {
                     for (Map.Entry<String, Double> entry : lastActualIndication.get().getIndications().entrySet()) {
                         System.out.println(entry.getKey() + "   " + entry.getValue());
@@ -102,10 +96,10 @@ public class ConsoleHandler {
             }
 
             if (input.equalsIgnoreCase("Показать историю показаний")) {
-                if (logic.getAllIndicationsUser().isEmpty()) {
+                if (useCaseIndications.getAllIndicationsUser().isEmpty()) {
                     System.out.println("История показаний отсутствует");
                 } else {
-                    for (Indication indication : logic.getAllIndicationsUser()) {
+                    for (Indication indication : useCaseIndications.getAllIndicationsUser()) {
                         System.out.println("Показания на " + indication.getDateTime() + " ");
                         for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
                             System.out.println(entry.getKey() + "   " + entry.getValue());
@@ -122,7 +116,7 @@ public class ConsoleHandler {
                 int month = Integer.parseInt(scanner.nextLine());
 
                 System.out.println("Показания на " + month + " месяц " + year + " года:");
-                for (Indication indication : logic.getAllIndicationsUser()) {
+                for (Indication indication : useCaseIndications.getAllIndicationsUser()) {
                     if (indication.getDateTime().getYear() == year &&
                             indication.getDateTime().getMonthValue() == month) {
                         for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
@@ -137,19 +131,19 @@ public class ConsoleHandler {
 
             //для Админа
             if (input.equalsIgnoreCase("Показать историю показаний пользователя")) {
-                if (!logic.isCurrentUserAdmin()) {
+                if (!useCaseUsers.isCurrentUserAdmin()) {
                     System.out.println("Ошибка, Вы не являетесь администратором!");
                 } else {
                     System.out.println("Введите email пользователя:");
                     String email = scanner.nextLine();
-                    Optional<User> user = logic.findUserByEmail(email);
+                    Optional<User> user = useCaseUsers.findUserByEmail(email);
                     if (user.isEmpty()) {
                         System.out.println("Такого пользователя не существует");
                     } else {
-                        if (logic.getAllIndicationsUser(user.get()).isEmpty()) {
+                        if (useCaseIndications.getAllIndicationsUser(user.get()).isEmpty()) {
                             System.out.println("История показаний отсутствует");
                         } else {
-                            for (Indication indication : logic.getAllIndicationsUser(user.get())) {
+                            for (Indication indication : useCaseIndications.getAllIndicationsUser(user.get())) {
                                 System.out.println("Показания на " + indication.getDateTime() + " ");
                                 for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
                                     System.out.println(entry.getKey() + "   " + entry.getValue());
@@ -163,12 +157,12 @@ public class ConsoleHandler {
 
             //для Админа
             if (input.equalsIgnoreCase("Показать историю показаний пользователя за месяц")) {
-                if (!logic.isCurrentUserAdmin()) {
+                if (!useCaseUsers.isCurrentUserAdmin()) {
                     System.out.println("Ошибка, Вы не являетесь администратором!");
                 } else {
                     System.out.println("Введите email пользователя:");
                     String email = scanner.nextLine();
-                    Optional<User> user = logic.findUserByEmail(email);
+                    Optional<User> user = useCaseUsers.findUserByEmail(email);
                     if (user.isEmpty()) {
                         System.out.println("Такого пользователя не существует");
                     } else {
@@ -178,7 +172,7 @@ public class ConsoleHandler {
                         int month = Integer.parseInt(scanner.nextLine());
 
                         System.out.println("Показания на " + month + " месяц " + year + " года:");
-                        for (Indication indication : logic.getAllIndicationsUser(user.get())) {
+                        for (Indication indication : useCaseIndications.getAllIndicationsUser(user.get())) {
                             if (indication.getDateTime().getYear() == year &&
                                     indication.getDateTime().getMonthValue() == month) {
                                 for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
@@ -195,25 +189,25 @@ public class ConsoleHandler {
 
             //для Админа
             if (input.equalsIgnoreCase("Расширить перечень показаний")) {
-                if (!logic.isCurrentUserAdmin()) {
+                if (!useCaseUsers.isCurrentUserAdmin()) {
                     System.out.println("Ошибка, Вы не являетесь администратором!");
                 } else {
                     System.out.println("Введите наименование нового показания:");
                     String newNameIndication = scanner.nextLine();
 
-                    logic.addNewNameIndication(newNameIndication);
+                    useCaseIndications.addNewNameIndication(newNameIndication);
                     System.out.println("Новый вид показания " + newNameIndication + " добавлен!" );
                 }
             }
 
             //для Админа
             if (input.equalsIgnoreCase("Изменить права пользователя")) {
-                if (!logic.isCurrentUserAdmin()) {
+                if (!useCaseUsers.isCurrentUserAdmin()) {
                     System.out.println("Ошибка, Вы не являетесь администратором!");
                 } else {
                     System.out.println("Введите email пользователя, у которого необходимо изменить права доступа:");
                     String email = scanner.nextLine();
-                    Optional<User> user = logic.findUserByEmail(email);
+                    Optional<User> user = useCaseUsers.findUserByEmail(email);
                     if (user.isEmpty()) {
                         System.out.println("Такого пользователя не существует");
                     } else {
@@ -222,14 +216,14 @@ public class ConsoleHandler {
                         String access = scanner.nextLine();
                         boolean result = false;
                         if (access.equalsIgnoreCase("Да")) result = true;
-                        logic.setAccessUser(user.get(), result);
+                        useCaseUsers.setAccessUser(user.get(), result);
                         System.out.println("Права пользователя " + user.get().getName() + " изменены.");
                     }
                 }
             }
 
             if (input.equalsIgnoreCase("Выйти из системы")) {
-                logic.exit();
+                useCaseUsers.exit();
             }
 
             if (input.equalsIgnoreCase("Помощь")) {
@@ -249,6 +243,10 @@ public class ConsoleHandler {
         }
     }
 
+    /**
+     * Вывод на констоль
+     * @param text - выводимый текст
+     */
     public static void typeInConsole(String text) {
         System.out.println(text);
     }
