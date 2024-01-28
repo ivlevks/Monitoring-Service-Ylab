@@ -19,15 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class UseCaseUsersTest {
-    InMemoryDataProvider dataProvider;
-    private UseCase useCase;
+    private InMemoryDataProvider dataProvider;
     private UseCaseUsers useCaseUsers;
     private User user;
 
     @BeforeEach
     void setUp() {
         dataProvider = Mockito.mock(InMemoryDataProvider.class);
-        useCase = new UseCase(dataProvider);
         useCaseUsers = new UseCaseUsers(dataProvider);
         user = new User("Костик", "ivlevks@yandex.ru", "123", false);
     }

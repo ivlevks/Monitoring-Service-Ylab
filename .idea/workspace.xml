@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseIndicationsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProviderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +71,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.ivlevks.application.dataproviders.repositories" />
       <recent name="org.ivlevks.application.core.usecase" />
     </key>
   </component>
@@ -82,7 +80,20 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UseCaseUsersTest">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.presentation.App" />
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.entrypoints.App" />
       <module name="MonitoringService" />
@@ -96,80 +107,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseUsersTest.auth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryDataProviderTest.addIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
-      <option name="METHOD_NAME" value="auth" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
+      <option name="METHOD_NAME" value="addIndication" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseUsersTest.exit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryDataProviderTest.getAllIndications" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
-      <option name="METHOD_NAME" value="exit" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
+      <option name="METHOD_NAME" value="getAllIndications" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseUsersTest.registry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryDataProviderTest.getLastActualIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
-      <option name="METHOD_NAME" value="registry" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UseCaseUsersTest.setAccessUser_changeAccessAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
-      <option name="METHOD_NAME" value="setAccessUser_changeAccessAdmin" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
+      <option name="METHOD_NAME" value="getLastActualIndication" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -177,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UseCaseUsersTest" />
-        <item itemvalue="JUnit.UseCaseUsersTest.exit" />
-        <item itemvalue="JUnit.UseCaseUsersTest.registry" />
-        <item itemvalue="JUnit.UseCaseUsersTest.auth" />
-        <item itemvalue="JUnit.UseCaseUsersTest.setAccessUser_changeAccessAdmin" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.InMemoryDataProviderTest" />
+        <item itemvalue="JUnit.InMemoryDataProviderTest.getLastActualIndication" />
+        <item itemvalue="JUnit.InMemoryDataProviderTest.getAllIndications" />
+        <item itemvalue="JUnit.InMemoryDataProviderTest.addIndication" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +194,7 @@
       <workItem from="1706353605762" duration="5199000" />
       <workItem from="1706446538190" duration="8824000" />
       <workItem from="1706456468903" duration="343000" />
-      <workItem from="1706463383283" duration="7174000" />
+      <workItem from="1706463383283" duration="8761000" />
     </task>
     <servers />
   </component>
