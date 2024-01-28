@@ -44,4 +44,12 @@ public class UseCase {
     public boolean isCurrentUserAdmin() {
         return currentUser.isUserAdmin();
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        UseCase.currentUser = currentUser;
+    }
 }

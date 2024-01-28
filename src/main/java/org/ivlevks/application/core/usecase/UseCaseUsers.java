@@ -49,7 +49,7 @@ public class UseCaseUsers extends UseCase {
         Optional<User> user = getUpdateUsers.getUser(email);
         boolean resultAuth = user.map(value -> value.getPassword().equals(password)).orElse(false);
         if (resultAuth) {
-            currentUser = user.get();
+            setCurrentUser(user.get());
             if (currentUser.isUserAdmin()) {
                 ConsoleHandler.typeInConsole("Авторизация администратора прошла успешно");
                 Audit.addInfoInAudit("Admin with email " + email +
@@ -91,6 +91,6 @@ public class UseCaseUsers extends UseCase {
     public void exit() {
         System.out.println("Пользователь " + currentUser.getName() + " вышел из системы.");
         Audit.addInfoInAudit("User with email " + currentUser.getEmail() + " exit from system");
-        currentUser = null;
+        setCurrentUser(null);
     }
 }

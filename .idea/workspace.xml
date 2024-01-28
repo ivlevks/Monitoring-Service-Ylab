@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseIndications.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/Registry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/resources/InMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/resources/InMemoryData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/entrypoints/in/ConsoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/in/ConsoleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +23,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -52,45 +46,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw1&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "hw1",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.ivlevks.application.core.usecase" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.presentation.App" />
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.presentation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UseCaseUsersTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.entrypoints.App" />
       <module name="MonitoringService" />
@@ -104,14 +96,92 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MonitoringService-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/MonitoringService-1.0-SNAPSHOT.jar" />
-      <method v="2" />
+    <configuration name="UseCaseUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UseCaseUsersTest.auth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
+      <option name="METHOD_NAME" value="auth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UseCaseUsersTest.exit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
+      <option name="METHOD_NAME" value="exit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UseCaseUsersTest.registry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
+      <option name="METHOD_NAME" value="registry" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UseCaseUsersTest.setAccessUser_changeAccessAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.core.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.application.core.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.core.usecase.UseCaseUsersTest" />
+      <option name="METHOD_NAME" value="setAccessUser_changeAccessAdmin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JAR Application.MonitoringService-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JUnit.UseCaseUsersTest" />
+        <item itemvalue="JUnit.UseCaseUsersTest.exit" />
+        <item itemvalue="JUnit.UseCaseUsersTest.registry" />
+        <item itemvalue="JUnit.UseCaseUsersTest.auth" />
+        <item itemvalue="JUnit.UseCaseUsersTest.setAccessUser_changeAccessAdmin" />
       </list>
     </recent_temporary>
   </component>
@@ -127,7 +197,9 @@
       <workItem from="1706249001326" duration="239000" />
       <workItem from="1706249247693" duration="20099000" />
       <workItem from="1706353605762" duration="5199000" />
-      <workItem from="1706446538190" duration="8691000" />
+      <workItem from="1706446538190" duration="8824000" />
+      <workItem from="1706456468903" duration="343000" />
+      <workItem from="1706463383283" duration="7174000" />
     </task>
     <servers />
   </component>
