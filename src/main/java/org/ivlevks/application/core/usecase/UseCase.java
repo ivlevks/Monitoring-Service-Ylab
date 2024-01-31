@@ -14,6 +14,7 @@ public class UseCase {
     static Set<String> nameIndications;
     final GetUpdateUsers getUpdateUsers;
     final GetUpdateIndications getUpdateIndications;
+    String regexPatternEmail = "^(.+)@(\\S+)$";
 
     /**
      * Конструктор, инициализирует начальный перечень видов показаний

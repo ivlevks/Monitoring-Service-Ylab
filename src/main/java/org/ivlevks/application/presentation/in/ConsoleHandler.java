@@ -39,12 +39,6 @@ public class ConsoleHandler {
         System.out.println("Введите 'Выход' для выхода из сервиса.");
         Audit.addInfoInAudit("Show welcome message");
 
-////        Создание админа
-//        useCaseUsers.registry("Админ", "адм", "12345", true);
-//        useCaseUsers.auth("адм", "12345");
-//        useCaseIndications.addNewNameIndication("ElectroEnergy");
-//        useCaseUsers.exit();
-
         startConsoleHandlerIn();
     }
 
@@ -74,10 +68,10 @@ public class ConsoleHandler {
             }
 
             if (input.equalsIgnoreCase("Ввод показаний")) {
-                HashMap<String, Double> indications = new HashMap<>();
+                HashMap<String, String> indications = new HashMap<>();
                 for (String nameIndication : useCaseIndications.getNamesIndications()) {
                     System.out.print("Введите показания " + nameIndication + " ");
-                    Double value = Double.valueOf(scanner.nextLine());
+                    String value = scanner.nextLine();
                     indications.put(nameIndication, value);
                 }
                 useCaseIndications.addIndication(indications);
