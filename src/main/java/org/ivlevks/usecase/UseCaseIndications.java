@@ -92,9 +92,9 @@ public class UseCaseIndications extends UseCase {
      */
     private boolean hasIndicationNegative(HashMap<String, String> indications) {
         for (Map.Entry<String, String> entry : indications.entrySet()) {
-            if (Double.parseDouble(entry.getValue()) < 0) return false;
+            if (Double.parseDouble(entry.getValue()) < 0) return true;
         }
-        return true;
+        return false;
     }
 
     /**

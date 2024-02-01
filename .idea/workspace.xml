@@ -6,21 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/Audit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/entity/Indication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/resources/InMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/in/ConsoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/console/in/ConsoleHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseIndicationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseUsersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +69,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.ivlevks.adapter.repository.in_memory" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.ivlevks.application.dataproviders.repositories" />
       <recent name="org.ivlevks.application.core.usecase" />
@@ -92,7 +82,7 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UseCaseIndicationsTest">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_app.App" />
       <module name="MonitoringService" />
@@ -119,53 +109,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InMemoryDataProviderTest.getAllIndications" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
-      <option name="METHOD_NAME" value="getAllIndications" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InMemoryDataProviderTest.getLastActualIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
-      <option name="METHOD_NAME" value="getLastActualIndication" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UseCaseIndicationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
@@ -181,13 +124,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UseCaseIndicationsTest.addInCorrectNegativeIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
+      <option name="METHOD_NAME" value="addInCorrectNegativeIndication" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UseCaseIndicationsTest.addNewNameIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
+      <option name="METHOD_NAME" value="addNewNameIndication" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UseCaseIndicationsTest.getLastActualIndicationUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
+      <option name="METHOD_NAME" value="getLastActualIndicationUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UseCaseIndicationsTest" />
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.InMemoryDataProviderTest" />
-        <item itemvalue="JUnit.InMemoryDataProviderTest.getLastActualIndication" />
-        <item itemvalue="JUnit.InMemoryDataProviderTest.getAllIndications" />
+        <item itemvalue="JUnit.UseCaseIndicationsTest" />
+        <item itemvalue="JUnit.UseCaseIndicationsTest.addNewNameIndication" />
+        <item itemvalue="JUnit.UseCaseIndicationsTest.getLastActualIndicationUser" />
+        <item itemvalue="JUnit.UseCaseIndicationsTest.addInCorrectNegativeIndication" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +197,7 @@
       <workItem from="1706446538190" duration="8824000" />
       <workItem from="1706456468903" duration="343000" />
       <workItem from="1706463383283" duration="8761000" />
-      <workItem from="1706806613116" duration="1981000" />
+      <workItem from="1706806613116" duration="4780000" />
     </task>
     <servers />
   </component>
