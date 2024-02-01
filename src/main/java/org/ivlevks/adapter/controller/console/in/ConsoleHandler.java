@@ -1,10 +1,10 @@
-package org.ivlevks.application.presentation.in;
+package org.ivlevks.adapter.controller.console.in;
 
-import org.ivlevks.application.configuration.Audit;
-import org.ivlevks.application.core.entity.Indication;
-import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.core.usecase.UseCaseIndications;
-import org.ivlevks.application.core.usecase.UseCaseUsers;
+import org.ivlevks.configuration.Audit;
+import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.entity.User;
+import org.ivlevks.usecase.UseCaseIndications;
+import org.ivlevks.usecase.UseCaseUsers;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;

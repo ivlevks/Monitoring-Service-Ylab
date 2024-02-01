@@ -1,4 +1,4 @@
-package org.ivlevks.application.configuration;
+package org.ivlevks.configuration;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

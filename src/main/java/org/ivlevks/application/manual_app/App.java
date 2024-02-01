@@ -1,11 +1,11 @@
-package org.ivlevks.application.presentation;
+package org.ivlevks.application.manual_app;
 
-import org.ivlevks.application.configuration.Audit;
-import org.ivlevks.application.core.usecase.UseCaseIndications;
-import org.ivlevks.application.core.usecase.UseCaseUsers;
-import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
-import org.ivlevks.application.dataproviders.resources.InMemoryData;
-import org.ivlevks.application.presentation.in.ConsoleHandler;
+import org.ivlevks.configuration.Audit;
+import org.ivlevks.usecase.UseCaseIndications;
+import org.ivlevks.usecase.UseCaseUsers;
+import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
+import org.ivlevks.adapter.repository.in_memory.InMemoryData;
+import org.ivlevks.adapter.controller.console.in.ConsoleHandler;
 
 /**
  * Точка входа в приложение

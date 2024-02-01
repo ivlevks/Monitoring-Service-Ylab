@@ -1,7 +1,7 @@
-package org.ivlevks.application.core.usecase;
+package org.ivlevks.usecase.port;
 
-import org.ivlevks.application.core.entity.Indication;
-import org.ivlevks.application.core.entity.User;
+import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.entity.User;
 
 import java.util.List;
 import java.util.Optional;

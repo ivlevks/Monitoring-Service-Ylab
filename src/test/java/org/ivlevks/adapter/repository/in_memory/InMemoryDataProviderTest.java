@@ -1,17 +1,15 @@
-package org.ivlevks.application.dataproviders.repositories;
+package org.ivlevks.adapter.repository.in_memory;
 
-import org.ivlevks.application.core.entity.Indication;
-import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.dataproviders.resources.InMemoryData;
+import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
+import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.entity.User;
+import org.ivlevks.adapter.repository.in_memory.InMemoryData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.HashMap;
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class InMemoryDataProviderTest {
     private InMemoryDataProvider dataProvider;

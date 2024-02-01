@@ -5,10 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseIndicationsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProviderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/configuration/Audit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/Audit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/Indication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/entity/Indication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/core/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/dataproviders/resources/InMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/presentation/in/ConsoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/console/in/ConsoleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseIndicationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/core/usecase/UseCaseUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseUsersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/application/dataproviders/repositories/InMemoryDataProviderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,29 +55,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "OverrideImplement.generate.javadoc": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "hw1",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hw2&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -80,13 +92,13 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.UseCaseIndicationsTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.presentation.App" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_app.App" />
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.presentation.*" />
+          <option name="PATTERN" value="org.ivlevks.application.manual_app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,7 +123,7 @@
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,27 +134,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryDataProviderTest.addIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.application.dataproviders.repositories" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.dataproviders.repositories.InMemoryDataProviderTest" />
-      <option name="METHOD_NAME" value="addIndication" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InMemoryDataProviderTest.getAllIndications" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,7 +154,7 @@
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.dataproviders.repositories.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -170,13 +166,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UseCaseIndicationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UseCaseIndicationsTest" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.InMemoryDataProviderTest" />
         <item itemvalue="JUnit.InMemoryDataProviderTest.getLastActualIndication" />
         <item itemvalue="JUnit.InMemoryDataProviderTest.getAllIndications" />
-        <item itemvalue="JUnit.InMemoryDataProviderTest.addIndication" />
       </list>
     </recent_temporary>
   </component>
@@ -195,6 +206,7 @@
       <workItem from="1706446538190" duration="8824000" />
       <workItem from="1706456468903" duration="343000" />
       <workItem from="1706463383283" duration="8761000" />
+      <workItem from="1706806613116" duration="1981000" />
     </task>
     <servers />
   </component>

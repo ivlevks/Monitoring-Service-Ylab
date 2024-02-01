@@ -1,7 +1,7 @@
-package org.ivlevks.application.dataproviders.resources;
+package org.ivlevks.adapter.repository.in_memory;
 
-import org.ivlevks.application.core.entity.Indication;
-import org.ivlevks.application.core.entity.User;
+import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.entity.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

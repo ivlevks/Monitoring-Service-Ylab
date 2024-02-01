@@ -1,7 +1,8 @@
-package org.ivlevks.application.core.usecase;
+package org.ivlevks.usecase;
 
-import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
+import org.ivlevks.domain.entity.User;
+import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
+import org.ivlevks.usecase.UseCaseIndications;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

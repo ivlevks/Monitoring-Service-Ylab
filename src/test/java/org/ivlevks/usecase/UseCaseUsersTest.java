@@ -1,21 +1,16 @@
-package org.ivlevks.application.core.usecase;
+package org.ivlevks.usecase;
 
-import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
-import org.ivlevks.application.dataproviders.resources.InMemoryData;
-import org.junit.jupiter.api.AfterEach;
+import org.ivlevks.domain.entity.User;
+import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
+import org.ivlevks.usecase.UseCaseUsers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class UseCaseUsersTest {

@@ -1,10 +1,10 @@
-package org.ivlevks.application.dataproviders.repositories;
+package org.ivlevks.adapter.repository.in_memory;
 
-import org.ivlevks.application.core.entity.Indication;
-import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.core.usecase.GetUpdateUsers;
-import org.ivlevks.application.core.usecase.GetUpdateIndications;
-import org.ivlevks.application.dataproviders.resources.InMemoryData;
+import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.entity.User;
+import org.ivlevks.usecase.port.GetUpdateUsers;
+import org.ivlevks.usecase.port.GetUpdateIndications;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;

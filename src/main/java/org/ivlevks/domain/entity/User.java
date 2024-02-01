@@ -1,4 +1,4 @@
-package org.ivlevks.application.core.entity;
+package org.ivlevks.domain.entity;
 
 /**
  * Класс пользователя

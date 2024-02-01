@@ -1,9 +1,9 @@
-package org.ivlevks.application.core.usecase;
+package org.ivlevks.usecase;
 
-import org.ivlevks.application.configuration.Audit;
-import org.ivlevks.application.core.entity.User;
-import org.ivlevks.application.dataproviders.repositories.InMemoryDataProvider;
-import org.ivlevks.application.presentation.in.ConsoleHandler;
+import org.ivlevks.configuration.Audit;
+import org.ivlevks.domain.entity.User;
+import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
+import org.ivlevks.adapter.controller.console.in.ConsoleHandler;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
