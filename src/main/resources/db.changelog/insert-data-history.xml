@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+    <changeSet id="insert-data-history" author="kostik">
+        <insert tableName="history"
+                schemaName="monitoring">
+            <column name="username_id" value="1"/>
+            <column name="transaction_id" value="9987"/>
+            <column name="type" value="Кредитная операция "/>
+            <column name="value" value="50"/>
+        </insert>
+        <insert tableName="history"
+                schemaName="monitoring">
+            <column name="username_id" value="1"/>
+            <column name="transaction_id" value="9986"/>
+            <column name="type" value="Дебетовая операция "/>
+            <column name="value" value="40"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

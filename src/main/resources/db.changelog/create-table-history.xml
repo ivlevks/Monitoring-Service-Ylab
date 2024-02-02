@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+    <changeSet id="create-table-history" author="kostik">
+        <createTable tableName="history"
+                     schemaName="monitoring">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_users" references="monitoring.users(id)"/>
+            </column>
+            <column name="transaction_id" type="BIGINT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="date_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="value" type="BIGINT"/>
+        </createTable>
+
+        <addDefaultValue columnName="id"
+                         defaultValueSequenceNext="seq_id_history"
+                         schemaName="monitoring"
+                         tableName="history"/>
+    </changeSet>
+</databaseChangeLog>

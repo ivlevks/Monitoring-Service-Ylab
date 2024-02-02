@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/PropertiesCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/changelog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/create-id-sequence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/create-schemas.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/create-table-history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/create-table-users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/insert-data-history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/insert-data-users.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +30,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,30 +54,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw2&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "hw2",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -76,13 +97,17 @@
       <recent name="org.ivlevks.application.dataproviders.repositories" />
       <recent name="org.ivlevks.application.core.usecase" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.ivlevks.application.manual_jdbc_app" />
+      <recent name="org.ivlevks.configuration" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.org.ivlevks.application.manual_jdbc_app.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_app.App" />
       <module name="MonitoringService" />
@@ -109,6 +134,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="org.ivlevks.application.manual_jdbc_app.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_jdbc_app.App" />
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.manual_jdbc_app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UseCaseIndicationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
@@ -120,22 +158,6 @@
       <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UseCaseIndicationsTest.addInCorrectNegativeIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.usecase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
-      <option name="METHOD_NAME" value="addInCorrectNegativeIndication" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,29 +178,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseIndicationsTest.getLastActualIndicationUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.usecase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
-      <option name="METHOD_NAME" value="getLastActualIndicationUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.org.ivlevks.application.manual_jdbc_app.App" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.UseCaseIndicationsTest" />
         <item itemvalue="JUnit.UseCaseIndicationsTest.addNewNameIndication" />
-        <item itemvalue="JUnit.UseCaseIndicationsTest.getLastActualIndicationUser" />
-        <item itemvalue="JUnit.UseCaseIndicationsTest.addInCorrectNegativeIndication" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +215,9 @@
       <workItem from="1706446538190" duration="8824000" />
       <workItem from="1706456468903" duration="343000" />
       <workItem from="1706463383283" duration="8761000" />
-      <workItem from="1706806613116" duration="4780000" />
+      <workItem from="1706806613116" duration="4923000" />
+      <workItem from="1706811590418" duration="113000" />
+      <workItem from="1706890975199" duration="5712000" />
     </task>
     <servers />
   </component>
