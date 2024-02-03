@@ -18,8 +18,7 @@ public class IndicationRepository implements GetUpdateIndications {
     private static final String PASSWORD = PropertiesCache.getInstance().getProperty("password");
     private static final String GET_LIST_INDICATIONS_NAME = "SELECT * FROM information_schema.columns " +
             "WHERE table_schema = 'monitoring' AND table_name = 'indications'";
-    private static final String ADD_NEW_INDICATION_NAME = "ALTER TABLE IF EXISTS monitoring.indications " +
-            "ADD COLUMN IF NOT EXISTS ? double precision";
+
 
     /**
      * @param user       - пользователь, которому добавляются показания
@@ -49,7 +48,7 @@ public class IndicationRepository implements GetUpdateIndications {
     }
 
     /**
-     * @return 
+     * @return
      */
     @Override
     public Set<String> getListIndications() {
@@ -62,7 +61,7 @@ public class IndicationRepository implements GetUpdateIndications {
             while (resultSet.next()) {
                 String indication = resultSet.getString("column_name");
                 if (!indication.equals("id") && !indication.equals("username_id")
-                && !indication.equals("date_time")) {
+                        && !indication.equals("date_time")) {
                     listIndications.add(indication);
                 }
             }
@@ -73,14 +72,18 @@ public class IndicationRepository implements GetUpdateIndications {
     }
 
     /**
-     * @param newNameIndication 
+     * @param newNameIndication
      */
     @Override
     public void updateListIndications(String newNameIndication) {
+        String ADD_NEW_INDICATION_NAME = "ALTER TABLE IF EXISTS monitoring.indications " +
+                "ADD COLUMN IF NOT EXISTS " + newNameIndication + " double precision";
+
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-             PreparedStatement updateListIndicationsStatement = connection.prepareStatement(ADD_NEW_INDICATION_NAME)) {
-            updateListIndicationsStatement.setString(1, newNameIndication);
-            updateListIndicationsStatement.executeQuery();
+             PreparedStatement updateListIndicationsStatement = connection.prepareStatement("ALTER TABLE IF EXISTS " +
+                     "monitoring.indications ADD COLUMN IF NOT EXISTS " + newNameIndication + " double precision " +
+                     "DEFAULT 0")) {
+            updateListIndicationsStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
