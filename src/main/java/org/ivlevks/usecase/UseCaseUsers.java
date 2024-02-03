@@ -1,5 +1,7 @@
 package org.ivlevks.usecase;
 
+import org.ivlevks.adapter.repository.jdbc.IndicationRepository;
+import org.ivlevks.adapter.repository.jdbc.UserRepository;
 import org.ivlevks.configuration.Audit;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
@@ -18,6 +20,10 @@ public class UseCaseUsers extends UseCase {
      */
     public UseCaseUsers(InMemoryDataProvider dataProvider) {
         super(dataProvider);
+    }
+
+    public UseCaseUsers(UserRepository userRepository, IndicationRepository indicationRepository) {
+        super(userRepository, indicationRepository);
     }
 
     /**
@@ -101,6 +107,7 @@ public class UseCaseUsers extends UseCase {
      */
     public void setAccessUser(User user, boolean isUserAdmin) {
         user.setUserAdmin(isUserAdmin);
+        getUpdateUsers.updateUser(user);
     }
 
     /**

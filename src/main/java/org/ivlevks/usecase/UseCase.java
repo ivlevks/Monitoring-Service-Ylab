@@ -22,7 +22,23 @@ public class UseCase {
     /**
      * Конструктор, инициализирует начальный перечень видов показаний
      * счетчиков в количестве 3 шт.
-     * @param dataProvider - реализация подключения к хранилищу данных
+     * для jdbc реализации
+     * @param getUpdateUsers, getUpdateIndications - реализации подключения к хранилищу данных
+     */
+    public UseCase(GetUpdateUsers getUpdateUsers, GetUpdateIndications getUpdateIndications) {
+        this.getUpdateUsers = getUpdateUsers;
+        this.getUpdateIndications = getUpdateIndications;
+        nameIndications = new HashSet<>();
+        nameIndications.add("Heat");
+        nameIndications.add("Cold Water");
+        nameIndications.add("Hot Water");
+    }
+
+    /**
+     * Конструктор, инициализирует начальный перечень видов показаний
+     * счетчиков в количестве 3 шт.
+     * для in-memory реализации
+     * @param dataProvider
      */
     public UseCase(InMemoryDataProvider dataProvider) {
         this.getUpdateUsers = dataProvider;

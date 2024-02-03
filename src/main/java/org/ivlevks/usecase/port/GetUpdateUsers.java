@@ -29,4 +29,9 @@ public interface GetUpdateUsers {
      */
     List<User> getAllUsers();
 
+    /**
+     * Обновление данных пользователя
+     * @param user пользователь
+     */
+    void updateUser(User user);
 }

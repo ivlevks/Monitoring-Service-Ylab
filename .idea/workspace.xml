@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/create-id-sequence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-id-sequence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/create-schemas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-schemas.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/create-table-history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-indications.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/create-table-users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-users.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/insert-data-history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-indications.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/insert-data-users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-users.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +217,8 @@
       <workItem from="1706806613116" duration="4923000" />
       <workItem from="1706811590418" duration="113000" />
       <workItem from="1706890975199" duration="5790000" />
-      <workItem from="1706953516931" duration="1564000" />
+      <workItem from="1706953516931" duration="1636000" />
+      <workItem from="1706974284864" duration="3221000" />
     </task>
     <servers />
   </component>

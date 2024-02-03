@@ -56,6 +56,15 @@ public class InMemoryDataProvider implements GetUpdateUsers, GetUpdateIndication
         return data.getUsers();
     }
 
+    /** Обновление данных пользователя
+     * в in-memory не требует реализации
+     * @param user пользователь
+     */
+    @Override
+    public void updateUser(User user) {
+
+    }
+
     /**
      * Добавление показаний
      * @param user - пользователь, которому добавляются показания
