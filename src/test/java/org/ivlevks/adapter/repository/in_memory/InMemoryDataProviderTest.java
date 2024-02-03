@@ -1,9 +1,7 @@
 package org.ivlevks.adapter.repository.in_memory;
 
-import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.adapter.repository.in_memory.InMemoryData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

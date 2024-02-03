@@ -5,6 +5,7 @@ import org.ivlevks.domain.entity.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Интерфейс действий с показаниями счетчиков
@@ -31,5 +32,8 @@ public interface GetUpdateIndications {
      * @return - список всех показаний
      */
     List<Indication> getAllIndications(User user);
-    
+
+    Set<String> getListIndications();
+
+    void updateListIndications(String newNameIndication);
 }

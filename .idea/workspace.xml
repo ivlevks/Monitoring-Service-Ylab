@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,13 +104,13 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.org.ivlevks.application.manual_jdbc_app.App">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_app.App" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_jdbc_app.App" />
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.manual_app.*" />
+          <option name="PATTERN" value="org.ivlevks.application.manual_jdbc_app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,19 +124,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.ivlevks.application.entrypoints.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="org.ivlevks.application.manual_jdbc_app.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_jdbc_app.App" />
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.manual_jdbc_app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,6 +162,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UseCaseUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseUsersTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -191,9 +193,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.ivlevks.application.manual_jdbc_app.App" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="JUnit.UseCaseUsersTest" />
         <item itemvalue="JUnit.UseCaseIndicationsTest" />
         <item itemvalue="JUnit.UseCaseIndicationsTest.addNewNameIndication" />
       </list>
@@ -218,7 +220,7 @@
       <workItem from="1706811590418" duration="113000" />
       <workItem from="1706890975199" duration="5790000" />
       <workItem from="1706953516931" duration="1636000" />
-      <workItem from="1706974284864" duration="3221000" />
+      <workItem from="1706974284864" duration="7918000" />
     </task>
     <servers />
   </component>

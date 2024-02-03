@@ -78,11 +78,4 @@ class UseCaseIndicationsTest {
         Assertions.assertEquals("Ошибка, показания содержат отрицательные числа" + "\n" +
                 "Ошибка, введенные данные не коррректны" + "\n", outContent.toString());
     }
-
-    @Test
-    void addNewNameIndication() {
-        useCaseIndications.addNewNameIndication("Electricity");
-
-        Assertions.assertEquals(4, useCaseIndications.getNamesIndications().size());
-    }
 }

@@ -181,7 +181,7 @@ public class UseCaseIndications extends UseCase {
      * @return перечень видов счетчиков
      */
     public Set<String> getNamesIndications() {
-        return nameIndications;
+        return getUpdateIndications.getListIndications();
     }
 
     /**
@@ -190,6 +190,6 @@ public class UseCaseIndications extends UseCase {
      * @param newNameIndication наименование нового вида счетчика
      */
     public void addNewNameIndication(String newNameIndication) {
-        getNamesIndications().add(newNameIndication);
+        getUpdateIndications.updateListIndications(newNameIndication);
     }
 }

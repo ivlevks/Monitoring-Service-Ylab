@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class UseCase {
     static User currentUser;
-    static Set<String> nameIndications;
     final GetUpdateUsers getUpdateUsers;
     final GetUpdateIndications getUpdateIndications;
     String regexPatternEmail = "^(.+)@(\\S+)$";
@@ -28,10 +27,6 @@ public class UseCase {
     public UseCase(GetUpdateUsers getUpdateUsers, GetUpdateIndications getUpdateIndications) {
         this.getUpdateUsers = getUpdateUsers;
         this.getUpdateIndications = getUpdateIndications;
-        nameIndications = new HashSet<>();
-        nameIndications.add("Heat");
-        nameIndications.add("Cold Water");
-        nameIndications.add("Hot Water");
     }
 
     /**
@@ -43,10 +38,6 @@ public class UseCase {
     public UseCase(InMemoryDataProvider dataProvider) {
         this.getUpdateUsers = dataProvider;
         this.getUpdateIndications = dataProvider;
-        nameIndications = new HashSet<>();
-        nameIndications.add("Heat");
-        nameIndications.add("Cold Water");
-        nameIndications.add("Hot Water");
     }
 
     /**

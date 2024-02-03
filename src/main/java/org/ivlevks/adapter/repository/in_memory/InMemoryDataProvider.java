@@ -8,6 +8,7 @@ import org.ivlevks.usecase.port.GetUpdateIndications;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Класс с реализацией интерфейсов действий с пользователями и показаниями,
@@ -95,6 +96,22 @@ public class InMemoryDataProvider implements GetUpdateUsers, GetUpdateIndication
     @Override
     public List<Indication> getAllIndications(User user) {
         return data.getStorageIndicationAllUsers().get(user);
+    }
+
+    /**
+     * @return 
+     */
+    @Override
+    public Set<String> getListIndications() {
+        return data.getListIndications();
+    }
+
+    /**
+     * @param newNameIndication 
+     */
+    @Override
+    public void updateListIndications(String newNameIndication) {
+        data.updateListIndications(newNameIndication);
     }
 
 }
