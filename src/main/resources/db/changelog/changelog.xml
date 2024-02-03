@@ -7,6 +7,6 @@
     <include file="create-id-sequence.xml" relativeToChangelogFile="true"/>
     <include file="create-table-users.xml" relativeToChangelogFile="true"/>
     <include file="insert-data-users.xml" relativeToChangelogFile="true"/>
-    <include file="create-table-history.xml" relativeToChangelogFile="true"/>
-    <include file="insert-data-history.xml" relativeToChangelogFile="true"/>
+    <include file="create-table-indications.xml" relativeToChangelogFile="true"/>
+    <include file="insert-data-indications.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

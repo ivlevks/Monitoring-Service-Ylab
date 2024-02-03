@@ -12,7 +12,7 @@
         <createSequence  dataType="BIGINT"
                          incrementBy="1"
                          schemaName="monitoring"
-                         sequenceName="seq_id_history"
+                         sequenceName="seq_id_indications"
                          startValue="1"/>
     </changeSet>
 </databaseChangeLog>

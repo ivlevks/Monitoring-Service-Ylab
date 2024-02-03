@@ -5,14 +5,16 @@
         <insert tableName="users"
                 schemaName="monitoring">
             <column name="username" value="kostik"/>
+            <column name="email" value="ivlevks@yandex.ru"/>
             <column name="password" value="123"/>
-            <column name="amount" value="100000"/>
+            <column name="admin" value="FALSE"/>
         </insert>
         <insert tableName="users"
                 schemaName="monitoring">
-            <column name="username" value="julia"/>
-            <column name="password" value="1234"/>
-            <column name="amount" value="100500"/>
+            <column name="username" value="admin"/>
+            <column name="email" value="admin@yandex.ru"/>
+            <column name="password" value="12345"/>
+            <column name="admin" value="TRUE"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
