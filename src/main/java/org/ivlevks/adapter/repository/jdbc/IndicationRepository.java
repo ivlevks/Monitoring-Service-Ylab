@@ -1,7 +1,6 @@
 package org.ivlevks.adapter.repository.jdbc;
 
 import org.ivlevks.configuration.DateTimeHelper;
-import org.ivlevks.configuration.PropertiesCache;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.usecase.port.GetUpdateIndications;
@@ -16,9 +15,6 @@ import java.util.*;
  * Имплементация интерфейса хранения показателей через JDBC
  */
 public class IndicationRepository implements GetUpdateIndications {
-    private static final String URL = PropertiesCache.getInstance().getProperty("URL");
-    private static final String USER_NAME = PropertiesCache.getInstance().getProperty("username");
-    private static final String PASSWORD = PropertiesCache.getInstance().getProperty("password");
     private static final String GET_LIST_INDICATIONS_NAME = "SELECT * FROM information_schema.columns " +
             "WHERE table_schema = 'monitoring' AND table_name = 'indications'";
     private static final String INSERT_INDICATIONS = "INSERT INTO monitoring.indications " +
@@ -26,6 +22,15 @@ public class IndicationRepository implements GetUpdateIndications {
     private static final String GET_LAST_ACTUAL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ? " +
             "ORDER BY id DESC LIMIT 1";
     private static final String GET_ALL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ?";
+    private final String URL;
+    private final String USER_NAME;
+    private final String PASSWORD;
+
+    public IndicationRepository(String url, String userName, String password) {
+        URL = url;
+        USER_NAME = userName;
+        PASSWORD = password;
+    }
 
     /**
      * Добавление показателей

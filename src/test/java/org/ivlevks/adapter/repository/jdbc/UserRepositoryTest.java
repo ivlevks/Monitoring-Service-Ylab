@@ -3,12 +3,12 @@ package org.ivlevks.adapter.repository.jdbc;
 import org.ivlevks.domain.entity.User;
 import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 class UserRepositoryTest {
     private static final String CREATE_SCHEMA = "CREATE SCHEMA IF NOT EXISTS monitoring";
@@ -18,12 +18,14 @@ class UserRepositoryTest {
             "email varchar not null," +
             "password varchar not null," +
             "admin boolean)";
-
-
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
+    private static final String POPULATE_TABLE = "INSERT INTO monitoring.users (" +
+            "username, email, password, admin) VALUES('admin', 'admin@yandex.ru', '12345', 'true')";
+    private static final String DROP_TABLE = "DROP TABLE monitoring.users";
+    private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:15-alpine");
-    Connection connection;
-    UserRepository userRepository;
+    private User user;
+    private Connection connection;
+    private UserRepository userRepository;
 
     @BeforeAll
     static void beforeAll() {
@@ -45,13 +47,14 @@ class UserRepositoryTest {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        createUsersTable();
-        userRepository = new UserRepository(postgres.getJdbcUrl(),
+        createPopulateUsersTable(connection);
+        userRepository = new UserRepository(
+                postgres.getJdbcUrl(),
                 postgres.getUsername(),
                 postgres.getPassword());
     }
 
-    private void createUsersTable() {
+    public static void createPopulateUsersTable(Connection connection) {
         try (PreparedStatement createSchemaStatement = connection.prepareStatement(CREATE_SCHEMA)) {
             createSchemaStatement.executeUpdate();
         } catch (Exception e) {
@@ -62,35 +65,50 @@ class UserRepositoryTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        try (PreparedStatement populateTableStatement = connection.prepareStatement(POPULATE_TABLE)) {
+            populateTableStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @AfterEach
     void tearDown() {
-        try {
+        try (PreparedStatement createTableStatement = connection.prepareStatement(DROP_TABLE)) {
+            createTableStatement.executeUpdate();
             connection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Test
     void addUser() {
-        User user = new User("kostik", "ivlevks@yandex.ru" , "1234", false);
+        user = new User("kostik", "ivlevks@yandex.ru" , "1234", false);
         userRepository.addUser(user);
 
+        List<User> users = userRepository.getAllUsers();
+        Assertions.assertEquals(2, users.size());
+    }
+
+    @Test
+    void getUser() {
+        Optional<User> user = userRepository.getUser("admin@yandex.ru");
+        Assertions.assertEquals("12345", user.get().getPassword());
+    }
+
+    @Test
+    void getAllUsers() {
         List<User> users = userRepository.getAllUsers();
         Assertions.assertEquals(1, users.size());
     }
 
     @Test
-    void getUser() {
-    }
-
-    @Test
-    void getAllUsers() {
-    }
-
-    @Test
     void updateUser() {
+        user = new User("admin", "admin@yandex.ru" , "12345", false);
+        userRepository.updateUser(user);
+
+        Optional<User> updatedUser = userRepository.getUser("admin@yandex.ru");
+        Assertions.assertEquals(false, updatedUser.get().isUserAdmin());
     }
 }

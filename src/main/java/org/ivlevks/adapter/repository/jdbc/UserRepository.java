@@ -1,6 +1,5 @@
 package org.ivlevks.adapter.repository.jdbc;
 
-import org.ivlevks.configuration.PropertiesCache;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.usecase.port.GetUpdateUsers;
 import java.sql.Connection;

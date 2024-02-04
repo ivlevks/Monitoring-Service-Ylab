@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +95,7 @@
       <recent name="org.ivlevks.application.core.usecase" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.ivlevks.adapter.repository.jdbc" />
       <recent name="org.ivlevks.application.manual_jdbc_app" />
       <recent name="org.ivlevks.configuration" />
     </key>
@@ -116,47 +119,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IndicationRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.in_memory.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.in_memory" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.in_memory.InMemoryDataProviderTest" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseIndicationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IndicationRepositoryTest.getLastActualIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryTest" />
+      <option name="METHOD_NAME" value="getLastActualIndication" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UseCaseUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IndicationRepositoryTest.getListIndications" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.usecase.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseUsersTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryTest" />
+      <option name="METHOD_NAME" value="getListIndications" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,7 +181,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRepositoryTest.addUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRepositoryTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
@@ -185,9 +190,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryTest" />
-      <option name="METHOD_NAME" value="addUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryTest2" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,10 +205,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserRepositoryTest" />
-        <item itemvalue="JUnit.UserRepositoryTest.addUser" />
-        <item itemvalue="JUnit.UseCaseUsersTest" />
-        <item itemvalue="JUnit.UseCaseIndicationsTest" />
-        <item itemvalue="JUnit.InMemoryDataProviderTest" />
+        <item itemvalue="JUnit.IndicationRepositoryTest" />
+        <item itemvalue="JUnit.IndicationRepositoryTest.getListIndications" />
+        <item itemvalue="JUnit.IndicationRepositoryTest.getLastActualIndication" />
+        <item itemvalue="JUnit.UserRepositoryTest2" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +237,7 @@
       <workItem from="1707036214811" duration="6678000" />
       <workItem from="1707056969647" duration="1617000" />
       <workItem from="1707058595039" duration="143000" />
-      <workItem from="1707058785338" duration="3249000" />
+      <workItem from="1707058785338" duration="8376000" />
     </task>
     <servers />
   </component>
