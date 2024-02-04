@@ -15,15 +15,20 @@ import java.util.Optional;
  * Имплементация интерфейса хранения пользователей через JDBC
  */
 public class UserRepository implements GetUpdateUsers {
-
-    private static final String URL = PropertiesCache.getInstance().getProperty("URL");
-    private static final String USER_NAME = PropertiesCache.getInstance().getProperty("username");
-    private static final String PASSWORD = PropertiesCache.getInstance().getProperty("password");
     private static final String USER_GET = "SELECT * FROM monitoring.users WHERE email = ?";
     private static final String USER_ADD = "INSERT INTO monitoring.users (username, email," +
             " password, admin) VALUES (?, ?, ?, ?)";
     private static final String USER_UPDATE = "UPDATE monitoring.users SET admin = ? WHERE email = ?";
     private static final String USER_GET_ALL = "SELECT * FROM monitoring.users";
+    private final String URL;
+    private final String USER_NAME;
+    private final String PASSWORD;
+
+    public UserRepository(String URL, String USER_NAME, String PASSWORD) {
+        this.URL = URL;
+        this.USER_NAME = USER_NAME;
+        this.PASSWORD = PASSWORD;
+    }
 
     /**
      * Добавление пользователя

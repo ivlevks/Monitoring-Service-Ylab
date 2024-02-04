@@ -6,6 +6,7 @@ import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepository;
 import org.ivlevks.adapter.repository.jdbc.UserRepository;
 import org.ivlevks.configuration.Audit;
+import org.ivlevks.configuration.PropertiesCache;
 import org.ivlevks.configuration.migration.MigrationHelper;
 import org.ivlevks.usecase.UseCaseIndications;
 import org.ivlevks.usecase.UseCaseUsers;
@@ -21,7 +22,10 @@ public class App {
 
         MigrationHelper migrationHelper = new MigrationHelper();
 
-        UserRepository userRepository = new UserRepository();
+        UserRepository userRepository = new UserRepository(
+                PropertiesCache.getInstance().getProperty("URL"),
+                PropertiesCache.getInstance().getProperty("username"),
+                PropertiesCache.getInstance().getProperty("password"));
         IndicationRepository indicationRepository = new IndicationRepository();
 
         UseCaseUsers useCaseUsers = new UseCaseUsers(userRepository, indicationRepository);
