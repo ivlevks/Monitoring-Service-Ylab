@@ -6,7 +6,7 @@ package org.ivlevks.domain.entity;
  * геттеры и сеттеры
  */
 public class User {
-
+    private Integer id;
     private String name;
     private String email;
     private String password;
@@ -16,6 +16,14 @@ public class User {
     }
 
     public User(String name, String email, String password, boolean isUserAdmin) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.isUserAdmin = isUserAdmin;
+    }
+
+    public User(Integer id, String name, String email, String password, boolean isUserAdmin) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -52,6 +60,14 @@ public class User {
 
     public void setUserAdmin(boolean userAdmin) {
         isUserAdmin = userAdmin;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

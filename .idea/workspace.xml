@@ -7,6 +7,10 @@
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-indications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-indications.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-indications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-indications.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +218,9 @@
       <workItem from="1706890975199" duration="5790000" />
       <workItem from="1706953516931" duration="1636000" />
       <workItem from="1706974284864" duration="7918000" />
-      <workItem from="1706982392688" duration="999000" />
+      <workItem from="1706982392688" duration="1502000" />
+      <workItem from="1707033951256" duration="1138000" />
+      <workItem from="1707036214811" duration="2823000" />
     </task>
     <servers />
   </component>
@@ -243,5 +249,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="UseCase.currentUser.id" language="JAVA" custom="org.ivlevks.usecase.UseCase" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

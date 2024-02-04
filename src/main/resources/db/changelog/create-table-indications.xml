@@ -9,7 +9,7 @@
             <column name="id" type="BIGINT">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="username_id" type="BIGINT">
+            <column name="user_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_users" references="monitoring.users(id)"/>
             </column>
             <column name="date_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>

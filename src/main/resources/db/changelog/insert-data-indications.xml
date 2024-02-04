@@ -4,14 +4,14 @@
     <changeSet id="insert-data-history" author="kostik">
         <insert tableName="indications"
                 schemaName="monitoring">
-            <column name="username_id" value="1"/>
+            <column name="user_id" value="1"/>
             <column name="heat" value="100"/>
             <column name="cold_water" value="100"/>
             <column name="hot_water" value="100"/>
         </insert>
         <insert tableName="indications"
                 schemaName="monitoring">
-            <column name="username_id" value="1"/>
+            <column name="user_id" value="1"/>
             <column name="heat" value="200"/>
             <column name="cold_water" value="200"/>
             <column name="hot_water" value="200"/>

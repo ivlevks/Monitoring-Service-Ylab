@@ -58,11 +58,12 @@ public class UserRepository implements GetUpdateUsers {
             ResultSet resultSet = getUserStatement.executeQuery();
 
             while (resultSet.next()) {
+                Integer userId = resultSet.getInt("id");
                 String userName = resultSet.getString("username");
                 String userEmail = resultSet.getString("email");
                 String userPassword = resultSet.getString("password");
                 Boolean admin = resultSet.getBoolean("admin");
-                user = new User(userName, userEmail, userPassword, admin);
+                user = new User(userId, userName, userEmail, userPassword, admin);
             }
         } catch (Exception e) {
             e.printStackTrace();
