@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Audit {
 
     /**
-     * Хранилище всех операция
+     * Хранилище всех операций
      */
     private static ArrayList<String> allOperations = new ArrayList<>();
 

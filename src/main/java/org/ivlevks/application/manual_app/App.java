@@ -8,7 +8,7 @@ import org.ivlevks.adapter.repository.in_memory.InMemoryData;
 import org.ivlevks.adapter.controller.console.in.ConsoleHandler;
 
 /**
- * Точка входа в приложение
+ * Точка входа в приложение хранящее данные in-memory
  *
  */
 public class App {

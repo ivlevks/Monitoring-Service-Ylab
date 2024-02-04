@@ -1,5 +1,6 @@
 package org.ivlevks.adapter.repository.jdbc;
 
+import org.ivlevks.configuration.DateTimeHelper;
 import org.ivlevks.configuration.PropertiesCache;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
@@ -8,25 +9,31 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Имплементация интерфейса хранения показателей через JDBC
+ */
 public class IndicationRepository implements GetUpdateIndications {
-
     private static final String URL = PropertiesCache.getInstance().getProperty("URL");
     private static final String USER_NAME = PropertiesCache.getInstance().getProperty("username");
     private static final String PASSWORD = PropertiesCache.getInstance().getProperty("password");
     private static final String GET_LIST_INDICATIONS_NAME = "SELECT * FROM information_schema.columns " +
             "WHERE table_schema = 'monitoring' AND table_name = 'indications'";
-    
+    private static final String INSERT_INDICATIONS = "INSERT INTO monitoring.indications " +
+            "(user_id, heat, cold_water, hot_water) VALUES (?, ?, ?, ?)";
+    private static final String GET_LAST_ACTUAL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ? " +
+            "ORDER BY id DESC LIMIT 1";
+    private static final String GET_ALL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ?";
+
     /**
+     * Добавление показателей
      * @param user       - пользователь, которому добавляются показания
      * @param indication - класс показаний
      */
     @Override
     public void addIndication(User user, Indication indication) {
-        String INSERT_INDICATIONS = "INSERT INTO monitoring.indications " +
-                "(user_id, heat, cold_water, hot_water) " +
-                "VALUES (?, ?, ?, ?)";
         Set<String> listIndications = getListIndications();
 
         // перечень показаний не расширялся (в DB 3 изначальных показания)
@@ -66,6 +73,11 @@ public class IndicationRepository implements GetUpdateIndications {
         }
     }
 
+    /**
+     * Изменение запроса при добавлении новых показателей
+     * @param listIndications список показаний
+     * @return измененный запрос
+     */
     private String createUpdatedInsertIndicationsQuery(Set<String> listIndications) {
         StringBuilder UPDATED_INSERT_INDICATIONS = new StringBuilder();
 
@@ -83,30 +95,75 @@ public class IndicationRepository implements GetUpdateIndications {
             UPDATED_INSERT_INDICATIONS.append(", ?");
         }
         UPDATED_INSERT_INDICATIONS.append(")");
-        
+
         return UPDATED_INSERT_INDICATIONS.toString();
     }
 
     /**
+     * Получение последних актуальных показаний
      * @param user - пользователь, чьи показания выводятся
-     * @return
+     * @return показания, обернутые в Optional
      */
     @Override
     public Optional<Indication> getLastActualIndication(User user) {
-        return Optional.empty();
+        Indication lastActualIndication = null;
+        HashMap<String, Double> indications = new HashMap<>();
+
+        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+             PreparedStatement getLastActualIndicationStatement = connection.prepareStatement(GET_LAST_ACTUAL_INDICATIONS)) {
+            getLastActualIndicationStatement.setInt(1, user.getId());
+            ResultSet resultSet = getLastActualIndicationStatement.executeQuery();
+
+            while (resultSet.next()) {
+                LocalDateTime dateTime = DateTimeHelper.getDateTime(resultSet.getString("date_time"));
+                for (String indication : getListIndications()) {
+                    indications.put(indication, resultSet.getDouble(indication));
+                }
+                lastActualIndication = new Indication(dateTime, indications);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Optional.ofNullable(lastActualIndication);
     }
 
     /**
+     * Получение всех показаний пользователя
      * @param user пользователь, чьи показания выводятся
-     * @return
+     * @return список всех показаний
      */
     @Override
     public List<Indication> getAllIndications(User user) {
-        return null;
+        List<Indication> indications = new ArrayList<>();
+        Indication indication = null;
+        HashMap<String, Double> indicationsMap = null;
+
+        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+             PreparedStatement getAllIndicationStatement = connection.prepareStatement(GET_ALL_INDICATIONS)) {
+            getAllIndicationStatement.setInt(1, user.getId());
+            ResultSet resultSet = getAllIndicationStatement.executeQuery();
+
+            while (resultSet.next()) {
+                LocalDateTime dateTime = DateTimeHelper.getDateTime(resultSet.getString("date_time"));
+                indicationsMap = new HashMap<>();
+                for (String currentIndication : getListIndications()) {
+                    indicationsMap.put(currentIndication, resultSet.getDouble(currentIndication));
+                }
+                indication = new Indication(dateTime, indicationsMap);
+                indications.add(indication);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return indications;
     }
 
     /**
-     * @return
+     * Получение списка наименований показаний
+     * @return спиок наименований показаний
      */
     @Override
     public Set<String> getListIndications() {
@@ -130,7 +187,9 @@ public class IndicationRepository implements GetUpdateIndications {
     }
 
     /**
-     * @param newNameIndication
+     * Обновление списка наименований показаний
+     * путем добавления новых колонок с дефолтными занчениями 0
+     * @param newNameIndication новое показание
      */
     @Override
     public void updateListIndications(String newNameIndication) {

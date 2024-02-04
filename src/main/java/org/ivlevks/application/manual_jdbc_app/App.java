@@ -11,7 +11,7 @@ import org.ivlevks.usecase.UseCaseIndications;
 import org.ivlevks.usecase.UseCaseUsers;
 
 /**
- * Точка входа в приложение
+ * Точка входа в приложение использующее jdbc
  *
  */
 public class App {
