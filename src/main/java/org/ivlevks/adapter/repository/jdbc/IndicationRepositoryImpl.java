@@ -21,8 +21,9 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
     private static final String INSERT_COUNTER = "INSERT INTO monitoring.counters " +
             "(name) VALUES (?)";
     private static final String GET_LAST_ACTUAL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ? " +
-            "ORDER BY id DESC LIMIT 1";
-    private static final String GET_ALL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ?";
+            "ORDER BY id DESC";
+    private static final String GET_ALL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ? " +
+            "ORDER BY id DESC";
 
     /**
      * Добавление показателей
@@ -61,23 +62,27 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
         Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
         Indication lastActualIndication = null;
         HashMap<String, Double> indications = new HashMap<>();
+        int indexCounters = 0;
+        List<String> counters = new ArrayList<>(getListCounters());
 
         try (PreparedStatement getLastActualIndicationStatement = connection.prepareStatement(GET_LAST_ACTUAL_INDICATIONS)) {
             getLastActualIndicationStatement.setInt(1, user.getId());
             ResultSet resultSet = getLastActualIndicationStatement.executeQuery();
 
-            while (resultSet.next()) {
+            while (resultSet.next() && indexCounters != 1) {
                 LocalDateTime dateTime = DateTimeHelper.getDateTime(resultSet.getString("date_time"));
-                for (String indication : getListCounters()) {
-                    indications.put(indication, resultSet.getDouble(indication));
-                }
+
+                indexCounters = resultSet.getInt("counter_id");
+                String counter = counters.get(indexCounters - 1);
+
+                indications.put(counter, resultSet.getDouble("value"));
+
                 lastActualIndication = new Indication(dateTime, indications);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return Optional.ofNullable(lastActualIndication);
     }
 
@@ -92,25 +97,31 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
         Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
         List<Indication> indications = new ArrayList<>();
         Indication indication = null;
-        HashMap<String, Double> indicationsMap = null;
+        HashMap<String, Double> indicationsMap = new HashMap<>();
+        int indexCounters = 0;
+        List<String> counters = new ArrayList<>(getListCounters());
 
         try (PreparedStatement getAllIndicationStatement = connection.prepareStatement(GET_ALL_INDICATIONS)) {
             getAllIndicationStatement.setInt(1, user.getId());
             ResultSet resultSet = getAllIndicationStatement.executeQuery();
 
             while (resultSet.next()) {
-                LocalDateTime dateTime = DateTimeHelper.getDateTime(resultSet.getString("date_time"));
-                indicationsMap = new HashMap<>();
-                for (String currentIndication : getListCounters()) {
-                    indicationsMap.put(currentIndication, resultSet.getDouble(currentIndication));
+                indexCounters = resultSet.getInt("counter_id");
+
+                String counter = counters.get(indexCounters - 1);
+                indicationsMap.put(counter, resultSet.getDouble("value"));
+
+                if (indexCounters == 1) {
+                    LocalDateTime dateTime = DateTimeHelper.getDateTime(resultSet.getString("date_time"));
+
+                    indication = new Indication(dateTime, indicationsMap);
+                    indications.add(indication);
+                    indicationsMap = new HashMap<>();
                 }
-                indication = new Indication(dateTime, indicationsMap);
-                indications.add(indication);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return indications;
     }
 
