@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+    <changeSet id="insert-data-history" author="kostik">
+        <insert tableName="indications"
+                schemaName="monitoring">
+            <column name="user_id" value="1"/>
+            <column name="heat" value="100"/>
+            <column name="cold_water" value="100"/>
+            <column name="hot_water" value="100"/>
+        </insert>
+        <insert tableName="indications"
+                schemaName="monitoring">
+            <column name="user_id" value="1"/>
+            <column name="heat" value="200"/>
+            <column name="cold_water" value="200"/>
+            <column name="hot_water" value="200"/>
+        </insert>
+        <insert tableName="indications"
+                schemaName="monitoring">
+            <column name="user_id" value="1"/>
+            <column name="heat" value="300"/>
+            <column name="cold_water" value="300"/>
+            <column name="hot_water" value="300"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+    <changeSet id="create-id-sequence" author="kostik">
+        <createSequence  dataType="BIGINT"
+                         incrementBy="1"
+                         schemaName="monitoring"
+                         sequenceName="seq_id_users"
+                         startValue="1"/>
+
+        <createSequence  dataType="BIGINT"
+                         incrementBy="1"
+                         schemaName="monitoring"
+                         sequenceName="seq_id_indications"
+                         startValue="1"/>
+    </changeSet>
+</databaseChangeLog>
