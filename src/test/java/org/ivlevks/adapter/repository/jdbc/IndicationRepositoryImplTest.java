@@ -13,9 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class IndicationRepositoryTest {
+class IndicationRepositoryImplTest {
     private static final String CREATE_SCHEMA = "CREATE SCHEMA IF NOT EXISTS monitoring";
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS monitoring.indications (" +
             "id serial primary key," +
@@ -30,7 +28,7 @@ class IndicationRepositoryTest {
     private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:15-alpine");
     private Connection connection;
-    private IndicationRepository indicationRepository;
+    private IndicationRepositoryImpl indicationRepositoryImpl;
     private User user = new User(1, "kostik", "ivlevks@yandex.ru" , "1234", false);
     private Indication indication;
 
@@ -55,10 +53,7 @@ class IndicationRepositoryTest {
             throw new RuntimeException(e);
         }
         createPopulateUsersTable(connection);
-        indicationRepository = new IndicationRepository(
-                postgres.getJdbcUrl(),
-                postgres.getUsername(),
-                postgres.getPassword());
+        indicationRepositoryImpl = new IndicationRepositoryImpl(connection);
     }
 
     public static void createPopulateUsersTable(Connection connection) {
@@ -97,15 +92,15 @@ class IndicationRepositoryTest {
         correctIndications.put("hot_water", 200d);
         indication = new Indication(correctIndications);
 
-        indicationRepository.addIndication(user, indication);
-        List<Indication> indications = indicationRepository.getAllIndications(user);
+        indicationRepositoryImpl.addIndication(user, indication);
+        List<Indication> indications = indicationRepositoryImpl.getAllIndications(user);
 
         Assertions.assertEquals(2, indications.size());
     }
 
     @Test
     void getLastActualIndication() {
-        Optional<Indication> lastActualIndication = indicationRepository.getLastActualIndication(user);
+        Optional<Indication> lastActualIndication = indicationRepositoryImpl.getLastActualIndication(user);
         Assertions.assertEquals(100, lastActualIndication.get().getIndications().get("heat"));
         Assertions.assertEquals(100, lastActualIndication.get().getIndications().get("cold_water"));
         Assertions.assertEquals(100, lastActualIndication.get().getIndications().get("hot_water"));
@@ -113,23 +108,23 @@ class IndicationRepositoryTest {
 
     @Test
     void getAllIndications() {
-        int size = indicationRepository.getAllIndications(user).size();
+        int size = indicationRepositoryImpl.getAllIndications(user).size();
 
         Assertions.assertEquals(1, size);
     }
 
     @Test
     void getListIndications() {
-        int size = indicationRepository.getListIndications().size();
+        int size = indicationRepositoryImpl.getListCounters().size();
 
         Assertions.assertEquals(3, size);
     }
 
     @Test
     void updateListIndications() {
-        indicationRepository.updateListIndications("electricity");
+        indicationRepositoryImpl.updateListCounters("electricity");
 
-        int size = indicationRepository.getListIndications().size();
+        int size = indicationRepositoryImpl.getListCounters().size();
         Assertions.assertEquals(4, size);
     }
 }

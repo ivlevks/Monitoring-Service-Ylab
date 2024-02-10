@@ -11,55 +11,73 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <postgres.version>42.6.0</postgres.version>
+    <liquibase.version>4.24.0</liquibase.version>
+    <junit-jupiter.version>5.10.1</junit-jupiter.version>
+    <mockito.version>5.10.0</mockito.version>
+    <testcontainers.version>1.19.4</testcontainers.version>
+    <testcontainers.postgresql.version>1.18.3</testcontainers.postgresql.version>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+    <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+    <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
+    <lombok.version>1.18.30</lombok.version>
+    <jackson.version>2.15.3</jackson.version>
+    <aspectj.version>1.9.20.1</aspectj.version>
+    <plugin.war.version>3.3.1</plugin.war.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.6.0</version>
+      <version>${postgres.version}</version>
     </dependency>
     <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
-      <version>4.24.0</version>
+      <version>${liquibase.version}</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.10.1</version>
+      <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.10.0</version>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>5.10.0</version>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>testcontainers</artifactId>
-      <version>1.19.4</version>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>postgresql</artifactId>
-      <version>1.18.3</version>
-    </dependency>
-    <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>1.19.4</version>
-      <scope>test</scope>
+      <version>${testcontainers.postgresql.version}</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>

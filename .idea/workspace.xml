@@ -5,14 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DriverManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-counters.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-counters.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DateTimeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DateTimeHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/PropertiesCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/PropertiesCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/IndicationsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/GetUpdateUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/create-id-sequence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-id-sequence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-indications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create-table-indications.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-indications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/insert-data-indications.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,16 +40,24 @@
       <list>
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="hw2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -47,57 +71,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw2&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/konstantin/IdeaProjects/MonitoringService/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "hw3",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService/src/main/resources/db/changelog",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/db/changelog" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/db" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="org.ivlevks.adapter.repository.in_memory" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="org.ivlevks.adapter.repository.jdbc" />
       <recent name="org.ivlevks.application.dataproviders.repositories" />
       <recent name="org.ivlevks.application.core.usecase" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.ivlevks.adapter.repository.jdbc" />
-      <recent name="org.ivlevks.application.manual_jdbc_app" />
-      <recent name="org.ivlevks.configuration" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -105,7 +112,7 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRepositoryTest">
+  <component name="RunManager" selected="Application.org.ivlevks.application.manual_jdbc_app.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.entrypoints.App" />
       <module name="MonitoringService" />
@@ -119,7 +126,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IndicationRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="org.ivlevks.application.manual_jdbc_app.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_jdbc_app.App" />
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.application.manual_jdbc_app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IndicationRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
@@ -128,13 +148,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IndicationRepositoryTest.getLastActualIndication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
@@ -143,72 +163,35 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryTest" />
-      <option name="METHOD_NAME" value="getLastActualIndication" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IndicationRepositoryTest.getListIndications" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.IndicationRepositoryTest" />
-      <option name="METHOD_NAME" value="getListIndications" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRepositoryTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java in MonitoringService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryTest2" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
-        <settings />
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserRepositoryTest" />
-        <item itemvalue="JUnit.IndicationRepositoryTest" />
-        <item itemvalue="JUnit.IndicationRepositoryTest.getListIndications" />
-        <item itemvalue="JUnit.IndicationRepositoryTest.getLastActualIndication" />
-        <item itemvalue="JUnit.UserRepositoryTest2" />
+        <item itemvalue="Application.org.ivlevks.application.manual_jdbc_app.App" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="JUnit.java in MonitoringService" />
+        <item itemvalue="JUnit.UserRepositoryImplTest" />
+        <item itemvalue="JUnit.IndicationRepositoryImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -227,17 +210,7 @@
       <workItem from="1706446538190" duration="8824000" />
       <workItem from="1706456468903" duration="343000" />
       <workItem from="1706463383283" duration="8761000" />
-      <workItem from="1706806613116" duration="4923000" />
-      <workItem from="1706811590418" duration="113000" />
-      <workItem from="1706890975199" duration="5790000" />
-      <workItem from="1706953516931" duration="1636000" />
-      <workItem from="1706974284864" duration="7918000" />
-      <workItem from="1706982392688" duration="1502000" />
-      <workItem from="1707033951256" duration="1138000" />
-      <workItem from="1707036214811" duration="6678000" />
-      <workItem from="1707056969647" duration="1617000" />
-      <workItem from="1707058595039" duration="143000" />
-      <workItem from="1707058785338" duration="8376000" />
+      <workItem from="1707574506315" duration="4775000" />
     </task>
     <servers />
   </component>
@@ -266,12 +239,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="UseCase.currentUser.id" language="JAVA" custom="org.ivlevks.usecase.UseCase" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -2,8 +2,8 @@ package org.ivlevks.adapter.repository.in_memory;
 
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.usecase.port.GetUpdateUsers;
-import org.ivlevks.usecase.port.GetUpdateIndications;
+import org.ivlevks.usecase.port.UsersRepository;
+import org.ivlevks.usecase.port.IndicationsRepository;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.Set;
  * Класс с реализацией интерфейсов действий с пользователями и показаниями,
  * определенными на уровне ядра приложения
  */
-public class InMemoryDataProvider implements GetUpdateUsers, GetUpdateIndications {
+public class InMemoryDataProvider implements UsersRepository, IndicationsRepository {
 
     private final InMemoryData data;
 
@@ -102,7 +102,7 @@ public class InMemoryDataProvider implements GetUpdateUsers, GetUpdateIndication
      * @return 
      */
     @Override
-    public Set<String> getListIndications() {
+    public Set<String> getListCounters() {
         return data.getListIndications();
     }
 
@@ -110,7 +110,7 @@ public class InMemoryDataProvider implements GetUpdateUsers, GetUpdateIndication
      * @param newNameIndication 
      */
     @Override
-    public void updateListIndications(String newNameIndication) {
+    public void updateListCounters(String newNameIndication) {
         data.updateListIndications(newNameIndication);
     }
 

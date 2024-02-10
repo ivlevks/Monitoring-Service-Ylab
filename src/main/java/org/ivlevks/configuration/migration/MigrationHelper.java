@@ -8,7 +8,6 @@ import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.ivlevks.configuration.PropertiesCache;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class MigrationHelper {
@@ -16,22 +15,11 @@ public class MigrationHelper {
     private static final String DEFAULT_SCHEMA_NAME = PropertiesCache.getInstance().getProperty("default-schema-name");
     private static final String CHANGE_LOG_FILE = PropertiesCache.getInstance().getProperty("changeLogFile");
     private static final String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
-    private final String URL;
-    private final String USER_NAME;
-    private final String PASSWORD;
 
-    public MigrationHelper(String url, String userName, String password) {
-        URL = url;
-        USER_NAME = userName;
-        PASSWORD = password;
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
 
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-             PreparedStatement defaultSchemaStatement = connection.prepareStatement(DEFAULT_SCHEMA_MIGRATION)) {
+    public MigrationHelper() {
+        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        try (PreparedStatement defaultSchemaStatement = connection.prepareStatement(DEFAULT_SCHEMA_MIGRATION)) {
             defaultSchemaStatement.executeUpdate();
             MigrationHelper.migrate(connection);
         } catch (Exception e) {

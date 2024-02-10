@@ -12,10 +12,12 @@
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_users" references="monitoring.users(id)"/>
             </column>
+            <column name="counter_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_counters" references="monitoring.counters(id)"/>
+            </column>
+
             <column name="date_time" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
-            <column name="heat" type="DOUBLE"/>
-            <column name="cold_water" type="DOUBLE"/>
-            <column name="hot_water" type="DOUBLE"/>
+            <column name="value" type="DOUBLE"/>
         </createTable>
 
         <addDefaultValue columnName="id"

@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Интерфейс действий с показаниями счетчиков
  */
-public interface GetUpdateIndications {
+public interface IndicationsRepository {
 
     /**
      * Добавление показаний
@@ -33,7 +33,7 @@ public interface GetUpdateIndications {
      */
     List<Indication> getAllIndications(User user);
 
-    Set<String> getListIndications();
+    Set<String> getListCounters();
 
-    void updateListIndications(String newNameIndication);
+    void updateListCounters(String newNameIndication);
 }

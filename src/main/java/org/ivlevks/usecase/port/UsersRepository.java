@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * Интерфейс действий с пользователями
  */
-public interface GetUpdateUsers {
+public interface UsersRepository {
 
     /**
      * Добавление пользователя

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-class UserRepositoryTest {
+class UserRepositoryImplTest {
     private static final String CREATE_SCHEMA = "CREATE SCHEMA IF NOT EXISTS monitoring";
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS monitoring.users (" +
             "id serial primary key," +
@@ -25,7 +25,7 @@ class UserRepositoryTest {
             "postgres:15-alpine");
     private User user;
     private Connection connection;
-    private UserRepository userRepository;
+    private UserRepositoryImpl userRepositoryImpl;
 
     @BeforeAll
     static void beforeAll() {
@@ -48,10 +48,7 @@ class UserRepositoryTest {
             throw new RuntimeException(e);
         }
         createPopulateUsersTable(connection);
-        userRepository = new UserRepository(
-                postgres.getJdbcUrl(),
-                postgres.getUsername(),
-                postgres.getPassword());
+        userRepositoryImpl = new UserRepositoryImpl();
     }
 
     public static void createPopulateUsersTable(Connection connection) {
@@ -85,30 +82,30 @@ class UserRepositoryTest {
     @Test
     void addUser() {
         user = new User("kostik", "ivlevks@yandex.ru" , "1234", false);
-        userRepository.addUser(user);
+        userRepositoryImpl.addUser(user);
 
-        List<User> users = userRepository.getAllUsers();
+        List<User> users = userRepositoryImpl.getAllUsers();
         Assertions.assertEquals(2, users.size());
     }
 
     @Test
     void getUser() {
-        Optional<User> user = userRepository.getUser("admin@yandex.ru");
+        Optional<User> user = userRepositoryImpl.getUser("admin@yandex.ru");
         Assertions.assertEquals("12345", user.get().getPassword());
     }
 
     @Test
     void getAllUsers() {
-        List<User> users = userRepository.getAllUsers();
+        List<User> users = userRepositoryImpl.getAllUsers();
         Assertions.assertEquals(1, users.size());
     }
 
     @Test
     void updateUser() {
         user = new User("admin", "admin@yandex.ru" , "12345", false);
-        userRepository.updateUser(user);
+        userRepositoryImpl.updateUser(user);
 
-        Optional<User> updatedUser = userRepository.getUser("admin@yandex.ru");
+        Optional<User> updatedUser = userRepositoryImpl.getUser("admin@yandex.ru");
         Assertions.assertEquals(false, updatedUser.get().isUserAdmin());
     }
 }

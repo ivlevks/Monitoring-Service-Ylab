@@ -1,7 +1,7 @@
 package org.ivlevks.usecase;
 
-import org.ivlevks.adapter.repository.jdbc.IndicationRepository;
-import org.ivlevks.adapter.repository.jdbc.UserRepository;
+import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
+import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.Audit;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
@@ -24,8 +24,8 @@ public class UseCaseIndications extends UseCase {
         super(dataProvider);
     }
 
-    public UseCaseIndications(UserRepository userRepository, IndicationRepository indicationRepository) {
-        super(userRepository, indicationRepository);
+    public UseCaseIndications(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
+        super(userRepositoryImpl, indicationRepositoryImpl);
     }
 
     /**
@@ -41,10 +41,10 @@ public class UseCaseIndications extends UseCase {
         }
 
         // получение последних актуальных показаний из хранилища и проверка на валидность
-        Optional<Indication> lastActualIndications = getUpdateIndications.getLastActualIndication(currentUser);
+        Optional<Indication> lastActualIndications = indicationsRepository.getLastActualIndication(currentUser);
         if (isIndicationValid(indications, lastActualIndications)) {
             HashMap<String, Double> resultIndications = getResultIndications(indications);
-            getUpdateIndications.addIndication(currentUser, new Indication(resultIndications));
+            indicationsRepository.addIndication(currentUser, new Indication(resultIndications));
             System.out.println("Показания введены");
             Audit.addInfoInAudit("Success insert indication " + currentUser.getEmail());
         } else {
@@ -153,7 +153,7 @@ public class UseCaseIndications extends UseCase {
      * @return показания, обернутые в Optional<>
      */
     public Optional<Indication> getLastActualIndicationUser() {
-        return getUpdateIndications.getLastActualIndication(currentUser);
+        return indicationsRepository.getLastActualIndication(currentUser);
     }
 
     /**
@@ -162,7 +162,7 @@ public class UseCaseIndications extends UseCase {
      * @return - список всех показаний
      */
     public List<Indication> getAllIndicationsUser() {
-        return getUpdateIndications.getAllIndications(currentUser);
+        return indicationsRepository.getAllIndications(currentUser);
     }
 
     /**
@@ -172,7 +172,7 @@ public class UseCaseIndications extends UseCase {
      * @return - список всех показаний
      */
     public List<Indication> getAllIndicationsUser(User user) {
-        return getUpdateIndications.getAllIndications(user);
+        return indicationsRepository.getAllIndications(user);
     }
 
     /**
@@ -181,7 +181,7 @@ public class UseCaseIndications extends UseCase {
      * @return перечень видов счетчиков
      */
     public Set<String> getNamesIndications() {
-        return getUpdateIndications.getListIndications();
+        return indicationsRepository.getListCounters();
     }
 
     /**
@@ -190,6 +190,6 @@ public class UseCaseIndications extends UseCase {
      * @param newNameIndication наименование нового вида счетчика
      */
     public void addNewNameIndication(String newNameIndication) {
-        getUpdateIndications.updateListIndications(newNameIndication);
+        indicationsRepository.updateListCounters(newNameIndication);
     }
 }
