@@ -33,11 +33,11 @@ public class UseCaseIndications extends UseCase {
      *
      * @param indications - хэшмап с перечнем показаний их их значениями
      */
-    public void addIndication(HashMap<String, String> indications) {
+    public boolean addIndication(HashMap<String, String> indications) {
         if (!isUserAuthorize()) {
             System.out.println("Ошибка, Вы не авторизованы!");
             Audit.addInfoInAudit("Failure insert indication");
-            return;
+            return false;
         }
 
         // получение последних актуальных показаний из хранилища и проверка на валидность
@@ -47,10 +47,12 @@ public class UseCaseIndications extends UseCase {
             indicationsRepository.addIndication(currentUser, new Indication(resultIndications));
             System.out.println("Показания введены");
             Audit.addInfoInAudit("Success insert indication " + currentUser.getEmail());
+            return true;
         } else {
             System.out.println("Ошибка, введенные данные не коррректны");
             Audit.addInfoInAudit("Incorrect insert indication");
         }
+        return false;
     }
 
     /**
