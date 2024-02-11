@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MonitoringService:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="" />
+    <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/ServletListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImplTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +42,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +80,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;hw3&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/konstantin/IdeaProjects/MonitoringService/src/main/resources/db/changelog&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/konstantin/IdeaProjects/yLabTasks&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,34 +112,16 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRepositoryImplTest2">
-    <configuration name="UserRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.15">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_jdbc_app.App" />
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
+          <option name="PATTERN" value="org.ivlevks.application.manual_jdbc_app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRepositoryImplTest.addUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryImplTest" />
-      <option name="METHOD_NAME" value="addUser" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,13 +174,117 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tomcat 10.1.15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.15" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="MonitoringService:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/MonitoringService_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="375f78e4-753d-42c9-8915-3b04cc18bdbd" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="32919" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="MonitoringService:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="JUnit.UserRepositoryImplTest.getAllUsers" />
+      <item itemvalue="JUnit.UserRepositoryImplTest.getUser" />
+      <item itemvalue="JUnit.UserRepositoryImplTest.updateUser" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.15" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserRepositoryImplTest2" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.UserRepositoryImplTest.updateUser" />
         <item itemvalue="JUnit.UserRepositoryImplTest.getAllUsers" />
         <item itemvalue="JUnit.UserRepositoryImplTest.getUser" />
-        <item itemvalue="JUnit.UserRepositoryImplTest.addUser" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +304,8 @@
       <workItem from="1706456468903" duration="343000" />
       <workItem from="1706463383283" duration="8761000" />
       <workItem from="1707574506315" duration="6981000" />
-      <workItem from="1707636751827" duration="3407000" />
+      <workItem from="1707636751827" duration="4032000" />
+      <workItem from="1707658310506" duration="3207000" />
     </task>
     <servers />
   </component>

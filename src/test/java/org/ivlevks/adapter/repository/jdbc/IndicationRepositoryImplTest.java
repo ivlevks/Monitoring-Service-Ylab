@@ -43,7 +43,7 @@ class IndicationRepositoryImplTest {
     void setUp() {
         connection = DriverManager.getConnection();
 
-        MigrationHelper migrationHelper = new MigrationHelper(connection);
+        MigrationHelper.migrate();
         indicationRepositoryImpl = new IndicationRepositoryImpl();
     }
 

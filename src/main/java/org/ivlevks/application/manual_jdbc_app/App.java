@@ -21,8 +21,7 @@ public class App {
     public static void main(String[] args) {
         Audit.addInfoInAudit("Start application");
 
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
-        MigrationHelper migrationHelper = new MigrationHelper(connection);
+        MigrationHelper.migrate();
 
         UserRepositoryImpl userRepositoryImpl = new UserRepositoryImpl();
         IndicationRepositoryImpl indicationRepositoryImpl = new IndicationRepositoryImpl();

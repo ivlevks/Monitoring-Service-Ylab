@@ -69,7 +69,7 @@ public class UseCaseUsers extends UseCase {
      * @param email email
      * @param password пароль
      */
-    public void auth(String email, String password) {
+    public boolean auth(String email, String password) {
         Optional<User> user = usersRepository.getUser(email);
         boolean resultAuth = user.map(value -> value.getPassword().equals(password)).orElse(false);
         if (resultAuth) {
@@ -89,6 +89,7 @@ public class UseCaseUsers extends UseCase {
             Audit.addInfoInAudit("Failure authorization with email " + email +
                     ", password " + password);
         }
+        return resultAuth;
     }
 
     /**

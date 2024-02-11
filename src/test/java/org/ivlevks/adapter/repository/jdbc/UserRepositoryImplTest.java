@@ -40,7 +40,7 @@ class UserRepositoryImplTest {
     void setUp() {
         connection = DriverManager.getConnection();
 
-        MigrationHelper migrationHelper = new MigrationHelper(connection);
+        MigrationHelper.migrate();
         userRepositoryImpl = new UserRepositoryImpl();
     }
 
