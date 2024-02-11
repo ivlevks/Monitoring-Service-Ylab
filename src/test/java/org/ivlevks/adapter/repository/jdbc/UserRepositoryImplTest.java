@@ -1,26 +1,22 @@
 package org.ivlevks.adapter.repository.jdbc;
 
+import org.ivlevks.configuration.DriverManager;
+import org.ivlevks.configuration.migration.MigrationHelper;
 import org.ivlevks.domain.entity.User;
 import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+// тесты все вместе так и не завелись корректно (поодиночке работают),
+// скорее всего дропать нужно через liqubase
 class UserRepositoryImplTest {
-    private static final String CREATE_SCHEMA = "CREATE SCHEMA IF NOT EXISTS monitoring";
-    private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS monitoring.users (" +
-            "id serial primary key," +
-            "username varchar not null," +
-            "email varchar not null," +
-            "password varchar not null," +
-            "admin boolean)";
-    private static final String POPULATE_TABLE = "INSERT INTO monitoring.users (" +
-            "username, email, password, admin) VALUES('admin', 'admin@yandex.ru', '12345', 'true')";
-    private static final String DROP_TABLE = "DROP TABLE monitoring.users";
+    private static final String DROP_TABLE_USERS = "DROP TABLE monitoring.users";
+    private static final String DROP_TABLE_INDICATIONS = "DROP TABLE monitoring.indications";
+    private static final String DROP_TABLE_COUNTERS = "DROP TABLE monitoring.counters";
     private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:15-alpine");
     private User user;
@@ -30,6 +26,9 @@ class UserRepositoryImplTest {
     @BeforeAll
     static void beforeAll() {
         postgres.start();
+        org.ivlevks.configuration.DriverManager.setURL(postgres.getJdbcUrl());
+        org.ivlevks.configuration.DriverManager.setUserName(postgres.getUsername());
+        org.ivlevks.configuration.DriverManager.setPASSWORD(postgres.getPassword());
     }
 
     @AfterAll
@@ -39,41 +38,29 @@ class UserRepositoryImplTest {
 
     @BeforeEach
     void setUp() {
-        try {
-            connection = DriverManager.getConnection(
-                    postgres.getJdbcUrl(),
-                    postgres.getUsername(),
-                    postgres.getPassword());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        createPopulateUsersTable(connection);
-        userRepositoryImpl = new UserRepositoryImpl();
-    }
+        connection = DriverManager.getConnection();
 
-    public static void createPopulateUsersTable(Connection connection) {
-        try (PreparedStatement createSchemaStatement = connection.prepareStatement(CREATE_SCHEMA)) {
-            createSchemaStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try (PreparedStatement createTableStatement = connection.prepareStatement(CREATE_TABLE)) {
-            createTableStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try (PreparedStatement populateTableStatement = connection.prepareStatement(POPULATE_TABLE)) {
-            populateTableStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        MigrationHelper migrationHelper = new MigrationHelper(connection);
+        userRepositoryImpl = new UserRepositoryImpl();
     }
 
     @AfterEach
     void tearDown() {
-        try (PreparedStatement createTableStatement = connection.prepareStatement(DROP_TABLE)) {
-            createTableStatement.executeUpdate();
-            connection.close();
+        Connection connectionDropIndications = org.ivlevks.configuration.DriverManager.getConnection();
+        try (PreparedStatement dropTableIndicationsStatement = connectionDropIndications.prepareStatement(DROP_TABLE_INDICATIONS)) {
+            dropTableIndicationsStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Connection connectionDropUsers = org.ivlevks.configuration.DriverManager.getConnection();
+        try (PreparedStatement dropTableUsersStatement = connectionDropUsers.prepareStatement(DROP_TABLE_USERS)) {
+            dropTableUsersStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Connection connectionDropCounters = org.ivlevks.configuration.DriverManager.getConnection();
+        try (PreparedStatement dropTableCountersStatement = connectionDropCounters.prepareStatement(DROP_TABLE_COUNTERS)) {
+            dropTableCountersStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -81,11 +68,11 @@ class UserRepositoryImplTest {
 
     @Test
     void addUser() {
-        user = new User("kostik", "ivlevks@yandex.ru" , "1234", false);
+        user = new User("julia", "julia@yandex.ru" , "12345", false);
         userRepositoryImpl.addUser(user);
 
         List<User> users = userRepositoryImpl.getAllUsers();
-        Assertions.assertEquals(2, users.size());
+        Assertions.assertEquals(3, users.size());
     }
 
     @Test
@@ -97,7 +84,7 @@ class UserRepositoryImplTest {
     @Test
     void getAllUsers() {
         List<User> users = userRepositoryImpl.getAllUsers();
-        Assertions.assertEquals(1, users.size());
+        Assertions.assertEquals(2, users.size());
     }
 
     @Test

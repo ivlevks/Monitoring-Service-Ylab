@@ -24,7 +24,7 @@ class IndicationRepositoryImplTest {
             "hot_water DOUBLE PRECISION)";
     private static final String POPULATE_TABLE = "INSERT INTO monitoring.indications (" +
             "user_id, heat, cold_water, hot_water) VALUES('1', '100', '100', '100')";
-    private static final String DROP_TABLE = "DROP TABLE monitoring.indications";
+    private static final String DROP_TABLE_INDICATIONS = "DROP TABLE monitoring.indications";
     private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:15-alpine");
     private Connection connection;
@@ -53,7 +53,7 @@ class IndicationRepositoryImplTest {
             throw new RuntimeException(e);
         }
         createPopulateUsersTable(connection);
-        indicationRepositoryImpl = new IndicationRepositoryImpl(connection);
+        indicationRepositoryImpl = new IndicationRepositoryImpl();
     }
 
     public static void createPopulateUsersTable(Connection connection) {
@@ -76,7 +76,7 @@ class IndicationRepositoryImplTest {
 
     @AfterEach
     void tearDown() {
-        try (PreparedStatement createTableStatement = connection.prepareStatement(DROP_TABLE)) {
+        try (PreparedStatement createTableStatement = connection.prepareStatement(DROP_TABLE_INDICATIONS)) {
             createTableStatement.executeUpdate();
             connection.close();
         } catch (Exception e) {
