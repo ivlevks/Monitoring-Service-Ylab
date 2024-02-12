@@ -10,15 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto/IndicationDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/mappers/IndicationsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/mappers/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/AddCounterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndicationsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/GetLastActualIndicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/GetMonthIndicationsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/InsertIndicationsServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/LoginServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/LogoutServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/ServletListenerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/SignUpServletTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetLastActualIndication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetLastActualIndication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetMonthIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetMonthIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +31,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -68,30 +70,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "OverrideImplement.generate.javadoc": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "hw3",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService/src/main/java/org/ivlevks/domain/dto",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hw3&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/konstantin/IdeaProjects/MonitoringService/src/main/java/org/ivlevks/domain/dto&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto" />
@@ -101,6 +103,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.ivlevks.adapter.controller.servlets" />
       <recent name="org.ivlevks.application.dataproviders.repositories" />
       <recent name="org.ivlevks.application.core.usecase" />
     </key>
@@ -113,64 +116,64 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.15">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.application.manual_jdbc_app.App" />
+  <component name="RunManager" selected="JUnit.AddCounterTest">
+    <configuration name="AddCounterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.application.manual_jdbc_app.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.controller.servlets.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.controller.servlets" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.controller.servlets.AddCounterTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRepositoryImplTest.getAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddCounterTest.doPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
+          <option name="PATTERN" value="org.ivlevks.adapter.controller.servlets.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryImplTest" />
-      <option name="METHOD_NAME" value="getAllUsers" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.controller.servlets" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.controller.servlets.AddCounterTest" />
+      <option name="METHOD_NAME" value="doPost" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRepositoryImplTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UseCaseIndicationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryImplTest" />
-      <option name="METHOD_NAME" value="getUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseIndicationsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRepositoryImplTest.updateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UseCaseUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.repository.jdbc.*" />
+          <option name="PATTERN" value="org.ivlevks.usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.repository.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.repository.jdbc.UserRepositoryImplTest" />
-      <option name="METHOD_NAME" value="updateUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="org.ivlevks.usecase" />
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.usecase.UseCaseUsersTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -272,20 +275,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.App" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="JUnit.UserRepositoryImplTest.getAllUsers" />
-      <item itemvalue="JUnit.UserRepositoryImplTest.getUser" />
-      <item itemvalue="JUnit.UserRepositoryImplTest.updateUser" />
+      <item itemvalue="JUnit.AddCounterTest" />
+      <item itemvalue="JUnit.AddCounterTest.doPost" />
+      <item itemvalue="JUnit.UseCaseIndicationsTest" />
+      <item itemvalue="JUnit.UseCaseUsersTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.15" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AddCounterTest" />
+        <item itemvalue="JUnit.AddCounterTest.doPost" />
+        <item itemvalue="JUnit.UseCaseUsersTest" />
+        <item itemvalue="JUnit.UseCaseIndicationsTest" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.UserRepositoryImplTest.updateUser" />
-        <item itemvalue="JUnit.UserRepositoryImplTest.getAllUsers" />
-        <item itemvalue="JUnit.UserRepositoryImplTest.getUser" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +310,8 @@
       <workItem from="1707574506315" duration="6981000" />
       <workItem from="1707636751827" duration="4032000" />
       <workItem from="1707658310506" duration="8548000" />
-      <workItem from="1707758369470" duration="4495000" />
+      <workItem from="1707758369470" duration="5032000" />
+      <workItem from="1707763557942" duration="3961000" />
     </task>
     <servers />
   </component>

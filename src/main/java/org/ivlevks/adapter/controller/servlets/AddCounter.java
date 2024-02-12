@@ -15,7 +15,7 @@ import org.ivlevks.usecase.UseCaseUsers;
 import java.io.IOException;
 
 /**
- * Сервлет отвечающий за доавление нового счетчика
+ * Сервлет отвечающий за добавлении нового счетчика
  */
 @WebServlet("/add_counter")
 public class AddCounter extends HttpServlet {
