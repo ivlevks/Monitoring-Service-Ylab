@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.usecase.UseCaseIndications;
 import java.io.IOException;
 import java.util.Map;
@@ -46,9 +47,7 @@ public class GetMonthIndications extends HttpServlet {
         Optional<Indication> indication = useCaseIndications.getMonthIndicationsUser(year, month);
         if (indication.isEmpty()) resp.getWriter().write("Показания отсутствуют");
 
-        for (Map.Entry<String, Double> entry : indication.get().getIndications().entrySet()) {
-            resp.getOutputStream().write(objectMapper.writeValueAsBytes(entry));
-        }
+        resp.getOutputStream().write(objectMapper.writeValueAsBytes(IndicationsMapper.INSTANCE.toIndicationDto(indication.get())));
         resp.setContentType("application/json");
     }
 }

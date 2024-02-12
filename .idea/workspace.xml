@@ -10,18 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetMonthIndications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto/IndicationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/mappers/IndicationsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/mappers/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/console/in/ConsoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/console/in/ConsoleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetLastActualIndication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetLastActualIndication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/InsertIndicationsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/InsertIndicationsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LogoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/ServletListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/ServletListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/SignUpServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/SignUpServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetMonthIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetMonthIndications.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +28,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit4 Test Class" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -83,7 +80,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "hw3",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService",
+    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService/src/main/java/org/ivlevks/domain/dto",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,6 +94,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/changelog" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -309,7 +307,7 @@
       <workItem from="1707574506315" duration="6981000" />
       <workItem from="1707636751827" duration="4032000" />
       <workItem from="1707658310506" duration="8548000" />
-      <workItem from="1707758369470" duration="2897000" />
+      <workItem from="1707758369470" duration="4495000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,7 @@ import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
+import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.usecase.UseCaseIndications;
 import org.ivlevks.usecase.UseCaseUsers;
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class GetHistoryIndications extends HttpServlet {
         if (allIndicationsUser.isEmpty()) resp.getWriter().write("История показаний отсутствует");
 
         for (Indication indication : allIndicationsUser) {
-            resp.getOutputStream().write(objectMapper.writeValueAsBytes(indication));
+            resp.getOutputStream().write(objectMapper.writeValueAsBytes(IndicationsMapper.INSTANCE.toIndicationDto(indication)));
         }
         resp.setContentType("application/json");
     }

@@ -2,6 +2,7 @@ package org.ivlevks.adapter.controller.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.domain.entity.Indication;
+import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.usecase.UseCaseIndications;
 import java.io.IOException;
 import java.util.Map;
@@ -26,6 +28,7 @@ public class GetLastActualIndication extends HttpServlet {
     public GetLastActualIndication() {
         this.objectMapper = new ObjectMapper();
         this.objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        this.objectMapper.registerModule(new JavaTimeModule());
         this.useCaseIndications = new UseCaseIndications(new UserRepositoryImpl(), new IndicationRepositoryImpl());
     }
 
@@ -42,9 +45,7 @@ public class GetLastActualIndication extends HttpServlet {
 
         if (lastActualIndication.isEmpty()) resp.getWriter().write("Актуальные показания отсутствуют");
 
-        for (Map.Entry<String, Double> entry : lastActualIndication.get().getIndications().entrySet()) {
-            resp.getOutputStream().write(objectMapper.writeValueAsBytes(entry));
-        }
+        resp.getOutputStream().write(objectMapper.writeValueAsBytes(IndicationsMapper.INSTANCE.toIndicationDto(lastActualIndication.get())));
         resp.setContentType("application/json");
     }
 }
