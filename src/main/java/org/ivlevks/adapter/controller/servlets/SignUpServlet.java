@@ -12,6 +12,9 @@ import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.usecase.UseCaseUsers;
 import java.io.IOException;
 
+/**
+ * Сервлет отвечающий за регистрацию пользователя
+ */
 @WebServlet("/signup")
 public class SignUpServlet extends HttpServlet {
     private final ObjectMapper objectMapper;
@@ -24,6 +27,7 @@ public class SignUpServlet extends HttpServlet {
     }
 
     /**
+     * Регистрация нового пользователя
      * @param req 
      * @param resp
      * @throws ServletException

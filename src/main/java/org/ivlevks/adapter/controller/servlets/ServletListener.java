@@ -5,9 +5,14 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import org.ivlevks.configuration.migration.MigrationHelper;
 
+/**
+ * Сервлет, запускающийся перед запуском приложения
+ * Накатываем миграции, перед обращением к какому-либо сервлету
+ */
 @WebListener
 public class ServletListener implements ServletContextListener {
     /**
+     * Инициализация контекста сервлетов
      * @param sce 
      */
     @Override

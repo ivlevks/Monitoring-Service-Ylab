@@ -12,6 +12,9 @@ import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.usecase.UseCaseUsers;
 import java.io.IOException;
 
+/**
+ * Сервлет отвечающий за выход пользователя из системы
+ */
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
     private final ObjectMapper objectMapper;
@@ -24,6 +27,7 @@ public class LogoutServlet extends HttpServlet {
     }
 
     /**
+     * Выход пользователя из системы
      * @param req
      * @param resp
      * @throws ServletException

@@ -110,16 +110,13 @@ public class ConsoleHandler {
                 int month = Integer.parseInt(scanner.nextLine());
 
                 System.out.println("Показания на " + month + " месяц " + year + " года:");
-                for (Indication indication : useCaseIndications.getAllIndicationsUser()) {
-                    if (indication.getDateTime().getYear() == year &&
-                            indication.getDateTime().getMonthValue() == month) {
-                        for (Map.Entry<String, Double> entry : indication.getIndications().entrySet()) {
-                            System.out.println(entry.getKey() + "   " + entry.getValue());
-                        }
-                    } else {
-                        System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
+                Optional<Indication> result = useCaseIndications.getMonthIndicationsUser(year, month);
+                if (result.isEmpty()) {
+                    System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
+                } else {
+                    for (Map.Entry<String, Double> entry : result.get().getIndications().entrySet()) {
+                        System.out.println(entry.getKey() + "   " + entry.getValue());
                     }
-                    System.out.println();
                 }
             }
 

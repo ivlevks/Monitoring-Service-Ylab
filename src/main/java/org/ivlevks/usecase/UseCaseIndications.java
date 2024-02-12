@@ -194,4 +194,24 @@ public class UseCaseIndications extends UseCase {
     public void addNewNameIndication(String newNameIndication) {
         indicationsRepository.updateListCounters(newNameIndication);
     }
+
+    /**
+     * Получение показаний за определенный месяц
+     * @param year - год
+     * @param month - месяц
+     * @return - показания
+     */
+    public Optional<Indication> getMonthIndicationsUser(int year, int month) {
+        Optional<Indication> result = null;
+        for (Indication indication : getAllIndicationsUser()) {
+            if (indication.getDateTime().getYear() == year &&
+                    indication.getDateTime().getMonthValue() == month) {
+                result = Optional.of(indication);
+            } else {
+                System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
+            }
+            System.out.println();
+        }
+        return result;
+    }
 }

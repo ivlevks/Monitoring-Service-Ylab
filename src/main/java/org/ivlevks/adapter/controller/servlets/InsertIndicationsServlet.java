@@ -13,6 +13,9 @@ import org.ivlevks.usecase.UseCaseIndications;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * Сервлет отвечающий за добавление новых показаний
+ */
 @WebServlet("/insert_indications")
 public class InsertIndicationsServlet extends HttpServlet {
     private final ObjectMapper objectMapper;
@@ -25,6 +28,7 @@ public class InsertIndicationsServlet extends HttpServlet {
     }
 
     /**
+     * Добавление показаний
      * @param req 
      * @param resp
      * @throws ServletException
