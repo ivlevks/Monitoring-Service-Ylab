@@ -1,5 +1,6 @@
 package org.ivlevks.usecase;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
 import org.ivlevks.usecase.port.IndicationsRepository;
@@ -10,6 +11,7 @@ import org.ivlevks.usecase.port.UsersRepository;
  * хранит в себе ссылку на авторизованного пользователя
  * и перечень изначальных видов счетчиков - 3 шт.
  */
+@Loggable
 public class UseCase {
     static User currentUser;
     final UsersRepository usersRepository;

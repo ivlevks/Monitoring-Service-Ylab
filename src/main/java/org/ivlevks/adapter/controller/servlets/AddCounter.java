@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.usecase.UseCaseIndications;
 import org.ivlevks.usecase.UseCaseUsers;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.io.IOException;
 /**
  * Сервлет отвечающий за добавлении нового счетчика
  */
+@Loggable
 @WebServlet("/add_counter")
 public class AddCounter extends HttpServlet {
     private final ObjectMapper objectMapper;

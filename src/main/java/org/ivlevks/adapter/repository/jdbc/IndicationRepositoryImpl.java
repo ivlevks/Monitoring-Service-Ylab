@@ -1,6 +1,7 @@
 package org.ivlevks.adapter.repository.jdbc;
 
 import org.ivlevks.configuration.DateTimeHelper;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.usecase.port.IndicationsRepository;
@@ -31,6 +32,7 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
      * @param user       - пользователь, которому добавляются показания
      * @param indication - класс показаний
      */
+    @Loggable
     @Override
     public void addIndication(User user, Indication indication) {
         Connection connection = org.ivlevks.configuration.DriverManager.getConnection();

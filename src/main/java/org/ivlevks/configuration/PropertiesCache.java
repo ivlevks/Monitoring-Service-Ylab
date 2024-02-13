@@ -1,10 +1,13 @@
 package org.ivlevks.configuration;
 
+import org.ivlevks.configuration.annotations.Loggable;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 
+@Loggable
 public class PropertiesCache {
     private final Properties configProp = new Properties();
     private static final PropertiesCache INSTANCE = new PropertiesCache();

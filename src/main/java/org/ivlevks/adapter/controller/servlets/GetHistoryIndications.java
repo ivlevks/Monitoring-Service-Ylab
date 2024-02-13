@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.IndicationsMapper;
@@ -23,6 +24,7 @@ import java.util.Optional;
 /**
  * Сервлет отвечающий за выведение истории показаний пользователя
  */
+@Loggable
 @WebServlet("/get_history_indications")
 public class GetHistoryIndications extends HttpServlet {
     private final ObjectMapper objectMapper;

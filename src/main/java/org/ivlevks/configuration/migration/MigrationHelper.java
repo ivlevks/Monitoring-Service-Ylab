@@ -8,10 +8,12 @@ import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.ivlevks.configuration.DriverManager;
 import org.ivlevks.configuration.PropertiesCache;
+import org.ivlevks.configuration.annotations.Loggable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+@Loggable
 public class MigrationHelper {
 
     private static final String DEFAULT_SCHEMA_NAME = PropertiesCache.getInstance().getProperty("default-schema-name");

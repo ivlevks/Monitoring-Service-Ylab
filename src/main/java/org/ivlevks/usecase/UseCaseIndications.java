@@ -3,6 +3,7 @@ package org.ivlevks.usecase;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.Audit;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
@@ -13,6 +14,7 @@ import java.util.*;
 /**
  * Подкласс реализации логики в части показаний
  */
+@Loggable
 public class UseCaseIndications extends UseCase {
 
     /**

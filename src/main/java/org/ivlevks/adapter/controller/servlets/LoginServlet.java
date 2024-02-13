@@ -9,12 +9,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.usecase.UseCaseUsers;
 import java.io.IOException;
 
 /**
  * Сервлет отвечающий за авторизацию пользователя
  */
+@Loggable
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private final ObjectMapper objectMapper;

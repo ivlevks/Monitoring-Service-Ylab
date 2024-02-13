@@ -10,17 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/AddCounterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndicationsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/GetLastActualIndicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/GetMonthIndicationsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/InsertIndicationsServletTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/LoginServletTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/LogoutServletTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/ServletListenerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/controller/servlets/SignUpServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/annotations/Loggable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/aspect/LoggableAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +29,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -116,7 +115,7 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AddCounterTest">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.15">
     <configuration name="AddCounterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonitoringService" />
       <extension name="coverage">
@@ -284,11 +283,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="JUnit.AddCounterTest" />
         <item itemvalue="JUnit.AddCounterTest.doPost" />
         <item itemvalue="JUnit.UseCaseUsersTest" />
         <item itemvalue="JUnit.UseCaseIndicationsTest" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -311,7 +310,8 @@
       <workItem from="1707636751827" duration="4032000" />
       <workItem from="1707658310506" duration="8548000" />
       <workItem from="1707758369470" duration="5032000" />
-      <workItem from="1707763557942" duration="3961000" />
+      <workItem from="1707763557942" duration="4783000" />
+      <workItem from="1707848829123" duration="2723000" />
     </task>
     <servers />
   </component>

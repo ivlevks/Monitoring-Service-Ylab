@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.usecase.UseCaseIndications;
@@ -20,6 +21,7 @@ import java.util.Optional;
 /**
  * Сервлет отвечающий за получение показаний за определенный месяц
  */
+@Loggable
 @WebServlet("/get_month_indications")
 public class GetMonthIndications extends HttpServlet {
     private final ObjectMapper objectMapper;

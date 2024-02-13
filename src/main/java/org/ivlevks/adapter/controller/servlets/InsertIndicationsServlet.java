@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.usecase.UseCaseIndications;
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 /**
  * Сервлет отвечающий за добавление новых показаний
  */
+@Loggable
 @WebServlet("/insert_indications")
 public class InsertIndicationsServlet extends HttpServlet {
     private final ObjectMapper objectMapper;

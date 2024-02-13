@@ -3,6 +3,7 @@ package org.ivlevks.usecase;
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.Audit;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
 import org.ivlevks.adapter.controller.console.in.ConsoleHandler;
@@ -12,6 +13,7 @@ import java.util.regex.Pattern;
 /**
  * Подкласс реализации логики в части работы с пользователями
  */
+@Loggable
 public class UseCaseUsers extends UseCase {
 
     /**
