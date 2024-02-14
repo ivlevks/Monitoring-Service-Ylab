@@ -1,8 +1,9 @@
 package org.ivlevks.usecase;
 
-import org.ivlevks.adapter.repository.jdbc.IndicationRepository;
-import org.ivlevks.adapter.repository.jdbc.UserRepository;
+import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
+import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.Audit;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
 import org.ivlevks.adapter.controller.console.in.ConsoleHandler;
@@ -12,6 +13,7 @@ import java.util.regex.Pattern;
 /**
  * Подкласс реализации логики в части работы с пользователями
  */
+@Loggable
 public class UseCaseUsers extends UseCase {
 
     /**
@@ -22,8 +24,8 @@ public class UseCaseUsers extends UseCase {
         super(dataProvider);
     }
 
-    public UseCaseUsers(UserRepository userRepository, IndicationRepository indicationRepository) {
-        super(userRepository, indicationRepository);
+    public UseCaseUsers(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
+        super(userRepositoryImpl, indicationRepositoryImpl);
     }
 
     /**
@@ -33,23 +35,26 @@ public class UseCaseUsers extends UseCase {
      * @param password пароль
      * @param isAdmin является ли пользователь админом
      */
-    public void registry(String name, String email, String password, Boolean isAdmin) {
+    public boolean registry(String name, String email, String password, Boolean isAdmin) {
         if (isInputDataValid(name, email, password)) {
-            Optional<User> user = getUpdateUsers.getUser(email);
+            Optional<User> user = usersRepository.getUser(email);
             if (user.isPresent()) {
                 ConsoleHandler.typeInConsole("Ошибка регистрации, " +
                         "такой пользователь уже существует");
+
             } else {
                 User newUser = new User(name, email, password, isAdmin);
-                getUpdateUsers.addUser(newUser);
+                usersRepository.addUser(newUser);
                 ConsoleHandler.typeInConsole("Регистрация прошла успешно");
                 Audit.addInfoInAudit("User " + name + ", email " + email +
                         ", password " + password + " registry in system");
+                return true;
             }
         } else {
             ConsoleHandler.typeInConsole("Ошибка регистрации, " +
                     "введенные данные не валидны!");
         }
+        return false;
     }
 
     /**
@@ -69,8 +74,8 @@ public class UseCaseUsers extends UseCase {
      * @param email email
      * @param password пароль
      */
-    public void auth(String email, String password) {
-        Optional<User> user = getUpdateUsers.getUser(email);
+    public boolean auth(String email, String password) {
+        Optional<User> user = usersRepository.getUser(email);
         boolean resultAuth = user.map(value -> value.getPassword().equals(password)).orElse(false);
         if (resultAuth) {
             setCurrentUser(user.get());
@@ -89,6 +94,7 @@ public class UseCaseUsers extends UseCase {
             Audit.addInfoInAudit("Failure authorization with email " + email +
                     ", password " + password);
         }
+        return resultAuth;
     }
 
     /**
@@ -97,7 +103,7 @@ public class UseCaseUsers extends UseCase {
      * @return возвращает пользователя, обернутого в Optional<>
      */
     public Optional<User> findUserByEmail(String email) {
-        return getUpdateUsers.getUser(email);
+        return usersRepository.getUser(email);
     }
 
     /**
@@ -107,7 +113,7 @@ public class UseCaseUsers extends UseCase {
      */
     public void setAccessUser(User user, boolean isUserAdmin) {
         user.setUserAdmin(isUserAdmin);
-        getUpdateUsers.updateUser(user);
+        usersRepository.updateUser(user);
     }
 
     /**

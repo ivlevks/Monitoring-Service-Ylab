@@ -14,5 +14,11 @@
                          schemaName="monitoring"
                          sequenceName="seq_id_indications"
                          startValue="1"/>
+
+        <createSequence  dataType="BIGINT"
+                         incrementBy="1"
+                         schemaName="monitoring"
+                         sequenceName="seq_id_counters"
+                         startValue="1"/>
     </changeSet>
 </databaseChangeLog>

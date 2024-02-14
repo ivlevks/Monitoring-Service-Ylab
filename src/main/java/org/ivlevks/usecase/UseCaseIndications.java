@@ -1,8 +1,9 @@
 package org.ivlevks.usecase;
 
-import org.ivlevks.adapter.repository.jdbc.IndicationRepository;
-import org.ivlevks.adapter.repository.jdbc.UserRepository;
+import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
+import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.Audit;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
@@ -13,6 +14,7 @@ import java.util.*;
 /**
  * Подкласс реализации логики в части показаний
  */
+@Loggable
 public class UseCaseIndications extends UseCase {
 
     /**
@@ -24,8 +26,8 @@ public class UseCaseIndications extends UseCase {
         super(dataProvider);
     }
 
-    public UseCaseIndications(UserRepository userRepository, IndicationRepository indicationRepository) {
-        super(userRepository, indicationRepository);
+    public UseCaseIndications(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
+        super(userRepositoryImpl, indicationRepositoryImpl);
     }
 
     /**
@@ -33,24 +35,26 @@ public class UseCaseIndications extends UseCase {
      *
      * @param indications - хэшмап с перечнем показаний их их значениями
      */
-    public void addIndication(HashMap<String, String> indications) {
+    public boolean addIndication(HashMap<String, String> indications) {
         if (!isUserAuthorize()) {
             System.out.println("Ошибка, Вы не авторизованы!");
             Audit.addInfoInAudit("Failure insert indication");
-            return;
+            return false;
         }
 
         // получение последних актуальных показаний из хранилища и проверка на валидность
-        Optional<Indication> lastActualIndications = getUpdateIndications.getLastActualIndication(currentUser);
+        Optional<Indication> lastActualIndications = indicationsRepository.getLastActualIndication(currentUser);
         if (isIndicationValid(indications, lastActualIndications)) {
             HashMap<String, Double> resultIndications = getResultIndications(indications);
-            getUpdateIndications.addIndication(currentUser, new Indication(resultIndications));
+            indicationsRepository.addIndication(currentUser, new Indication(resultIndications));
             System.out.println("Показания введены");
             Audit.addInfoInAudit("Success insert indication " + currentUser.getEmail());
+            return true;
         } else {
             System.out.println("Ошибка, введенные данные не коррректны");
             Audit.addInfoInAudit("Incorrect insert indication");
         }
+        return false;
     }
 
     /**
@@ -153,7 +157,7 @@ public class UseCaseIndications extends UseCase {
      * @return показания, обернутые в Optional<>
      */
     public Optional<Indication> getLastActualIndicationUser() {
-        return getUpdateIndications.getLastActualIndication(currentUser);
+        return indicationsRepository.getLastActualIndication(currentUser);
     }
 
     /**
@@ -162,7 +166,7 @@ public class UseCaseIndications extends UseCase {
      * @return - список всех показаний
      */
     public List<Indication> getAllIndicationsUser() {
-        return getUpdateIndications.getAllIndications(currentUser);
+        return indicationsRepository.getAllIndications(currentUser);
     }
 
     /**
@@ -172,7 +176,7 @@ public class UseCaseIndications extends UseCase {
      * @return - список всех показаний
      */
     public List<Indication> getAllIndicationsUser(User user) {
-        return getUpdateIndications.getAllIndications(user);
+        return indicationsRepository.getAllIndications(user);
     }
 
     /**
@@ -181,7 +185,7 @@ public class UseCaseIndications extends UseCase {
      * @return перечень видов счетчиков
      */
     public Set<String> getNamesIndications() {
-        return getUpdateIndications.getListIndications();
+        return indicationsRepository.getListCounters();
     }
 
     /**
@@ -190,6 +194,26 @@ public class UseCaseIndications extends UseCase {
      * @param newNameIndication наименование нового вида счетчика
      */
     public void addNewNameIndication(String newNameIndication) {
-        getUpdateIndications.updateListIndications(newNameIndication);
+        indicationsRepository.updateListCounters(newNameIndication);
+    }
+
+    /**
+     * Получение показаний за определенный месяц
+     * @param year - год
+     * @param month - месяц
+     * @return - показания
+     */
+    public Optional<Indication> getMonthIndicationsUser(int year, int month) {
+        Optional<Indication> result = null;
+        for (Indication indication : getAllIndicationsUser()) {
+            if (indication.getDateTime().getYear() == year &&
+                    indication.getDateTime().getMonthValue() == month) {
+                result = Optional.of(indication);
+            } else {
+                System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
+            }
+            System.out.println();
+        }
+        return result;
     }
 }

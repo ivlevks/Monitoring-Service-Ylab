@@ -17,6 +17,9 @@ public class Indication {
         this.indications = indications;
     }
 
+    public Indication() {
+    }
+
     public Indication(LocalDateTime dateTime, HashMap<String, Double> indications) {
         this.dateTime = dateTime;
         this.indications = indications;

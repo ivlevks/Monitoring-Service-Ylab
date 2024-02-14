@@ -1,11 +1,10 @@
 package org.ivlevks.adapter.repository.jdbc;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.usecase.port.GetUpdateUsers;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import org.ivlevks.usecase.port.UsersRepository;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -13,21 +12,14 @@ import java.util.Optional;
 /**
  * Имплементация интерфейса хранения пользователей через JDBC
  */
-public class UserRepository implements GetUpdateUsers {
+@Loggable
+public class UserRepositoryImpl implements UsersRepository {
     private static final String USER_GET = "SELECT * FROM monitoring.users WHERE email = ?";
     private static final String USER_ADD = "INSERT INTO monitoring.users (username, email," +
             " password, admin) VALUES (?, ?, ?, ?)";
     private static final String USER_UPDATE = "UPDATE monitoring.users SET admin = ? WHERE email = ?";
     private static final String USER_GET_ALL = "SELECT * FROM monitoring.users";
-    private final String URL;
-    private final String USER_NAME;
-    private final String PASSWORD;
 
-    public UserRepository(String URL, String USER_NAME, String PASSWORD) {
-        this.URL = URL;
-        this.USER_NAME = USER_NAME;
-        this.PASSWORD = PASSWORD;
-    }
 
     /**
      * Добавление пользователя
@@ -35,8 +27,9 @@ public class UserRepository implements GetUpdateUsers {
      */
     @Override
     public void addUser(User user) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-             PreparedStatement addUserStatement = connection.prepareStatement(USER_ADD)) {
+        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+
+        try (PreparedStatement addUserStatement = connection.prepareStatement(USER_ADD)) {
             addUserStatement.setString(1, user.getName());
             addUserStatement.setString(2, user.getEmail());
             addUserStatement.setString(3, user.getPassword());
@@ -55,9 +48,9 @@ public class UserRepository implements GetUpdateUsers {
     @Override
     public Optional<User> getUser(String email) {
         User user = null;
+        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
 
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-             PreparedStatement getUserStatement = connection.prepareStatement(USER_GET)) {
+        try (PreparedStatement getUserStatement = connection.prepareStatement(USER_GET)) {
             getUserStatement.setString(1, email);
             ResultSet resultSet = getUserStatement.executeQuery();
 
@@ -82,9 +75,9 @@ public class UserRepository implements GetUpdateUsers {
     @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
+        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
 
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-             PreparedStatement getUserStatement = connection.prepareStatement(USER_GET_ALL)) {
+        try (PreparedStatement getUserStatement = connection.prepareStatement(USER_GET_ALL)) {
             ResultSet resultSet = getUserStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -106,8 +99,9 @@ public class UserRepository implements GetUpdateUsers {
      */
     @Override
     public void updateUser(User user) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-             PreparedStatement userUpdateDataStatement = connection.prepareStatement(USER_UPDATE)) {
+        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+
+        try (PreparedStatement userUpdateDataStatement = connection.prepareStatement(USER_UPDATE)) {
             userUpdateDataStatement.setBoolean(1, user.isUserAdmin());
             userUpdateDataStatement.setString(2, user.getEmail());
             userUpdateDataStatement.executeUpdate();

@@ -1,13 +1,16 @@
 package org.ivlevks.configuration;
 
+import org.ivlevks.configuration.annotations.Loggable;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Класс для перевода Timestamp из базы в LocalDateTime
  */
+@Loggable
 public class DateTimeHelper {
-    final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.[SSSSSS][SSSSS][SSSS]");
+    private final static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.[SSSSSS][SSSSS][SSSS]");
 
     /**
      * Перевод Timestamp из базы в LocalDateTime
@@ -15,6 +18,6 @@ public class DateTimeHelper {
      * @return форматированное время
      */
     public static LocalDateTime getDateTime(String dateTime) {
-        return LocalDateTime.parse(dateTime, formatter);
+        return LocalDateTime.parse(dateTime, FORMATTER);
     }
 }

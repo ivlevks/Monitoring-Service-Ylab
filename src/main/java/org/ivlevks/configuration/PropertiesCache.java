@@ -1,12 +1,16 @@
 package org.ivlevks.configuration;
 
+import org.ivlevks.configuration.annotations.Loggable;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 
+@Loggable
 public class PropertiesCache {
     private final Properties configProp = new Properties();
+    private static final PropertiesCache INSTANCE = new PropertiesCache();
 
     private PropertiesCache()
     {
@@ -18,14 +22,9 @@ public class PropertiesCache {
         }
     }
 
-    private static class LazyHolder
-    {
-        private static final PropertiesCache INSTANCE = new PropertiesCache();
-    }
-
     public static PropertiesCache getInstance()
     {
-        return LazyHolder.INSTANCE;
+        return INSTANCE;
     }
 
     public String getProperty(String key){

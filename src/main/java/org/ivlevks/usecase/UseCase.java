@@ -1,32 +1,32 @@
 package org.ivlevks.usecase;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
-import org.ivlevks.usecase.port.GetUpdateIndications;
-import org.ivlevks.usecase.port.GetUpdateUsers;
-
-import java.util.*;
+import org.ivlevks.usecase.port.IndicationsRepository;
+import org.ivlevks.usecase.port.UsersRepository;
 
 /**
  * Родительский класс логики действий с пользователями и показаниями
  * хранит в себе ссылку на авторизованного пользователя
  * и перечень изначальных видов счетчиков - 3 шт.
  */
+@Loggable
 public class UseCase {
     static User currentUser;
-    final GetUpdateUsers getUpdateUsers;
-    final GetUpdateIndications getUpdateIndications;
+    final UsersRepository usersRepository;
+    final IndicationsRepository indicationsRepository;
     String regexPatternEmail = "^(.+)@(\\S+)$";
 
     /**
      * Конструктор, инициализирует начальный перечень видов показаний
      * счетчиков в количестве 3 шт.
      * для jdbc реализации
-     * @param getUpdateUsers, getUpdateIndications - реализации подключения к хранилищу данных
+     * @param usersRepository, getUpdateIndications - реализации подключения к хранилищу данных
      */
-    public UseCase(GetUpdateUsers getUpdateUsers, GetUpdateIndications getUpdateIndications) {
-        this.getUpdateUsers = getUpdateUsers;
-        this.getUpdateIndications = getUpdateIndications;
+    public UseCase(UsersRepository usersRepository, IndicationsRepository indicationsRepository) {
+        this.usersRepository = usersRepository;
+        this.indicationsRepository = indicationsRepository;
     }
 
     /**
@@ -36,8 +36,8 @@ public class UseCase {
      * @param dataProvider
      */
     public UseCase(InMemoryDataProvider dataProvider) {
-        this.getUpdateUsers = dataProvider;
-        this.getUpdateIndications = dataProvider;
+        this.usersRepository = dataProvider;
+        this.indicationsRepository = dataProvider;
     }
 
     /**
