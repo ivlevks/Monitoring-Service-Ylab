@@ -1,11 +1,13 @@
 package org.ivlevks.configuration;
 
 import org.ivlevks.configuration.annotations.Loggable;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 @Loggable
+@Component
 public class DriverManager {
     private static String URL = PropertiesCache.getInstance().getProperty("URL");
     private static String USER_NAME = PropertiesCache.getInstance().getProperty("username");

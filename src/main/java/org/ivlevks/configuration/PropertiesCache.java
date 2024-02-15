@@ -1,6 +1,7 @@
 package org.ivlevks.configuration;
 
 import org.ivlevks.configuration.annotations.Loggable;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +9,7 @@ import java.util.Properties;
 import java.util.Set;
 
 @Loggable
+@Component
 public class PropertiesCache {
     private final Properties configProp = new Properties();
     private static final PropertiesCache INSTANCE = new PropertiesCache();

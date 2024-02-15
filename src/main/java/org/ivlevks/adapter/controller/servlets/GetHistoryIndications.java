@@ -16,6 +16,8 @@ import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.usecase.UseCaseIndications;
 import org.ivlevks.usecase.UseCaseUsers;
+import org.springframework.stereotype.Controller;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ import java.util.Optional;
  */
 @Loggable
 @WebServlet("/get_history_indications")
+@Controller
 public class GetHistoryIndications extends HttpServlet {
     private final ObjectMapper objectMapper;
     private final UseCaseIndications useCaseIndications;

@@ -11,6 +11,8 @@ import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.usecase.UseCaseUsers;
+import org.springframework.stereotype.Controller;
+
 import java.io.IOException;
 
 /**
@@ -18,6 +20,7 @@ import java.io.IOException;
  */
 @Loggable
 @WebServlet("/login")
+@Controller
 public class LoginServlet extends HttpServlet {
     private final ObjectMapper objectMapper;
     private final UseCaseUsers useCaseUsers;

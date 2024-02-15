@@ -3,6 +3,7 @@ package org.ivlevks.adapter.repository.jdbc;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.usecase.port.UsersRepository;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Optional;
  * Имплементация интерфейса хранения пользователей через JDBC
  */
 @Loggable
+@Repository
 public class UserRepositoryImpl implements UsersRepository {
     private static final String USER_GET = "SELECT * FROM monitoring.users WHERE email = ?";
     private static final String USER_ADD = "INSERT INTO monitoring.users (username, email," +

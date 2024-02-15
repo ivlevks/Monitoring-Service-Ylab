@@ -5,8 +5,7 @@ import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.Audit;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
-import org.ivlevks.adapter.controller.console.in.ConsoleHandler;
+import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
@@ -14,18 +13,14 @@ import java.util.regex.Pattern;
  * Подкласс реализации логики в части работы с пользователями
  */
 @Loggable
+@Service
 public class UseCaseUsers extends UseCase {
-
-    /**
-     * Конструктор
-     * @param dataProvider - реализация подключения к хранилищу данных
-     */
-    public UseCaseUsers(InMemoryDataProvider dataProvider) {
-        super(dataProvider);
-    }
 
     public UseCaseUsers(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
         super(userRepositoryImpl, indicationRepositoryImpl);
+    }
+
+    public UseCaseUsers() {
     }
 
     /**
@@ -39,19 +34,19 @@ public class UseCaseUsers extends UseCase {
         if (isInputDataValid(name, email, password)) {
             Optional<User> user = usersRepository.getUser(email);
             if (user.isPresent()) {
-                ConsoleHandler.typeInConsole("Ошибка регистрации, " +
+                System.out.println("Ошибка регистрации, " +
                         "такой пользователь уже существует");
 
             } else {
                 User newUser = new User(name, email, password, isAdmin);
                 usersRepository.addUser(newUser);
-                ConsoleHandler.typeInConsole("Регистрация прошла успешно");
+                System.out.println("Регистрация прошла успешно");
                 Audit.addInfoInAudit("User " + name + ", email " + email +
                         ", password " + password + " registry in system");
                 return true;
             }
         } else {
-            ConsoleHandler.typeInConsole("Ошибка регистрации, " +
+            System.out.println("Ошибка регистрации, " +
                     "введенные данные не валидны!");
         }
         return false;
@@ -80,16 +75,16 @@ public class UseCaseUsers extends UseCase {
         if (resultAuth) {
             setCurrentUser(user.get());
             if (currentUser.isUserAdmin()) {
-                ConsoleHandler.typeInConsole("Авторизация администратора прошла успешно");
+                System.out.println("Авторизация администратора прошла успешно");
                 Audit.addInfoInAudit("Admin with email " + email +
                         ", password " + password + " authorize in system");
             } else {
-                ConsoleHandler.typeInConsole("Авторизация пользователя прошла успешно");
+                System.out.println("Авторизация пользователя прошла успешно");
                 Audit.addInfoInAudit("User with email " + email +
                         ", password " + password + " authorize in system");
             }
         } else {
-            ConsoleHandler.typeInConsole("Ошибка авторизации, пользователь не найден, либо " +
+            System.out.println("Ошибка авторизации, пользователь не найден, либо " +
                     "пароль не верный");
             Audit.addInfoInAudit("Failure authorization with email " + email +
                     ", password " + password);

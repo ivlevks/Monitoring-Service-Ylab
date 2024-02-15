@@ -1,10 +1,12 @@
 package org.ivlevks.usecase;
 
+import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
+import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
 import org.ivlevks.usecase.port.IndicationsRepository;
 import org.ivlevks.usecase.port.UsersRepository;
+import org.springframework.stereotype.Service;
 
 /**
  * Родительский класс логики действий с пользователями и показаниями
@@ -12,6 +14,7 @@ import org.ivlevks.usecase.port.UsersRepository;
  * и перечень изначальных видов счетчиков - 3 шт.
  */
 @Loggable
+@Service
 public class UseCase {
     static User currentUser;
     final UsersRepository usersRepository;
@@ -31,13 +34,10 @@ public class UseCase {
 
     /**
      * Конструктор, инициализирует начальный перечень видов показаний
-     * счетчиков в количестве 3 шт.
-     * для in-memory реализации
-     * @param dataProvider
      */
-    public UseCase(InMemoryDataProvider dataProvider) {
-        this.usersRepository = dataProvider;
-        this.indicationsRepository = dataProvider;
+    public UseCase() {
+        indicationsRepository = new IndicationRepositoryImpl();
+        usersRepository = new UserRepositoryImpl();
     }
 
     /**

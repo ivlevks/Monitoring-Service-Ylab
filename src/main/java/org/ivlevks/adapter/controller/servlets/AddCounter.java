@@ -13,6 +13,8 @@ import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.usecase.UseCaseIndications;
 import org.ivlevks.usecase.UseCaseUsers;
+import org.springframework.stereotype.Controller;
+
 import java.io.IOException;
 
 /**
@@ -20,6 +22,7 @@ import java.io.IOException;
  */
 @Loggable
 @WebServlet("/add_counter")
+@Controller
 public class AddCounter extends HttpServlet {
     private final ObjectMapper objectMapper;
     private final UseCaseIndications useCaseIndications;

@@ -1,4 +1,4 @@
-package org.ivlevks.configuration;
+package org.ivlevks.application;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;

@@ -6,8 +6,7 @@ import org.ivlevks.configuration.Audit;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.adapter.repository.in_memory.InMemoryDataProvider;
-
+import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -15,19 +14,19 @@ import java.util.*;
  * Подкласс реализации логики в части показаний
  */
 @Loggable
+@Service
 public class UseCaseIndications extends UseCase {
 
     /**
      * Конструктор
      *
-     * @param dataProvider - реализация подключения к хранилищу данных
      */
-    public UseCaseIndications(InMemoryDataProvider dataProvider) {
-        super(dataProvider);
-    }
 
     public UseCaseIndications(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
         super(userRepositoryImpl, indicationRepositoryImpl);
+    }
+
+    public UseCaseIndications() {
     }
 
     /**
