@@ -10,29 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/web_mvc_controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/console/in/ConsoleHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/AddCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/GetHistoryIndications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_app/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/manual_jdbc_app/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DateTimeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DateTimeHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/MainWebAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/application/MainWebAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/PropertiesCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/PropertiesCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/servlets/SignUpServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/mappers/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/adapter/repository/in_memory/InMemoryDataProviderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseIndicationsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/ivlevks/usecase/UseCaseUsersTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +327,8 @@
       <workItem from="1707056969647" duration="1617000" />
       <workItem from="1707058595039" duration="143000" />
       <workItem from="1707058785338" duration="8376000" />
-      <workItem from="1708016935252" duration="2665000" />
+      <workItem from="1708016935252" duration="2881000" />
+      <workItem from="1708107727230" duration="4734000" />
     </task>
     <servers />
   </component>

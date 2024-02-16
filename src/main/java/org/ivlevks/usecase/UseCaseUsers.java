@@ -30,26 +30,26 @@ public class UseCaseUsers extends UseCase {
      * @param password пароль
      * @param isAdmin является ли пользователь админом
      */
-    public boolean registry(String name, String email, String password, Boolean isAdmin) {
+    public Optional<User> registry(String name, String email, String password, Boolean isAdmin) {
         if (isInputDataValid(name, email, password)) {
             Optional<User> user = usersRepository.getUser(email);
             if (user.isPresent()) {
                 System.out.println("Ошибка регистрации, " +
                         "такой пользователь уже существует");
-
+                return Optional.empty();
             } else {
                 User newUser = new User(name, email, password, isAdmin);
                 usersRepository.addUser(newUser);
                 System.out.println("Регистрация прошла успешно");
                 Audit.addInfoInAudit("User " + name + ", email " + email +
                         ", password " + password + " registry in system");
-                return true;
+                return findUserByEmail(newUser.getEmail());
             }
         } else {
             System.out.println("Ошибка регистрации, " +
                     "введенные данные не валидны!");
+            return Optional.empty();
         }
-        return false;
     }
 
     /**
