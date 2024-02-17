@@ -1,5 +1,6 @@
 package org.ivlevks.adapter.controller;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.domain.mappers.IndicationsMapperImpl;
 import org.ivlevks.usecase.UseCaseIndications;
@@ -14,6 +15,7 @@ import java.util.Set;
 /**
  * Рест контроллер для действий со списком счетчиков
  */
+@Loggable
 @RestController
 public class CounterController {
     private final IndicationsMapper indicationsMapper;

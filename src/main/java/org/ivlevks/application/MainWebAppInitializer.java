@@ -3,11 +3,13 @@ package org.ivlevks.application;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRegistration;
+import org.ivlevks.configuration.annotations.Loggable;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+@Loggable
 public class MainWebAppInitializer implements WebApplicationInitializer {
     /**
      * @param servletContext

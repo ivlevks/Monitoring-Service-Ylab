@@ -1,11 +1,13 @@
 package org.ivlevks.configuration;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+@Loggable
 @Component
 public class YAMLHandler {
     private final Yaml yaml;

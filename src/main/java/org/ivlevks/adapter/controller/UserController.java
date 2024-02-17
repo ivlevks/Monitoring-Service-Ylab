@@ -1,5 +1,6 @@
 package org.ivlevks.adapter.controller;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.UserMapper;
@@ -15,6 +16,7 @@ import java.util.Optional;
 /**
  * Рест контроллер действий с пользователями
  */
+@Loggable
 @RestController
 public class UserController {
     private final UserMapper userMapper;

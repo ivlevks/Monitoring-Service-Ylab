@@ -1,5 +1,6 @@
 package org.ivlevks.adapter.controller;
 
+import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.IndicationsMapper;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@Loggable
 @RestController
 public class IndicationController {
     private final IndicationsMapper indicationsMapper;
