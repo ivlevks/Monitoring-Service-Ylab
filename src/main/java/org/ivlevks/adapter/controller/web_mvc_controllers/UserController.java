@@ -47,11 +47,9 @@ public class UserController {
     @PostMapping(value = "/signin", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDto> signIn(@RequestBody User user) {
         Optional<User> signInUser = useCaseUsers.auth(user.getEmail(), user.getPassword());
-
         if (signInUser.isEmpty()) {
             return new ResponseEntity(null, HttpStatus.UNAUTHORIZED);
         }
-
         UserDto userDto = userMapper.toUserDto(signInUser.get());
         return ResponseEntity.ok(userDto);
     }
@@ -65,11 +63,9 @@ public class UserController {
     @PostMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDto> signUp(@RequestBody User user) {
         Optional<User> signUpUser = useCaseUsers.registry(user.getName(), user.getEmail(), user.getPassword(), false);
-
         if (signUpUser.isEmpty()) {
             return new ResponseEntity(null, HttpStatus.UNAUTHORIZED);
         }
-
         UserDto userDto = userMapper.toUserDto(signUpUser.get());
         return ResponseEntity.ok(userDto);
     }
@@ -83,7 +79,6 @@ public class UserController {
     @PutMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDto> updateUser(@RequestBody User user) {
         Optional<User> updatedUser = useCaseUsers.updateUser(user);
-
         UserDto userDto = userMapper.toUserDto(updatedUser.get());
         return ResponseEntity.ok(userDto);
     }
@@ -97,7 +92,6 @@ public class UserController {
     @PostMapping(value = "/signout", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDto> signOut(@RequestBody User user) {
         useCaseUsers.exit();
-
         UserDto userDto = userMapper.toUserDto(user);
         return ResponseEntity.ok(userDto);
     }

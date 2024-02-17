@@ -154,17 +154,8 @@ public class UseCaseIndications extends UseCase {
      *
      * @return показания, обернутые в Optional<>
      */
-    public Optional<Indication> getLastActualIndicationUser() {
-        return indicationsRepository.getLastActualIndication(currentUser);
-    }
-
-    /**
-     * Получение всех показаний текущего пользователя
-     *
-     * @return - список всех показаний
-     */
-    public List<Indication> getAllIndicationsUser() {
-        return indicationsRepository.getAllIndications(currentUser);
+    public Optional<Indication> getLastActualIndicationUser(User user) {
+        return indicationsRepository.getLastActualIndication(user);
     }
 
     /**
@@ -198,13 +189,14 @@ public class UseCaseIndications extends UseCase {
 
     /**
      * Получение показаний за определенный месяц
+     * @param user - пользователь
      * @param year - год
      * @param month - месяц
      * @return - показания
      */
-    public Optional<Indication> getMonthIndicationsUser(int year, int month) {
+    public Optional<Indication> getMonthIndicationsUser(User user, int year, int month) {
         Optional<Indication> result = null;
-        for (Indication indication : getAllIndicationsUser()) {
+        for (Indication indication : getAllIndicationsUser(user)) {
             if (indication.getDateTime().getYear() == year &&
                     indication.getDateTime().getMonthValue() == month) {
                 result = Optional.of(indication);
