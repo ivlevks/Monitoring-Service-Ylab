@@ -191,8 +191,9 @@ public class UseCaseIndications extends UseCase {
      *
      * @param newNameIndication наименование нового вида счетчика
      */
-    public void addNewNameIndication(String newNameIndication) {
+    public String addNewNameIndication(String newNameIndication) {
         indicationsRepository.updateListCounters(newNameIndication);
+        return newNameIndication;
     }
 
     /**
