@@ -32,7 +32,7 @@ public class UseCaseUsers extends UseCase {
      */
     public Optional<User> registry(String name, String email, String password, Boolean isAdmin) {
         if (isInputDataValid(name, email, password)) {
-            Optional<User> user = usersRepository.getUser(email);
+            Optional<User> user = usersRepository.getUserByEmail(email);
             if (user.isPresent()) {
                 System.out.println("Ошибка регистрации, " +
                         "такой пользователь уже существует");
@@ -43,7 +43,7 @@ public class UseCaseUsers extends UseCase {
                 System.out.println("Регистрация прошла успешно");
                 Audit.addInfoInAudit("User " + name + ", email " + email +
                         ", password " + password + " registry in system");
-                return findUserByEmail(newUser.getEmail());
+                return getUserByEmail(newUser.getEmail());
             }
         } else {
             System.out.println("Ошибка регистрации, " +
@@ -69,8 +69,8 @@ public class UseCaseUsers extends UseCase {
      * @param email email
      * @param password пароль
      */
-    public boolean auth(String email, String password) {
-        Optional<User> user = usersRepository.getUser(email);
+    public Optional<User> auth(String email, String password) {
+        Optional<User> user = usersRepository.getUserByEmail(email);
         boolean resultAuth = user.map(value -> value.getPassword().equals(password)).orElse(false);
         if (resultAuth) {
             setCurrentUser(user.get());
@@ -83,13 +83,14 @@ public class UseCaseUsers extends UseCase {
                 Audit.addInfoInAudit("User with email " + email +
                         ", password " + password + " authorize in system");
             }
+            return user;
         } else {
             System.out.println("Ошибка авторизации, пользователь не найден, либо " +
                     "пароль не верный");
             Audit.addInfoInAudit("Failure authorization with email " + email +
                     ", password " + password);
+            return Optional.empty();
         }
-        return resultAuth;
     }
 
     /**
@@ -97,18 +98,26 @@ public class UseCaseUsers extends UseCase {
      * @param email email
      * @return возвращает пользователя, обернутого в Optional<>
      */
-    public Optional<User> findUserByEmail(String email) {
-        return usersRepository.getUser(email);
+    public Optional<User> getUserByEmail(String email) {
+        return usersRepository.getUserByEmail(email);
+    }
+
+    /**
+     * Получение пользователя по id
+     * @param id - id
+     * @return возвращает пользователя, обернутого в Optional<>
+     */
+    public Optional<User> getUserById(int id) {
+        return usersRepository.getUserById(id);
     }
 
     /**
      * Изменение прав доступа пользователя
      * @param user пользователь
-     * @param isUserAdmin true - добавить права админа, false - убрать
      */
-    public void setAccessUser(User user, boolean isUserAdmin) {
-        user.setUserAdmin(isUserAdmin);
+    public Optional<User> updateUser(User user) {
         usersRepository.updateUser(user);
+        return getUserById(user.getId());
     }
 
     /**

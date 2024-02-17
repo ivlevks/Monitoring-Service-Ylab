@@ -59,7 +59,7 @@ public class GetHistoryIndications extends HttpServlet {
             allIndicationsUser = useCaseIndications.getAllIndicationsUser();
         } else {
             if (useCaseUsers.isCurrentUserAdmin()) {
-                Optional<User> user = useCaseUsers.findUserByEmail(email);
+                Optional<User> user = useCaseUsers.getUserByEmail(email);
                 allIndicationsUser = useCaseIndications.getAllIndicationsUser(user.get());
                 resp.setStatus(HttpServletResponse.SC_OK);
             } else resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

@@ -77,7 +77,7 @@ class UserRepositoryImplTest {
 
     @Test
     void getUser() {
-        Optional<User> user = userRepositoryImpl.getUser("admin@yandex.ru");
+        Optional<User> user = userRepositoryImpl.getUserByEmail("admin@yandex.ru");
         Assertions.assertEquals("12345", user.get().getPassword());
     }
 
@@ -92,7 +92,7 @@ class UserRepositoryImplTest {
         user = new User("admin", "admin@yandex.ru" , "12345", false);
         userRepositoryImpl.updateUser(user);
 
-        Optional<User> updatedUser = userRepositoryImpl.getUser("admin@yandex.ru");
+        Optional<User> updatedUser = userRepositoryImpl.getUserByEmail("admin@yandex.ru");
         Assertions.assertEquals(false, updatedUser.get().isUserAdmin());
     }
 }

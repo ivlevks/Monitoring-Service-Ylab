@@ -92,7 +92,6 @@ public class UseCaseIndications extends UseCase {
         return true;
     }
 
-
     /**
      * Проверка на отрицательные числа показаний
      *

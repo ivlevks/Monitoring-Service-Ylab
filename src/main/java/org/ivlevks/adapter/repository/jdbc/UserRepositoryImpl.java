@@ -16,7 +16,8 @@ import java.util.Optional;
 @Loggable
 @Repository
 public class UserRepositoryImpl implements UsersRepository {
-    private static final String USER_GET = "SELECT * FROM monitoring.users WHERE email = ?";
+    private static final String USER_GET_BY_EMAIL = "SELECT * FROM monitoring.users WHERE email = ?";
+    private static final String USER_GET_BY_ID = "SELECT * FROM monitoring.users WHERE id = ?";
     private static final String USER_ADD = "INSERT INTO monitoring.users (username, email," +
             " password, admin) VALUES (?, ?, ?, ?)";
     private static final String USER_UPDATE = "UPDATE monitoring.users SET admin = ? WHERE email = ?";
@@ -48,13 +49,40 @@ public class UserRepositoryImpl implements UsersRepository {
      * @return
      */
     @Override
-    public Optional<User> getUser(String email) {
+    public Optional<User> getUserByEmail(String email) {
         User user = null;
         Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
 
-        try (PreparedStatement getUserStatement = connection.prepareStatement(USER_GET)) {
+        try (PreparedStatement getUserStatement = connection.prepareStatement(USER_GET_BY_EMAIL)) {
             getUserStatement.setString(1, email);
             ResultSet resultSet = getUserStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Integer userId = resultSet.getInt("id");
+                String userName = resultSet.getString("username");
+                String userEmail = resultSet.getString("email");
+                String userPassword = resultSet.getString("password");
+                Boolean admin = resultSet.getBoolean("admin");
+                user = new User(userId, userName, userEmail, userPassword, admin);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.ofNullable(user);
+    }
+
+    /** Получение пользователя по id
+     * @param id - id 
+     * @return
+     */
+    @Override
+    public Optional<User> getUserById(int id) {
+        User user = null;
+        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+
+        try (PreparedStatement getUserByIdStatement = connection.prepareStatement(USER_GET_BY_ID)) {
+            getUserByIdStatement.setInt(1, id);
+            ResultSet resultSet = getUserByIdStatement.executeQuery();
 
             while (resultSet.next()) {
                 Integer userId = resultSet.getInt("id");
