@@ -1,4 +1,4 @@
-package org.ivlevks.adapter.controller.web_mvc_controllers;
+package org.ivlevks.adapter.controller;
 
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 

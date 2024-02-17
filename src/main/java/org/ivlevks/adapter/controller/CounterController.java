@@ -1,4 +1,4 @@
-package org.ivlevks.adapter.controller.web_mvc_controllers;
+package org.ivlevks.adapter.controller;
 
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.domain.mappers.IndicationsMapperImpl;
