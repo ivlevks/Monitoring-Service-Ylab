@@ -9,9 +9,8 @@ import org.ivlevks.usecase.UseCaseUsers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +34,18 @@ public class IndicationController {
             return new ResponseEntity(null, HttpStatus.NO_CONTENT);
         }
         return ResponseEntity.ok(indications);
+    }
+
+    @PostMapping(value = "/users/{id}/indication", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Indication> addIndications(
+            @PathVariable("id") int id,
+            @RequestBody Indication indication) {
+        User user = useCaseUsers.getUserById(id).get();
+        Optional<Indication> resultIndication = useCaseIndications.addIndication(user, indication);
+        if (resultIndication.isEmpty()) {
+            return new ResponseEntity(null, HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok(resultIndication.get());
     }
 
     @GetMapping(value = "/users/{id}/indications/actual", produces = MediaType.APPLICATION_JSON_VALUE)

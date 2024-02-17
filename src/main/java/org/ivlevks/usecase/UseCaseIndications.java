@@ -7,6 +7,7 @@ import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -17,11 +18,6 @@ import java.util.*;
 @Service
 public class UseCaseIndications extends UseCase {
 
-    /**
-     * Конструктор
-     *
-     */
-
     public UseCaseIndications(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
         super(userRepositoryImpl, indicationRepositoryImpl);
     }
@@ -30,30 +26,30 @@ public class UseCaseIndications extends UseCase {
     }
 
     /**
-     * Добавление показаний счетчиков
-     *
-     * @param indications - хэшмап с перечнем показаний их их значениями
+     * Добавление новых показателей
+     * @param user - пользователь
+     * @param indication - новые показания счетчиков
+     * @return - новые показания счетчиков
      */
-    public boolean addIndication(HashMap<String, String> indications) {
+    public Optional<Indication> addIndication(User user, Indication indication) {
         if (!isUserAuthorize()) {
             System.out.println("Ошибка, Вы не авторизованы!");
             Audit.addInfoInAudit("Failure insert indication");
-            return false;
+            return Optional.empty();
         }
 
         // получение последних актуальных показаний из хранилища и проверка на валидность
-        Optional<Indication> lastActualIndications = indicationsRepository.getLastActualIndication(currentUser);
-        if (isIndicationValid(indications, lastActualIndications)) {
-            HashMap<String, Double> resultIndications = getResultIndications(indications);
-            indicationsRepository.addIndication(currentUser, new Indication(resultIndications));
+        Optional<Indication> lastActualIndications = indicationsRepository.getLastActualIndication(user);
+        if (isIndicationValid(indication, lastActualIndications)) {
+
+            indicationsRepository.addIndication(user, new Indication(indication.getIndications()));
             System.out.println("Показания введены");
-            Audit.addInfoInAudit("Success insert indication " + currentUser.getEmail());
-            return true;
+            Optional<Indication> resultIndication = indicationsRepository.getLastActualIndication(user);
+            return resultIndication;
         } else {
             System.out.println("Ошибка, введенные данные не коррректны");
-            Audit.addInfoInAudit("Incorrect insert indication");
+            return Optional.empty();
         }
-        return false;
     }
 
     /**
@@ -64,12 +60,7 @@ public class UseCaseIndications extends UseCase {
      * @param lastActualIndication - последние актуальные показания
      * @return true если показания валидны
      */
-    private boolean isIndicationValid(HashMap<String, String> indications, Optional<Indication> lastActualIndication) {
-        if (hasIndicationString(indications)) {
-            System.out.println("Ошибка, показания содержат символы");
-            return false;
-        }
-
+    private boolean isIndicationValid(Indication indications, Optional<Indication> lastActualIndication) {
         if (hasIndicationNegative(indications)) {
             System.out.println("Ошибка, показания содержат отрицательные числа");
             return false;
@@ -87,7 +78,7 @@ public class UseCaseIndications extends UseCase {
 
         // проверка на увеличение величины показаний
         for (Map.Entry<String, Double> entry : lastIndication.getIndications().entrySet()) {
-            if (entry.getValue() > Double.parseDouble(indications.get(entry.getKey()))) return false;
+            if (entry.getValue() > indications.getIndications().get(entry.getKey())) return false;
         }
         return true;
     }
@@ -98,26 +89,9 @@ public class UseCaseIndications extends UseCase {
      * @param indications введенные показания
      * @return true если есть отрицательные
      */
-    private boolean hasIndicationNegative(HashMap<String, String> indications) {
-        for (Map.Entry<String, String> entry : indications.entrySet()) {
-            if (Double.parseDouble(entry.getValue()) < 0) return true;
-        }
-        return false;
-    }
-
-    /**
-     * Проверка на наличие символов
-     *
-     * @param indications введенные показания
-     * @return true если есть символы
-     */
-    private boolean hasIndicationString(HashMap<String, String> indications) {
-        for (Map.Entry<String, String> entry : indications.entrySet()) {
-            try {
-                double value = Double.parseDouble(entry.getValue());
-            } catch (NumberFormatException nfe) {
-                return true;
-            }
+    private boolean hasIndicationNegative(Indication indications) {
+        for (Map.Entry<String, Double> entry : indications.getIndications().entrySet()) {
+            if (entry.getValue() < 0) return true;
         }
         return false;
     }
@@ -133,20 +107,6 @@ public class UseCaseIndications extends UseCase {
         if (lastIndicationDateTime.getYear() < LocalDateTime.now().getYear()) return false;
         if (lastIndicationDateTime.getMonthValue() < LocalDateTime.now().getMonthValue()) return false;
         return true;
-    }
-
-    /**
-     * Конвертирование показаний из строк в Double
-     *
-     * @param indications введенные показания
-     * @return - итоговая хэшмап с перечнем показаний их их значениями
-     */
-    private HashMap<String, Double> getResultIndications(HashMap<String, String> indications) {
-        HashMap<String, Double> result = new HashMap<>();
-        for (Map.Entry<String, String> entry : indications.entrySet()) {
-            result.put(entry.getKey(), Double.valueOf(entry.getValue()));
-        }
-        return result;
     }
 
     /**
@@ -189,8 +149,9 @@ public class UseCaseIndications extends UseCase {
 
     /**
      * Получение показаний за определенный месяц
-     * @param user - пользователь
-     * @param year - год
+     *
+     * @param user  - пользователь
+     * @param year  - год
      * @param month - месяц
      * @return - показания
      */
