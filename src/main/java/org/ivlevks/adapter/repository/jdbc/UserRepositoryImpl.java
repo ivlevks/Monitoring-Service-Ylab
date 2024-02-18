@@ -2,7 +2,7 @@ package org.ivlevks.adapter.repository.jdbc;
 
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.usecase.port.UsersRepository;
+import org.ivlevks.service.port.UsersRepository;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;

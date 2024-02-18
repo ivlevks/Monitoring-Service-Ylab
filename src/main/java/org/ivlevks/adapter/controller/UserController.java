@@ -1,18 +1,15 @@
 package org.ivlevks.adapter.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.UserMapper;
 import org.ivlevks.domain.mappers.UserMapperImpl;
-import org.ivlevks.usecase.UseCaseUsers;
+import org.ivlevks.service.UsersService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 /**
@@ -22,11 +19,11 @@ import java.util.Optional;
 @RestController
 public class UserController {
     private final UserMapper userMapper;
-    private final UseCaseUsers useCaseUsers;
+    private final UsersService useCaseUsers;
 
     public UserController() {
         this.userMapper = new UserMapperImpl();
-        this.useCaseUsers = new UseCaseUsers();
+        this.useCaseUsers = new UsersService();
     }
 
     /**

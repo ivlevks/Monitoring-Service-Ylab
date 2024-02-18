@@ -5,8 +5,8 @@ import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.domain.mappers.IndicationsMapperImpl;
-import org.ivlevks.usecase.UseCaseIndications;
-import org.ivlevks.usecase.UseCaseUsers;
+import org.ivlevks.service.IndicationsService;
+import org.ivlevks.service.UsersService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +18,13 @@ import java.util.Optional;
 @RestController
 public class IndicationController {
     private final IndicationsMapper indicationsMapper;
-    private final UseCaseIndications useCaseIndications;
-    private final UseCaseUsers useCaseUsers;
+    private final IndicationsService useCaseIndications;
+    private final UsersService useCaseUsers;
 
     public IndicationController() {
         indicationsMapper = new IndicationsMapperImpl();
-        useCaseIndications = new UseCaseIndications();
-        this.useCaseUsers = new UseCaseUsers();
+        useCaseIndications = new IndicationsService();
+        this.useCaseUsers = new UsersService();
     }
 
     @GetMapping(value = "/users/{id}/indications", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -1,8 +1,7 @@
-package org.ivlevks.usecase;
+package org.ivlevks.service;
 
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
-import org.ivlevks.configuration.Audit;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.springframework.stereotype.Service;
@@ -14,13 +13,13 @@ import java.util.regex.Pattern;
  */
 @Loggable
 @Service
-public class UseCaseUsers extends UseCase {
+public class UsersService extends GeneralService {
 
-    public UseCaseUsers(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
+    public UsersService(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
         super(userRepositoryImpl, indicationRepositoryImpl);
     }
 
-    public UseCaseUsers() {
+    public UsersService() {
     }
 
     /**
@@ -41,8 +40,6 @@ public class UseCaseUsers extends UseCase {
                 User newUser = new User(name, email, password, isAdmin);
                 usersRepository.addUser(newUser);
                 System.out.println("Регистрация прошла успешно");
-                Audit.addInfoInAudit("User " + name + ", email " + email +
-                        ", password " + password + " registry in system");
                 return getUserByEmail(newUser.getEmail());
             }
         } else {
@@ -73,22 +70,12 @@ public class UseCaseUsers extends UseCase {
         Optional<User> user = usersRepository.getUserByEmail(email);
         boolean resultAuth = user.map(value -> value.getPassword().equals(password)).orElse(false);
         if (resultAuth) {
-            setCurrentUser(user.get());
-            if (currentUser.isUserAdmin()) {
-                System.out.println("Авторизация администратора прошла успешно");
-                Audit.addInfoInAudit("Admin with email " + email +
-                        ", password " + password + " authorize in system");
-            } else {
-                System.out.println("Авторизация пользователя прошла успешно");
-                Audit.addInfoInAudit("User with email " + email +
-                        ", password " + password + " authorize in system");
-            }
+            adminHelper.setIdCurrentUser(user.get().getId());
+            System.out.println("Авторизация администратора прошла успешно");
             return user;
         } else {
             System.out.println("Ошибка авторизации, пользователь не найден, либо " +
                     "пароль не верный");
-            Audit.addInfoInAudit("Failure authorization with email " + email +
-                    ", password " + password);
             return Optional.empty();
         }
     }
@@ -124,8 +111,7 @@ public class UseCaseUsers extends UseCase {
      * Выход текущего пользователя из системы
      */
     public void exit() {
-        System.out.println("Пользователь " + currentUser.getName() + " вышел из системы.");
-        Audit.addInfoInAudit("User with email " + currentUser.getEmail() + " exit from system");
-        setCurrentUser(null);
+        adminHelper.setIdCurrentUser(0);
+        System.out.println("Пользователь вышел из системы.");
     }
 }

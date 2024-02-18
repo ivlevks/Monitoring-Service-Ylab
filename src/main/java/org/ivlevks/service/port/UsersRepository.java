@@ -1,4 +1,4 @@
-package org.ivlevks.usecase.port;
+package org.ivlevks.service.port;
 
 import org.ivlevks.domain.entity.User;
 

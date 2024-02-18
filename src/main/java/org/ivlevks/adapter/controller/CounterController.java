@@ -3,7 +3,7 @@ package org.ivlevks.adapter.controller;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.domain.mappers.IndicationsMapperImpl;
-import org.ivlevks.usecase.UseCaseIndications;
+import org.ivlevks.service.IndicationsService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +19,11 @@ import java.util.Set;
 @RestController
 public class CounterController {
     private final IndicationsMapper indicationsMapper;
-    private final UseCaseIndications useCaseIndications;
+    private final IndicationsService useCaseIndications;
 
     public CounterController() {
         indicationsMapper = new IndicationsMapperImpl();
-        useCaseIndications = new UseCaseIndications();
+        useCaseIndications = new IndicationsService();
     }
 
     /**

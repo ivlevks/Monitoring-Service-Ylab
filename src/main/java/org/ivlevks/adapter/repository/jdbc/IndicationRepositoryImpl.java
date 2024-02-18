@@ -4,7 +4,7 @@ import org.ivlevks.configuration.DateTimeHelper;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.usecase.port.IndicationsRepository;
+import org.ivlevks.service.port.IndicationsRepository;
 import org.springframework.stereotype.Repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

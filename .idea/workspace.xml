@@ -10,10 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logging.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/AdminHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/CounterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/CounterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/IndicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/IndicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/IndicationRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/Audit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/GeneralService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseIndications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/IndicationsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/UseCaseUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/IndicationsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/port/IndicationsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/usecase/port/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/port/UsersRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ac49bc338560329fcf45328122665b315a2bbc08" />
+        <entry key="$PROJECT_DIR$" value="ec3e604391f6fbe04c2eab0d2d6afb7dc7461b1d" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,37 +71,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw4&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/konstantin/IdeaProjects/MonitoringService/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "hw4",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService/src/main/java/org/ivlevks/service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/ivlevks/service" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -442,6 +451,11 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="hw4" />
                 </option>
               </RecentGroup>
@@ -460,7 +474,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="hw4" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>

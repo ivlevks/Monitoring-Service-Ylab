@@ -1,13 +1,11 @@
-package org.ivlevks.usecase;
+package org.ivlevks.service;
 
 import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
-import org.ivlevks.configuration.Audit;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -16,13 +14,13 @@ import java.util.*;
  */
 @Loggable
 @Service
-public class UseCaseIndications extends UseCase {
+public class IndicationsService extends GeneralService {
 
-    public UseCaseIndications(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
+    public IndicationsService(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
         super(userRepositoryImpl, indicationRepositoryImpl);
     }
 
-    public UseCaseIndications() {
+    public IndicationsService() {
     }
 
     /**
@@ -32,9 +30,8 @@ public class UseCaseIndications extends UseCase {
      * @return - новые показания счетчиков
      */
     public Optional<Indication> addIndication(User user, Indication indication) {
-        if (!isUserAuthorize()) {
+        if (!isUserAuthorizeAndHasAccess(user)) {
             System.out.println("Ошибка, Вы не авторизованы!");
-            Audit.addInfoInAudit("Failure insert indication");
             return Optional.empty();
         }
 
@@ -72,7 +69,6 @@ public class UseCaseIndications extends UseCase {
         Indication lastIndication = lastActualIndication.get();
         if (hasCurrentMonthIndication(lastIndication)) {
             System.out.println("Ошибка, в данном месяце показания уже вводились");
-            Audit.addInfoInAudit("Failure insert indication - this month already has indications");
             return false;
         }
 
@@ -115,6 +111,10 @@ public class UseCaseIndications extends UseCase {
      * @return показания, обернутые в Optional<>
      */
     public Optional<Indication> getLastActualIndicationUser(User user) {
+        if (!isUserAuthorizeAndHasAccess(user)) {
+            System.out.println("Ошибка, Вы не авторизованы!");
+            return Optional.empty();
+        }
         return indicationsRepository.getLastActualIndication(user);
     }
 
@@ -125,6 +125,10 @@ public class UseCaseIndications extends UseCase {
      * @return - список всех показаний
      */
     public List<Indication> getAllIndicationsUser(User user) {
+        if (!isUserAuthorizeAndHasAccess(user)) {
+            System.out.println("Ошибка, Вы не авторизованы!");
+            return new ArrayList<>();
+        }
         return indicationsRepository.getAllIndications(user);
     }
 
@@ -143,8 +147,14 @@ public class UseCaseIndications extends UseCase {
      * @param newNameIndication наименование нового вида счетчика
      */
     public String addNewNameIndication(String newNameIndication) {
-        indicationsRepository.updateListCounters(newNameIndication);
-        return newNameIndication;
+        int id = adminHelper.getIdCurrentUser();
+        Optional<User> user = usersRepository.getUserById(id);
+
+        if (user.get().isUserAdmin()) {
+            indicationsRepository.updateListCounters(newNameIndication);
+            return newNameIndication;
+        }
+        return "not access";
     }
 
     /**
@@ -157,14 +167,16 @@ public class UseCaseIndications extends UseCase {
      */
     public Optional<Indication> getMonthIndicationsUser(User user, int year, int month) {
         Optional<Indication> result = null;
-        for (Indication indication : getAllIndicationsUser(user)) {
-            if (indication.getDateTime().getYear() == year &&
-                    indication.getDateTime().getMonthValue() == month) {
-                result = Optional.of(indication);
-            } else {
-                System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
+        if (adminHelper.validateIdUser(user.getId()) || user.isUserAdmin()) {
+            for (Indication indication : getAllIndicationsUser(user)) {
+                if (indication.getDateTime().getYear() == year &&
+                        indication.getDateTime().getMonthValue() == month) {
+                    result = Optional.of(indication);
+                } else {
+                    System.out.println("Показания на " + month + " месяц " + year + " года отсутствуют");
+                }
+                System.out.println();
             }
-            System.out.println();
         }
         return result;
     }
