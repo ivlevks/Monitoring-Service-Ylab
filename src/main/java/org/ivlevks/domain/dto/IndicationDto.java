@@ -1,7 +1,6 @@
 package org.ivlevks.domain.dto;
 
-import jakarta.validation.constraints.NotNull;
-
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 

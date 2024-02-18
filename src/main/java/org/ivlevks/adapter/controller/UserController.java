@@ -1,5 +1,7 @@
 package org.ivlevks.adapter.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;

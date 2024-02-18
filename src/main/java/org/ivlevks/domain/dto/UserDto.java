@@ -1,14 +1,12 @@
 package org.ivlevks.domain.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
-
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 /**
  * Класс пользователя dto
  */
 public class UserDto {
-    @Null
+    @NotNull
     private Integer id;
     @NotNull
     private String name;
