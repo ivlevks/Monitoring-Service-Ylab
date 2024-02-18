@@ -24,6 +24,11 @@ Cервис, который управляет Вашими показаниям
 mvnw.cmd clean install
 ```
 
+<h2>Swagger</h2>
+Запустился на Spring 5.3.20, Javax вместо jakarta, <br />
+и Tomcat 9.0.85 (для добавления конфига в idea не забыть - sudo chmod 755 -R /opt/tomcat)<br />
+http://localhost:8080/MonitoringService_war_exploded/swagger-ui
+
 
 <h2>History</h2>
 hw1 - работа через консоль, хранение в памяти<br />
