@@ -4,6 +4,8 @@ import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
 import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
+import org.ivlevks.service.port.IndicationsRepository;
+import org.ivlevks.service.port.UsersRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -15,11 +17,8 @@ import java.util.regex.Pattern;
 @Service
 public class UsersService extends GeneralService {
 
-    public UsersService(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
-        super(userRepositoryImpl, indicationRepositoryImpl);
-    }
-
-    public UsersService() {
+    public UsersService(UsersRepository usersRepository, IndicationsRepository indicationsRepository, AdminHelper adminHelper) {
+        super(usersRepository, indicationsRepository, adminHelper);
     }
 
     /**

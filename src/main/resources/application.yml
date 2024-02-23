@@ -1,5 +1,5 @@
 changeLogFile: db/changelog/changelog.xml
 default-schema-name: migration
-URL: jdbc:postgresql://localhost:5432/monitoring-service
-username: kostik
-password: qwerty
+POSTGRES_URL: jdbc:postgresql://localhost:5432/monitoring-service
+POSTGRES_USER: kostik
+POSTGRES_PASSWORD: qwerty

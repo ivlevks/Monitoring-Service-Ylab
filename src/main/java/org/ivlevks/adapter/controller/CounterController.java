@@ -2,7 +2,6 @@ package org.ivlevks.adapter.controller;
 
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.mappers.IndicationsMapper;
-import org.ivlevks.domain.mappers.IndicationsMapperImpl;
 import org.ivlevks.service.IndicationsService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,16 +20,16 @@ public class CounterController {
     private final IndicationsMapper indicationsMapper;
     private final IndicationsService useCaseIndications;
 
-    public CounterController() {
-        indicationsMapper = new IndicationsMapperImpl();
-        useCaseIndications = new IndicationsService();
+    public CounterController(IndicationsMapper indicationsMapper, IndicationsService useCaseIndications) {
+        this.indicationsMapper = indicationsMapper;
+        this.useCaseIndications = useCaseIndications;
     }
 
     /**
      * Получение списка всех счетчиков
      * @return список счетчиков
      */
-    @GetMapping(value = "/counters", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/counters")
     public ResponseEntity<Set<String>> getAllCounters() {
         Set<String> counters = useCaseIndications.getNamesIndications();
         return ResponseEntity.ok(counters);
@@ -41,7 +40,7 @@ public class CounterController {
      * @param counter - новый вид счетчика
      * @return - новый вид счетчика
      */
-    @PostMapping(value = "/counter", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/counter")
     public ResponseEntity<String> updateCounters(@RequestBody String counter) {
         useCaseIndications.addNewNameIndication(counter);
         return ResponseEntity.ok(counter);

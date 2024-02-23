@@ -18,28 +18,13 @@ import org.springframework.stereotype.Service;
 public class GeneralService {
     protected final UsersRepository usersRepository;
     protected final IndicationsRepository indicationsRepository;
-    protected AdminHelper adminHelper;
+    protected final AdminHelper adminHelper;
     protected String regexPatternEmail = "^(.+)@(\\S+)$";
 
-    /**
-     * Конструктор, инициализирует начальный перечень видов показаний
-     * счетчиков в количестве 3 шт.
-     * для jdbc реализации
-     * @param usersRepository, getUpdateIndications - реализации подключения к хранилищу данных
-     */
-    public GeneralService(UsersRepository usersRepository, IndicationsRepository indicationsRepository) {
+    public GeneralService(UsersRepository usersRepository, IndicationsRepository indicationsRepository, AdminHelper adminHelper) {
         this.usersRepository = usersRepository;
         this.indicationsRepository = indicationsRepository;
-        adminHelper = new AdminHelper();
-    }
-
-    /**
-     * Конструктор, инициализирует начальный перечень видов показаний
-     */
-    public GeneralService() {
-        indicationsRepository = new IndicationRepositoryImpl();
-        usersRepository = new UserRepositoryImpl();
-        adminHelper = new AdminHelper();
+        this.adminHelper = adminHelper;
     }
 
     /**

@@ -21,9 +21,9 @@ public class UserController {
     private final UserMapper userMapper;
     private final UsersService useCaseUsers;
 
-    public UserController() {
-        this.userMapper = new UserMapperImpl();
-        this.useCaseUsers = new UsersService();
+    public UserController(UserMapper userMapper, UsersService useCaseUsers) {
+        this.userMapper = userMapper;
+        this.useCaseUsers = useCaseUsers;
     }
 
     /**

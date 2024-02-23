@@ -20,9 +20,6 @@ import java.util.List;
 @EnableAspectJAutoProxy
 public class WebConfig implements WebMvcConfigurer {
 
-    /**
-     * @param converters
-     */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder()

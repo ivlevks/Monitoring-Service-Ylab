@@ -5,6 +5,8 @@ import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
+import org.ivlevks.service.port.IndicationsRepository;
+import org.ivlevks.service.port.UsersRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -16,11 +18,9 @@ import java.util.*;
 @Service
 public class IndicationsService extends GeneralService {
 
-    public IndicationsService(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
-        super(userRepositoryImpl, indicationRepositoryImpl);
-    }
 
-    public IndicationsService() {
+    public IndicationsService(UsersRepository usersRepository, IndicationsRepository indicationsRepository, AdminHelper adminHelper) {
+        super(usersRepository, indicationsRepository, adminHelper);
     }
 
     /**

@@ -1,6 +1,6 @@
 package org.ivlevks.adapter.repository.jdbc;
 
-import org.ivlevks.configuration.DriverManager;
+import org.ivlevks.configuration.ConnectionManager;
 import org.ivlevks.configuration.migration.MigrationHelper;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
@@ -9,7 +9,6 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -25,13 +24,11 @@ class IndicationRepositoryImplTest {
     private IndicationRepositoryImpl indicationRepositoryImpl;
     private User user = new User(1, "kostik", "ivlevks@yandex.ru" , "1234", false);
     private Indication indication;
+    private ConnectionManager connectionManager;
 
     @BeforeAll
     static void beforeAll() {
         postgres.start();
-        org.ivlevks.configuration.DriverManager.setURL(postgres.getJdbcUrl());
-        org.ivlevks.configuration.DriverManager.setUserName(postgres.getUsername());
-        org.ivlevks.configuration.DriverManager.setPASSWORD(postgres.getPassword());
     }
 
     @AfterAll
@@ -41,27 +38,24 @@ class IndicationRepositoryImplTest {
 
     @BeforeEach
     void setUp() {
-        connection = DriverManager.getConnection();
-
-        MigrationHelper.migrate();
-        indicationRepositoryImpl = new IndicationRepositoryImpl();
+//        MigrationHelper.migrate();
     }
 
     @AfterEach
     void tearDown() {
-        Connection connectionDropIndications = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connectionDropIndications = connectionManager.getConnection();
         try (PreparedStatement dropTableIndicationsStatement = connectionDropIndications.prepareStatement(DROP_TABLE_INDICATIONS)) {
             dropTableIndicationsStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Connection connectionDropUsers = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connectionDropUsers = connectionManager.getConnection();
         try (PreparedStatement dropTableUsersStatement = connectionDropUsers.prepareStatement(DROP_TABLE_USERS)) {
             dropTableUsersStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Connection connectionDropCounters = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connectionDropCounters = connectionManager.getConnection();
         try (PreparedStatement dropTableCountersStatement = connectionDropCounters.prepareStatement(DROP_TABLE_COUNTERS)) {
             dropTableCountersStatement.executeUpdate();
         } catch (Exception e) {

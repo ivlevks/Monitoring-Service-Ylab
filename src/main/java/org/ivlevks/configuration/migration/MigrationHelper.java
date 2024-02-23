@@ -5,7 +5,7 @@ import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.ClassLoaderResourceAccessor;
-import org.ivlevks.configuration.DriverManager;
+import org.ivlevks.configuration.ConnectionManager;
 import org.ivlevks.configuration.YAMLHandler;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.springframework.stereotype.Component;
@@ -20,12 +20,14 @@ public class MigrationHelper {
     private static final String DEFAULT_SCHEMA_NAME = (String) YAMLHandler.getProperties().get("default-schema-name");
     private static final String CHANGE_LOG_FILE = (String) YAMLHandler.getProperties().get("changeLogFile");
     private static final String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
+    private final ConnectionManager connectionManager;
 
-    public MigrationHelper() {
+    public MigrationHelper(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
         migrate();
     }
 
-    public static void migrate() {
+    public void migrate() {
         // без этой ручной загрузки драйвера при деплое в томкат
         // вылетает ошибка - No suitable driver found и миграции не накатываются
         try {
@@ -34,7 +36,7 @@ public class MigrationHelper {
             throw new RuntimeException(e);
         }
 
-        try (Connection connection = DriverManager.getConnection();
+        try (Connection connection = connectionManager.getConnection();
              PreparedStatement defaultSchemaStatement = connection.prepareStatement(DEFAULT_SCHEMA_MIGRATION)) {
             defaultSchemaStatement.executeUpdate();
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));

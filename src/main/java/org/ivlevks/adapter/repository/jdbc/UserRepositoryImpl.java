@@ -1,5 +1,6 @@
 package org.ivlevks.adapter.repository.jdbc;
 
+import org.ivlevks.configuration.ConnectionManager;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.service.port.UsersRepository;
@@ -22,7 +23,11 @@ public class UserRepositoryImpl implements UsersRepository {
             " password, admin) VALUES (?, ?, ?, ?)";
     private static final String USER_UPDATE = "UPDATE monitoring.users SET admin = ? WHERE email = ?";
     private static final String USER_GET_ALL = "SELECT * FROM monitoring.users";
+    private final ConnectionManager connectionManager;
 
+    public UserRepositoryImpl(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
+    }
 
     /**
      * Добавление пользователя
@@ -30,7 +35,7 @@ public class UserRepositoryImpl implements UsersRepository {
      */
     @Override
     public void addUser(User user) {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
 
         try (PreparedStatement addUserStatement = connection.prepareStatement(USER_ADD)) {
             addUserStatement.setString(1, user.getName());
@@ -51,7 +56,7 @@ public class UserRepositoryImpl implements UsersRepository {
     @Override
     public Optional<User> getUserByEmail(String email) {
         User user = null;
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
 
         try (PreparedStatement getUserStatement = connection.prepareStatement(USER_GET_BY_EMAIL)) {
             getUserStatement.setString(1, email);
@@ -78,7 +83,7 @@ public class UserRepositoryImpl implements UsersRepository {
     @Override
     public Optional<User> getUserById(int id) {
         User user = null;
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
 
         try (PreparedStatement getUserByIdStatement = connection.prepareStatement(USER_GET_BY_ID)) {
             getUserByIdStatement.setInt(1, id);
@@ -105,7 +110,7 @@ public class UserRepositoryImpl implements UsersRepository {
     @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
 
         try (PreparedStatement getUserStatement = connection.prepareStatement(USER_GET_ALL)) {
             ResultSet resultSet = getUserStatement.executeQuery();
@@ -129,7 +134,7 @@ public class UserRepositoryImpl implements UsersRepository {
      */
     @Override
     public void updateUser(User user) {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
 
         try (PreparedStatement userUpdateDataStatement = connection.prepareStatement(USER_UPDATE)) {
             userUpdateDataStatement.setBoolean(1, user.isUserAdmin());

@@ -22,7 +22,8 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private ApiInfo apiInfo() {
+    @Bean
+    protected ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Monitiring Service")
                 .description("Storage your indications.")
