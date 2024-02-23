@@ -1,4 +1,4 @@
-package org.ivlevks.usecase.port;
+package org.ivlevks.service.port;
 
 import org.ivlevks.domain.entity.User;
 
@@ -21,7 +21,14 @@ public interface UsersRepository {
      * @param email - email
      * @return - возвращает пользователя, обернутого в Optional<>
      */
-    Optional<User> getUser(String email);
+    Optional<User> getUserByEmail(String email);
+
+    /**
+     * Получение пользователя по id
+     * @param id - id
+     * @return - возвращает пользователя, обернутого в Optional<>
+     */
+    Optional<User> getUserById(int id);
 
     /**
      * Получение списка всех пользователей

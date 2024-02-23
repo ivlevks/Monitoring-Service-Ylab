@@ -1,24 +1,29 @@
 package org.ivlevks.configuration;
 
 import org.ivlevks.configuration.annotations.Loggable;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 @Loggable
+@Component
 public class DriverManager {
-    private static String URL = PropertiesCache.getInstance().getProperty("URL");
-    private static String USER_NAME = PropertiesCache.getInstance().getProperty("username");
-    private static String PASSWORD = PropertiesCache.getInstance().getProperty("password");
+    private static String URL;
+    private static String USER_NAME;
+    private static String PASSWORD;
 
     public static Connection getConnection() {
+        URL = (String) YAMLHandler.getProperties().get("URL");
+        USER_NAME = (String) YAMLHandler.getProperties().get("username");
+        PASSWORD = (String) YAMLHandler.getProperties().get("password");
+
         Connection connection;
         try {
             connection = java.sql.DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return connection;
     }
 

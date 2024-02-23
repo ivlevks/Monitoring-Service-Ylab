@@ -4,8 +4,8 @@ import org.ivlevks.configuration.DateTimeHelper;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.usecase.port.IndicationsRepository;
-
+import org.ivlevks.service.port.IndicationsRepository;
+import org.springframework.stereotype.Repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +15,8 @@ import java.util.*;
 /**
  * Имплементация интерфейса хранения показателей через JDBC
  */
+@Loggable
+@Repository
 public class IndicationRepositoryImpl implements IndicationsRepository {
     private static final String GET_LIST_COUNTERS_NAME = "SELECT * FROM monitoring.counters";
     private static final String INSERT_INDICATIONS = "INSERT INTO monitoring.indications " +

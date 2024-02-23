@@ -5,7 +5,7 @@ import org.ivlevks.domain.entity.Indication;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface IndicationsMapper {
     IndicationsMapper INSTANCE = Mappers.getMapper(IndicationsMapper.class);
 

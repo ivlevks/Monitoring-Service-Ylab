@@ -4,21 +4,26 @@ import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.ivlevks.configuration.DriverManager;
-import org.ivlevks.configuration.PropertiesCache;
+import org.ivlevks.configuration.YAMLHandler;
 import org.ivlevks.configuration.annotations.Loggable;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 @Loggable
+@Component
 public class MigrationHelper {
 
-    private static final String DEFAULT_SCHEMA_NAME = PropertiesCache.getInstance().getProperty("default-schema-name");
-    private static final String CHANGE_LOG_FILE = PropertiesCache.getInstance().getProperty("changeLogFile");
+    private static final String DEFAULT_SCHEMA_NAME = (String) YAMLHandler.getProperties().get("default-schema-name");
+    private static final String CHANGE_LOG_FILE = (String) YAMLHandler.getProperties().get("changeLogFile");
     private static final String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
+
+    public MigrationHelper() {
+        migrate();
+    }
 
     public static void migrate() {
         // без этой ручной загрузки драйвера при деплое в томкат
