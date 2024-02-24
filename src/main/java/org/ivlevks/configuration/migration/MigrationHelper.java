@@ -6,25 +6,20 @@ import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.ivlevks.configuration.ConnectionManager;
-import org.ivlevks.configuration.YAMLHandler;
 import org.ivlevks.configuration.annotations.Loggable;
-import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 @Loggable
-@Component
 public class MigrationHelper {
-
-    private static final String DEFAULT_SCHEMA_NAME = (String) YAMLHandler.getProperties().get("default-schema-name");
-    private static final String CHANGE_LOG_FILE = (String) YAMLHandler.getProperties().get("changeLogFile");
-    private static final String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
     private final ConnectionManager connectionManager;
+    private String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
+    private String DEFAULT_SCHEMA_NAME;
+    private String CHANGE_LOG_FILE;
 
     public MigrationHelper(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
-        migrate();
     }
 
     public void migrate() {
@@ -46,5 +41,13 @@ public class MigrationHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setDEFAULT_SCHEMA_NAME(String DEFAULT_SCHEMA_NAME) {
+        this.DEFAULT_SCHEMA_NAME = DEFAULT_SCHEMA_NAME;
+    }
+
+    public void setCHANGE_LOG_FILE(String CHANGE_LOG_FILE) {
+        this.CHANGE_LOG_FILE = CHANGE_LOG_FILE;
     }
 }
