@@ -11,9 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/MyApplicationContextConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/MyApplicationContextConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/YAMLHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/GeneralService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/IndicationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/IndicationsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/UsersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,7 +396,8 @@
       <workItem from="1707758369470" duration="5032000" />
       <workItem from="1707763557942" duration="4783000" />
       <workItem from="1707848829123" duration="2723000" />
-      <workItem from="1708762056327" duration="897000" />
+      <workItem from="1708762056327" duration="1147000" />
+      <workItem from="1708784832439" duration="795000" />
     </task>
     <servers />
   </component>

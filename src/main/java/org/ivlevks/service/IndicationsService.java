@@ -1,7 +1,5 @@
 package org.ivlevks.service;
 
-import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
-import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
@@ -12,15 +10,19 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 /**
- * Подкласс реализации логики в части показаний
+ * Класс реализации логики в части показаний
  */
 @Loggable
 @Service
-public class IndicationsService extends GeneralService {
-
+public class IndicationsService {
+    private final UsersRepository usersRepository;
+    private final IndicationsRepository indicationsRepository;
+    private final AdminHelper adminHelper;
 
     public IndicationsService(UsersRepository usersRepository, IndicationsRepository indicationsRepository, AdminHelper adminHelper) {
-        super(usersRepository, indicationsRepository, adminHelper);
+        this.usersRepository = usersRepository;
+        this.indicationsRepository = indicationsRepository;
+        this.adminHelper = adminHelper;
     }
 
     /**
@@ -30,7 +32,7 @@ public class IndicationsService extends GeneralService {
      * @return - новые показания счетчиков
      */
     public Optional<Indication> addIndication(User user, Indication indication) {
-        if (!isUserAuthorizeAndHasAccess(user)) {
+        if (!adminHelper.validateIdUser(user.getId())) {
             System.out.println("Ошибка, Вы не авторизованы!");
             return Optional.empty();
         }
@@ -111,7 +113,7 @@ public class IndicationsService extends GeneralService {
      * @return показания, обернутые в Optional<>
      */
     public Optional<Indication> getLastActualIndicationUser(User user) {
-        if (!isUserAuthorizeAndHasAccess(user)) {
+        if (!adminHelper.validateIdUser(user.getId())) {
             System.out.println("Ошибка, Вы не авторизованы!");
             return Optional.empty();
         }
@@ -125,7 +127,7 @@ public class IndicationsService extends GeneralService {
      * @return - список всех показаний
      */
     public List<Indication> getAllIndicationsUser(User user) {
-        if (!isUserAuthorizeAndHasAccess(user)) {
+        if (!adminHelper.validateIdUser(user.getId())) {
             System.out.println("Ошибка, Вы не авторизованы!");
             return new ArrayList<>();
         }
