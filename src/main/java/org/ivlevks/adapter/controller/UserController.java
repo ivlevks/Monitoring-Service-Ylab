@@ -3,7 +3,6 @@ package org.ivlevks.adapter.controller;
 import org.ivlevks.configuration.annotations.Loggable;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.domain.mappers.UserMapper;
 import org.ivlevks.domain.mappers.UserMapperImpl;
 import org.ivlevks.service.UsersService;
 import org.springframework.http.HttpStatus;
@@ -18,10 +17,10 @@ import java.util.Optional;
 @Loggable
 @RestController
 public class UserController {
-    private final UserMapper userMapper;
+    private final UserMapperImpl userMapper;
     private final UsersService useCaseUsers;
 
-    public UserController(UserMapper userMapper, UsersService useCaseUsers) {
+    public UserController(UserMapperImpl userMapper, UsersService useCaseUsers) {
         this.userMapper = userMapper;
         this.useCaseUsers = useCaseUsers;
     }

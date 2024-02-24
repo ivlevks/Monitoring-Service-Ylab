@@ -1,5 +1,9 @@
-changeLogFile: db/changelog/changelog.xml
-default-schema-name: migration
-POSTGRES_URL: jdbc:postgresql://localhost:5432/monitoring-service
-POSTGRES_USER: kostik
-POSTGRES_PASSWORD: qwerty
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/monitoring-service
+    username: kostik
+    password: qwerty
+  liquibase:
+    default-schema: migration
+    liquibase-schema: monitoring
+    change-log: db/changelog/changelog.xml
