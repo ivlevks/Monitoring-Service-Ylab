@@ -1,6 +1,6 @@
 package org.ivlevks.configuration;
 
-import org.ivlevks.starter.annotations.Loggable;
+import org.starter.annotations.Loggable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

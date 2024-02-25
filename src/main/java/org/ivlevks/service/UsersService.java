@@ -1,6 +1,6 @@
 package org.ivlevks.service;
 
-import org.ivlevks.starter.annotations.Loggable;
+import org.starter.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.service.port.UsersRepository;
 import org.springframework.stereotype.Service;

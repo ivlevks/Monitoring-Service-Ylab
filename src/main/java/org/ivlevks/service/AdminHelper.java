@@ -1,6 +1,6 @@
 package org.ivlevks.service;
 
-import org.ivlevks.starter.annotations.Loggable;
+import org.starter.annotations.Loggable;
 import org.springframework.stereotype.Service;
 
 @Loggable

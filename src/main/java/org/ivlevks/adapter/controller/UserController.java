@@ -1,6 +1,6 @@
 package org.ivlevks.adapter.controller;
 
-import org.ivlevks.starter.annotations.Loggable;
+import org.starter.*;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.UserMapperImpl;
@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.starter.annotations.Loggable;
+
 import java.util.Optional;
 
 /**

@@ -10,6 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388c6223-fbba-408c-95fc-60087125dad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/starter/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/starter/src/main/java/org/starter/configuration/LoggableAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/starter/src/main/resources/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/CounterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/CounterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/IndicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/IndicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/controller/UserController.java" afterDir="false" />
@@ -17,12 +24,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/adapter/repository/jdbc/UserRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DateTimeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/DateTimeHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/annotations/Loggable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/starter/annotations/Loggable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/aspect/LoggableAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/starter/aspect/LoggableAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/configuration/migration/MigrationHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/AdminHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/AdminHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/IndicationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/IndicationsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ivlevks/service/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/starter/annotations/Loggable.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/src/main/java/org/starter/annotations/Loggable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ivlevks/starter/aspect/LoggableAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/src/main/java/org/starter/aspect/LoggableAspect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,36 +83,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw5&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/konstantin/IdeaProjects/MonitoringService/src/main/resources/preliquibase&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "hw5",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "/home/konstantin/IdeaProjects/MonitoringService/starter/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/starter/src/main/java/org/starter" />
       <recent name="$PROJECT_DIR$/src/main/resources/preliquibase" />
       <recent name="$PROJECT_DIR$/src/main/java/org/ivlevks/domain/dto" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/changelog" />
@@ -131,6 +139,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringBootApplication">
+    <configuration name="SpringBootApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ivlevks.SpringBootApplication" />
+      <module name="MonitoringService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ivlevks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -148,22 +169,6 @@
       <option name="PACKAGE_NAME" value="org.ivlevks.adapter.controller.servlets" />
       <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.controller.servlets.AddCounterTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddCounterTest.doPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonitoringService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ivlevks.adapter.controller.servlets.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.ivlevks.adapter.controller.servlets" />
-      <option name="MAIN_CLASS_NAME" value="org.ivlevks.adapter.controller.servlets.AddCounterTest" />
-      <option name="METHOD_NAME" value="doPost" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -360,11 +365,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.SpringBootApplication" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="HTTP Request.generated-requests | #2" />
       <item itemvalue="JUnit.AddCounterTest" />
-      <item itemvalue="JUnit.AddCounterTest.doPost" />
       <item itemvalue="Spring Boot.SpringBootApplication" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.851" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.15" />
@@ -372,10 +377,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Application.SpringBootApplication" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="JUnit.AddCounterTest" />
-        <item itemvalue="JUnit.AddCounterTest.doPost" />
       </list>
     </recent_temporary>
   </component>
@@ -403,6 +408,8 @@
       <workItem from="1708762056327" duration="1147000" />
       <workItem from="1708784832439" duration="10698000" />
       <workItem from="1708846609675" duration="699000" />
+      <workItem from="1708855003922" duration="3712000" />
+      <workItem from="1708872342400" duration="328000" />
     </task>
     <servers />
   </component>

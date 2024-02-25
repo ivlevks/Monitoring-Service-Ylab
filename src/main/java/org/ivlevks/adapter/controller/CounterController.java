@@ -1,6 +1,6 @@
 package org.ivlevks.adapter.controller;
 
-import org.ivlevks.starter.annotations.Loggable;
+import org.starter.annotations.Loggable;
 import org.ivlevks.domain.mappers.IndicationsMapper;
 import org.ivlevks.service.IndicationsService;
 import org.springframework.http.ResponseEntity;

@@ -6,7 +6,7 @@ import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.ivlevks.configuration.ConnectionManager;
-import org.ivlevks.starter.annotations.Loggable;
+import org.starter.annotations.Loggable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

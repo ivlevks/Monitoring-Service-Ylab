@@ -1,4 +1,4 @@
-package org.ivlevks.starter.aspect;
+package org.starter.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class LoggableAspect {
-    @Pointcut("within(@org.ivlevks.starter.annotations.Loggable *) && execution(* * (..))")
+    @Pointcut("within(@org.starter.annotations.Loggable *) && execution(* * (..))")
     public void annotatedByLoggable() {}
 
     @Around("annotatedByLoggable()")
