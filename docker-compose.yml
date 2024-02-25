@@ -3,9 +3,9 @@ services:
   postgres:
     image: postgres:15-alpine
     environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: monitoring-service
+      POSTGRES_USER: kostik
+      POSTGRES_PASSWORD: qwerty
 
 
     ports:
