@@ -1,4 +1,4 @@
-package org.ivlevks.configuration.annotations;
+package org.ivlevks.starter.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

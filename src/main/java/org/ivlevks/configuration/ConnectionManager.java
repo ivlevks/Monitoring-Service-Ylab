@@ -1,6 +1,6 @@
 package org.ivlevks.configuration;
 
-import org.ivlevks.configuration.annotations.Loggable;
+import org.ivlevks.starter.annotations.Loggable;
 import java.sql.Connection;
 import java.sql.SQLException;
 

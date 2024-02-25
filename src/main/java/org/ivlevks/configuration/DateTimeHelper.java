@@ -1,7 +1,6 @@
 package org.ivlevks.configuration;
 
-import org.ivlevks.configuration.annotations.Loggable;
-import org.springframework.stereotype.Component;
+import org.ivlevks.starter.annotations.Loggable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

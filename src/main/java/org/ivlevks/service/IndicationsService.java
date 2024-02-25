@@ -1,6 +1,6 @@
 package org.ivlevks.service;
 
-import org.ivlevks.configuration.annotations.Loggable;
+import org.ivlevks.starter.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.service.port.IndicationsRepository;

@@ -1,6 +1,6 @@
 package org.ivlevks.adapter.controller;
 
-import org.ivlevks.configuration.annotations.Loggable;
+import org.ivlevks.starter.annotations.Loggable;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.domain.mappers.UserMapperImpl;
