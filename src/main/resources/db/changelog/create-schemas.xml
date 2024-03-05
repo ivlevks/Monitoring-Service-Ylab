@@ -4,7 +4,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
     <changeSet id="create-schemas" author="kostik">
         <sql>
-            CREATE SCHEMA monitoring;
+            CREATE SCHEMA IF NOT EXISTS monitoring;
         </sql>
     </changeSet>
 </databaseChangeLog>

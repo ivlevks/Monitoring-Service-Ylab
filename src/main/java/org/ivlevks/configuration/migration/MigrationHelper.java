@@ -5,27 +5,24 @@ import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.ClassLoaderResourceAccessor;
-import org.ivlevks.configuration.DriverManager;
-import org.ivlevks.configuration.YAMLHandler;
-import org.ivlevks.configuration.annotations.Loggable;
-import org.springframework.stereotype.Component;
+import org.ivlevks.configuration.ConnectionManager;
+import org.starter.annotations.Loggable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 @Loggable
-@Component
 public class MigrationHelper {
+    private final ConnectionManager connectionManager;
+    private String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
+    private String DEFAULT_SCHEMA_NAME;
+    private String CHANGE_LOG_FILE;
 
-    private static final String DEFAULT_SCHEMA_NAME = (String) YAMLHandler.getProperties().get("default-schema-name");
-    private static final String CHANGE_LOG_FILE = (String) YAMLHandler.getProperties().get("changeLogFile");
-    private static final String DEFAULT_SCHEMA_MIGRATION = "CREATE SCHEMA IF NOT EXISTS migration";
-
-    public MigrationHelper() {
-        migrate();
+    public MigrationHelper(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
     }
 
-    public static void migrate() {
+    public void migrate() {
         // без этой ручной загрузки драйвера при деплое в томкат
         // вылетает ошибка - No suitable driver found и миграции не накатываются
         try {
@@ -34,7 +31,7 @@ public class MigrationHelper {
             throw new RuntimeException(e);
         }
 
-        try (Connection connection = DriverManager.getConnection();
+        try (Connection connection = connectionManager.getConnection();
              PreparedStatement defaultSchemaStatement = connection.prepareStatement(DEFAULT_SCHEMA_MIGRATION)) {
             defaultSchemaStatement.executeUpdate();
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
@@ -44,5 +41,13 @@ public class MigrationHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setDEFAULT_SCHEMA_NAME(String DEFAULT_SCHEMA_NAME) {
+        this.DEFAULT_SCHEMA_NAME = DEFAULT_SCHEMA_NAME;
+    }
+
+    public void setCHANGE_LOG_FILE(String CHANGE_LOG_FILE) {
+        this.CHANGE_LOG_FILE = CHANGE_LOG_FILE;
     }
 }

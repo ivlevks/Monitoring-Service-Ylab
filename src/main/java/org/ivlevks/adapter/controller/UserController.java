@@ -1,15 +1,16 @@
 package org.ivlevks.adapter.controller;
 
-import org.ivlevks.configuration.annotations.Loggable;
+import org.starter.*;
 import org.ivlevks.domain.dto.UserDto;
 import org.ivlevks.domain.entity.User;
-import org.ivlevks.domain.mappers.UserMapper;
 import org.ivlevks.domain.mappers.UserMapperImpl;
 import org.ivlevks.service.UsersService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.starter.annotations.Loggable;
+
 import java.util.Optional;
 
 /**
@@ -18,12 +19,12 @@ import java.util.Optional;
 @Loggable
 @RestController
 public class UserController {
-    private final UserMapper userMapper;
+    private final UserMapperImpl userMapper;
     private final UsersService useCaseUsers;
 
-    public UserController() {
-        this.userMapper = new UserMapperImpl();
-        this.useCaseUsers = new UsersService();
+    public UserController(UserMapperImpl userMapper, UsersService useCaseUsers) {
+        this.userMapper = userMapper;
+        this.useCaseUsers = useCaseUsers;
     }
 
     /**

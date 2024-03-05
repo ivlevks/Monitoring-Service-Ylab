@@ -1,7 +1,6 @@
 package org.ivlevks.configuration;
 
-import org.ivlevks.configuration.annotations.Loggable;
-import org.springframework.stereotype.Component;
+import org.starter.annotations.Loggable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +9,6 @@ import java.time.format.DateTimeFormatter;
  * Класс для перевода Timestamp из базы в LocalDateTime
  */
 @Loggable
-@Component
 public class DateTimeHelper {
     private final static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.[SSSSSS][SSSSS][SSSS]");
 

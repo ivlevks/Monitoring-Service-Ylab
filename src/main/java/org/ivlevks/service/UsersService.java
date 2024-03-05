@@ -1,25 +1,25 @@
 package org.ivlevks.service;
 
-import org.ivlevks.adapter.repository.jdbc.IndicationRepositoryImpl;
-import org.ivlevks.adapter.repository.jdbc.UserRepositoryImpl;
-import org.ivlevks.configuration.annotations.Loggable;
+import org.starter.annotations.Loggable;
 import org.ivlevks.domain.entity.User;
+import org.ivlevks.service.port.UsersRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
 /**
- * Подкласс реализации логики в части работы с пользователями
+ * Класс реализации логики в части работы с пользователями
  */
 @Loggable
 @Service
-public class UsersService extends GeneralService {
+public class UsersService {
+    private final AdminHelper adminHelper;
+    private final UsersRepository usersRepository;
+    private final String regexPatternEmail = "^(.+)@(\\S+)$";
 
-    public UsersService(UserRepositoryImpl userRepositoryImpl, IndicationRepositoryImpl indicationRepositoryImpl) {
-        super(userRepositoryImpl, indicationRepositoryImpl);
-    }
-
-    public UsersService() {
+    public UsersService(AdminHelper adminHelper, UsersRepository usersRepository) {
+        this.adminHelper = adminHelper;
+        this.usersRepository = usersRepository;
     }
 
     /**

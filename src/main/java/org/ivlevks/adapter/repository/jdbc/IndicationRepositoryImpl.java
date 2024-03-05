@@ -1,7 +1,8 @@
 package org.ivlevks.adapter.repository.jdbc;
 
+import org.ivlevks.configuration.ConnectionManager;
 import org.ivlevks.configuration.DateTimeHelper;
-import org.ivlevks.configuration.annotations.Loggable;
+import org.starter.annotations.Loggable;
 import org.ivlevks.domain.entity.Indication;
 import org.ivlevks.domain.entity.User;
 import org.ivlevks.service.port.IndicationsRepository;
@@ -27,6 +28,11 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
             "ORDER BY id DESC";
     private static final String GET_ALL_INDICATIONS = "SELECT * FROM monitoring.indications WHERE user_id = ? " +
             "ORDER BY id DESC";
+    private final ConnectionManager connectionManager;
+
+    public IndicationRepositoryImpl(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
+    }
 
     /**
      * Добавление показателей
@@ -37,7 +43,7 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
     @Loggable
     @Override
     public void addIndication(User user, Indication indication) {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
         Set<String> listCounters = getListCounters();
 
         try (PreparedStatement insertIndicationStatement = connection.prepareStatement(INSERT_INDICATIONS)) {
@@ -63,7 +69,7 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
      */
     @Override
     public Optional<Indication> getLastActualIndication(User user) {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
         Indication lastActualIndication = null;
         HashMap<String, Double> indications = new HashMap<>();
         int indexCounters = 0;
@@ -98,7 +104,7 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
      */
     @Override
     public List<Indication> getAllIndications(User user) {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
         List<Indication> indications = new ArrayList<>();
         Indication indication = null;
         HashMap<String, Double> indicationsMap = new HashMap<>();
@@ -136,7 +142,7 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
      */
     @Override
     public Set<String> getListCounters() {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
         Set<String> listCounters = new LinkedHashSet<>();
 
         try (PreparedStatement getListCountersStatement = connection.prepareStatement(GET_LIST_COUNTERS_NAME)) {
@@ -160,7 +166,7 @@ public class IndicationRepositoryImpl implements IndicationsRepository {
      */
     @Override
     public void updateListCounters(String newCounter) {
-        Connection connection = org.ivlevks.configuration.DriverManager.getConnection();
+        Connection connection = connectionManager.getConnection();
         try (PreparedStatement insertCounterStatement = connection.prepareStatement(INSERT_COUNTER)) {
             insertCounterStatement.setString(1, newCounter);
             insertCounterStatement.executeUpdate();
